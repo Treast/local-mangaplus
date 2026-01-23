@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+vars:
+    COMPOSE_CMD: docker compose
+
+tasks:
+    up:
+        desc: "Start Docker container"
+        cmd: "{{.COMPOSE_CMD}} up -d"
+
+    down:
+        desc: "Stop Docker container"
+        cmd: "{{.COMPOSE_CMD}} down"
+
+    restart:
+        desc: "Restart Docker container"
+        cmds:
+            - task: down
+            - task: up
+
+    build:
+        desc: "Build Docker container"
+        cmd: "{{.COMPOSE_CMD}} build"
+
+    logs:
+        desc: "Show logs"
+        cmd: "{{.COMPOSE_CMD}} logs -f"
+
+    sh:
+        desc: "Open shell"
+        cmd: "{{.COMPOSE_CMD}} exec php /bin/bash"
+
+    proto:
+        desc: "Generate protobuf classes"
+        cmds:
+            - "{{.COMPOSE_CMD}} exec php rm -rf /app/src/Api/Protobuf"
+            - "{{.COMPOSE_CMD}} exec php mkdir -p /app/src/Api/Protobuf"
+            - "{{.COMPOSE_CMD}} exec php protoc --proto_path=/app/resources --php_out=/app/src/Api/Protobuf /app/resources/ShueishaMangaPlus.proto"
+            - "{{.COMPOSE_CMD}} exec php mv /app/src/Api/Protobuf/App/Api/Protobuf/{GPBMetadata,MangaPlus} /app/src/Api/Protobuf/"
+            - "{{.COMPOSE_CMD}} exec php rm -rf /app/src/Api/Protobuf/App"
+
