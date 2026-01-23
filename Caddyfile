@@ -1,0 +1,8 @@
+http://localhost https://localhost {
+    tls internal
+    encode zstd br gzip
+
+    php_server {
+        root /app/public
+    }
+}
