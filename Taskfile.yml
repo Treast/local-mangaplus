@@ -41,3 +41,24 @@ tasks:
             - "{{.COMPOSE_CMD}} exec php mv /app/src/Api/Protobuf/App/Api/Protobuf/{GPBMetadata,MangaPlus} /app/src/Api/Protobuf/"
             - "{{.COMPOSE_CMD}} exec php rm -rf /app/src/Api/Protobuf/App"
 
+    migration:
+        desc: "Make migration"
+        cmd: "{{.COMPOSE_CMD}} exec php bin/console make:migration"
+
+    migrate:
+        desc: "Migrate database"
+        cmd: "{{.COMPOSE_CMD}} exec php bin/console doctrine:migrations:migrate"
+
+    fix:
+        desc: "Run all fixers"
+        cmds:
+            - task: php-cs-fix
+            - task: php-stan
+
+    php-cs-fix:
+        desc: "Run PHP CS Fixer"
+        cmd: "{{.COMPOSE_CMD}} exec php ./vendor/bin/php-cs-fixer fix"
+
+    php-stan:
+        desc: "Run PHPStan"
+        cmd: "{{.COMPOSE_CMD}} exec php ./vendor/bin/phpstan analyse src"
