@@ -1,9 +1,46 @@
-<div class="container">
-    <div class="flex flew-row items-center justify-center gap-x-4 py-4">
-        <twig:Button as="a" href="/" variant="ghost">Home</twig:Button>
-        <twig:Button as="a" href="/" variant="ghost">Library</twig:Button>
-        <twig:Button as="a" href="/" variant="ghost">Explore</twig:Button>
-        <twig:Button as="a" href="/" variant="ghost">Downloads</twig:Button>
-        <twig:Button as="a" href="/" variant="ghost">Settings</twig:Button>
+<nav class="container py-4" x-data="{ open: false }">
+    <div class="relative flex items-center justify-between gap-x-4 z-20">
+        <div class="flex items-center">
+            <a href="{{ path('app.home.index') }}" class="h4">Local MangaPlus</a>
+        </div>
+
+        <div class="hidden lg:flex flex-row items-center gap-x-4">
+            <twig:Button as="a" href="{{ path('app.home.index') }}" variant="ghost">Home</twig:Button>
+            <twig:Button as="a" href="{{ path('app.home.index') }}" variant="ghost">Library</twig:Button>
+            <twig:Button as="a" href="{{ path('app.home.index') }}" variant="ghost">Explore</twig:Button>
+            <twig:Button as="a" href="{{ path('app.home.index') }}" variant="ghost">Downloads</twig:Button>
+            <twig:Button as="a" href="{{ path('app.home.index') }}" variant="ghost">Settings</twig:Button>
+        </div>
+
+        <div class="flex items-center justify-end gap-x-4">
+            <div class="hidden lg:block">
+                <twig:Button as="a" href="{{ path('app.home.sync') }}" variant="ghost" class="text-xs">
+                    Last sync: {{ get_last_sync() ? get_last_sync()|date('Y/m/d H:i:s') : 'Never' }}
+                </twig:Button>
+            </div>
+
+            <twig:Button as="button" variant="ghost" @click="open = !open" class="lg:hidden text-white">
+                <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path :class="{'hidden': open, 'inline-flex': !open }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <path :class="{'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </twig:Button>
+        </div>
     </div>
-</div>
+
+    <div x-show="open"
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 -translate-y-2"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         class="absolute lg:hidden bg-background px-4 pt-12 inset-0 z-10 mt-4 space-y-2 pb-4">
+        <twig:Button as="a" href="{{ path('app.home.index') }}" variant="ghost" class="block w-full text-left">Home</twig:Button>
+        <twig:Button as="a" href="{{ path('app.home.index') }}" variant="ghost" class="block w-full text-left">Library</twig:Button>
+        <twig:Button as="a" href="{{ path('app.home.index') }}" variant="ghost" class="block w-full text-left">Explore</twig:Button>
+        <twig:Button as="a" href="{{ path('app.home.index') }}" variant="ghost" class="block w-full text-left">Downloads</twig:Button>
+        <twig:Button as="a" href="{{ path('app.home.index') }}" variant="ghost" class="block w-full text-left">Settings</twig:Button>
+        <hr class="border-gray-200 my-4">
+        <twig:Button as="a" href="{{ path('app.home.sync') }}" variant="ghost" class="block w-full text-xs">
+            Last sync: {{ get_last_sync() ? get_last_sync()|date('Y/m/d H:i:s') : 'Never' }}
+        </twig:Button>
+    </div>
+</nav>

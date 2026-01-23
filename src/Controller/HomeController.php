@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Manager\SyncManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -13,5 +14,13 @@ class HomeController extends AbstractController
     public function index(): Response
     {
         return $this->render('home/index.html.twig');
+    }
+
+    #[Route('/sync', name: 'sync')]
+    public function sync(SyncManager $syncManager): Response
+    {
+        $syncManager->sync();
+
+        return $this->redirectToRoute('app.home.index');
     }
 }
