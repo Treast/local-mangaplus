@@ -1,12 +1,14 @@
 # see https://symfony.com/doc/current/reference/configuration/framework.html
 framework:
     secret: '%env(APP_SECRET)%'
-
-    # Note that the session will be started ONLY if you read or write from it.
     session: true
 
-    #esi: true
-    #fragments: true
+    http_client:
+        scoped_clients:
+            mangaPlus.client:
+                base_uri: 'https://jumpg-webapi.tokyo-cdn.com/api/'
+                headers:
+                    User-Agent: 'okhttp/4.12.0'
 
 when@test:
     framework:
