@@ -2,17 +2,16 @@
 
 namespace App\Controller;
 
-use App\Api\MangaPlusApi;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/', name: 'app.home.')]
-class HomeController extends AbstractController {
+class HomeController extends AbstractController
+{
     #[Route('/', name: 'index')]
-    public function index(MangaPlusApi $mangaPlusApi): Response {
-        $mangaPlusApi->getTitlesV2();
-
+    public function index(): Response
+    {
         return $this->render('home/index.html.twig');
     }
 }
