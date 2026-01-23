@@ -4,7 +4,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.4",
+        "php": ">=8.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/doctrine-bundle": "^3.2.2",
@@ -106,6 +106,7 @@
         "symfony/maker-bundle": "^1.65.1",
         "symfony/stopwatch": "8.0.*",
         "symfony/ux-toolkit": "^2.32",
-        "symfony/web-profiler-bundle": "8.0.*"
+        "symfony/web-profiler-bundle": "8.0.*",
+        "vincentlanglet/twig-cs-fixer": "^3.12"
     }
 }

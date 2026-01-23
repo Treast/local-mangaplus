@@ -54,6 +54,11 @@ tasks:
         cmds:
             - task: php-cs-fix
             - task: php-stan
+            - task: twig-cs-fix
+
+    twig-cs-fix:
+        desc: "Run Twig CS Fixer"
+        cmd: "{{.COMPOSE_CMD}} exec php ./vendor/bin/twig-cs-fixer fix"
 
     php-cs-fix:
         desc: "Run PHP CS Fixer"
