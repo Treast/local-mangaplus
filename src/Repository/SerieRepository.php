@@ -24,6 +24,7 @@ class SerieRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('s')
             ->where('s.title LIKE :query')
             ->setParameter('query', "%{$query}%")
+            ->setMaxResults(12)
             ->getQuery()
             ->getResult()
         ;

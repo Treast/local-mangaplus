@@ -81,6 +81,7 @@ class Chapter
     public function setManga(?Manga $manga): self
     {
         $this->manga = $manga;
+
         return $this;
     }
 

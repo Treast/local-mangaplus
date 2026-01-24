@@ -4,7 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
-    symfonyPlugin(),
+    symfonyPlugin({
+      stimulus: true,
+    }),
     tailwindcss()
   ],
   build: {

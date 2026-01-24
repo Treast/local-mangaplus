@@ -51,6 +51,9 @@ class Manga
     #[ORM\ManyToOne(targetEntity: Serie::class, inversedBy: 'mangas')]
     private ?Serie $serie = null;
 
+    /**
+     * @var Collection<int, Chapter>
+     */
     #[ORM\OneToMany(targetEntity: Chapter::class, mappedBy: 'manga', cascade: ['persist'], orphanRemoval: false)]
     #[ORM\OrderBy(['releasedAt' => 'DESC'])]
     private Collection $chapters;
@@ -180,6 +183,9 @@ class Manga
         return $this;
     }
 
+    /**
+     * @return Collection<int, Chapter>
+     */
     public function getChapters(): Collection
     {
         return $this->chapters;
@@ -205,6 +211,9 @@ class Manga
         return $this;
     }
 
+    /**
+     * @param Collection<int, Chapter> $chapters
+     */
     public function setChapters(Collection $chapters): self
     {
         $this->chapters = $chapters;

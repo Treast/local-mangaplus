@@ -10,6 +10,8 @@ use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Bundle\WebProfilerBundle\WebProfilerBundle;
+use Symfony\UX\LiveComponent\LiveComponentBundle;
+use Symfony\UX\StimulusBundle\StimulusBundle;
 use Symfony\UX\Toolkit\UXToolkitBundle;
 use Symfony\UX\TwigComponent\TwigComponentBundle;
 use TalesFromADev\Twig\Extra\Tailwind\Bridge\Symfony\Bundle\TalesFromADevTwigExtraTailwindBundle;
@@ -30,4 +32,6 @@ return [
     TwigComponentBundle::class => ['all' => true],
     UXToolkitBundle::class => ['dev' => true, 'test' => true],
     TalesFromADevTwigExtraTailwindBundle::class => ['all' => true],
+    StimulusBundle::class => ['all' => true],
+    LiveComponentBundle::class => ['all' => true],
 ];

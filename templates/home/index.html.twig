@@ -4,52 +4,6 @@
     <div class="container py-12">
         <h1 class="mb-16">Local MangaPlus</h1>
 
-        <div
-            x-data="{
-                search: '',
-                initialContent: $refs.initialContent.innerHTML,
-                results: $refs.initialContent.innerHTML,
-                loading: false,
-                fetchResults() {
-                    if(this.search.length < 2) {
-                        this.results = this.initialContent;
-                        return;
-                    }
-
-                    const baseUrl = '{{ path('app.home.search') }}';
-
-                    this.loading = true;
-                    fetch(`${baseUrl}?q=${this.search}`, {
-                        method: 'POST',
-                        headers: { 'X-Requested-With': 'XMLHttpRequest' }
-                    })
-                    .then(response => response.text())
-                    .then(html => {
-                        this.results = html
-                        this.loading = false
-                    })
-                }
-            }"
-        >
-            <div class="flex justify-center mb-12">
-                <twig:Input
-                    class="max-w-2xl"
-                    placeholder="Search"
-                    x-model="search"
-                    x-on:input.debounce.300ms="fetchResults()"
-                />
-            </div>
-
-            <div x-show="loading" class="flex items-center justify-center gap-x-1">
-                <i data-feather="loader" class="animate-spin"></i>
-                <p class="m-0">Loading...</p>
-            </div>
-
-            <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6" x-ref="initialContent" x-html="results">
-                {% for serie in series %}
-                    <twig:SerieCard :serie="serie" />
-                {% endfor %}
-            </div>
-        </div>
+        {{ component('SerieSearch') }}
     </div>
 {% endblock %}

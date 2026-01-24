@@ -4,7 +4,6 @@ namespace App\Mapper;
 
 use App\Api\Protobuf\MangaPlus\Chapter as MangaPlusChapter;
 use App\Entity\Chapter;
-use App\Entity\Manga;
 use App\Repository\ChapterRepository;
 use Doctrine\ORM\EntityManagerInterface;
 

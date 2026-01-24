@@ -1,0 +1,22 @@
+<div {{ attributes }}>
+    <div class="flex justify-center mb-12">
+        <twig:Input
+            class="max-w-2xl"
+            placeholder="Search"
+            data-model="query"
+        />
+    </div>
+
+    <div data-loading>
+        <div class="flex items-center justify-center gap-x-1 mb-6">
+            <i data-feather="loader" class="animate-spin"></i>
+            <span>Loading...</span>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        {% for serie in this.series %}
+            <twig:SerieCard :serie="serie" />
+        {% endfor %}
+    </div>
+</div>
