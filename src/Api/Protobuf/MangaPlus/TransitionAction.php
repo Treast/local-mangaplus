@@ -15,13 +15,13 @@ use Google\Protobuf\RepeatedField;
 class TransitionAction extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional int32 method = 1;</code>
+     * Generated from protobuf field <code>int32 method = 1;</code>
      */
-    protected $method = null;
+    protected $method = 0;
     /**
-     * Generated from protobuf field <code>optional string url = 2;</code>
+     * Generated from protobuf field <code>string url = 2;</code>
      */
-    protected $url = null;
+    protected $url = '';
 
     /**
      * Constructor.
@@ -39,26 +39,16 @@ class TransitionAction extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 method = 1;</code>
+     * Generated from protobuf field <code>int32 method = 1;</code>
      * @return int
      */
     public function getMethod()
     {
-        return isset($this->method) ? $this->method : 0;
-    }
-
-    public function hasMethod()
-    {
-        return isset($this->method);
-    }
-
-    public function clearMethod()
-    {
-        unset($this->method);
+        return $this->method;
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 method = 1;</code>
+     * Generated from protobuf field <code>int32 method = 1;</code>
      * @param int $var
      * @return $this
      */
@@ -71,26 +61,16 @@ class TransitionAction extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string url = 2;</code>
+     * Generated from protobuf field <code>string url = 2;</code>
      * @return string
      */
     public function getUrl()
     {
-        return isset($this->url) ? $this->url : '';
-    }
-
-    public function hasUrl()
-    {
-        return isset($this->url);
-    }
-
-    public function clearUrl()
-    {
-        unset($this->url);
+        return $this->url;
     }
 
     /**
-     * Generated from protobuf field <code>optional string url = 2;</code>
+     * Generated from protobuf field <code>string url = 2;</code>
      * @param string $var
      * @return $this
      */

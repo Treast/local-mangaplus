@@ -15,23 +15,23 @@ use Google\Protobuf\RepeatedField;
 class OSDefault extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string subject = 1;</code>
+     * Generated from protobuf field <code>string subject = 1;</code>
      */
-    protected $subject = null;
+    protected $subject = '';
     /**
-     * Generated from protobuf field <code>optional string body = 2;</code>
+     * Generated from protobuf field <code>string body = 2;</code>
      */
-    protected $body = null;
+    protected $body = '';
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.Button okButton = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.Button okButton = 3;</code>
      */
     protected $okButton = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.Button neutralButton = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.Button neutralButton = 4;</code>
      */
     protected $neutralButton = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.Button cancelButton = 5;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.Button cancelButton = 5;</code>
      */
     protected $cancelButton = null;
 
@@ -54,26 +54,16 @@ class OSDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string subject = 1;</code>
+     * Generated from protobuf field <code>string subject = 1;</code>
      * @return string
      */
     public function getSubject()
     {
-        return isset($this->subject) ? $this->subject : '';
-    }
-
-    public function hasSubject()
-    {
-        return isset($this->subject);
-    }
-
-    public function clearSubject()
-    {
-        unset($this->subject);
+        return $this->subject;
     }
 
     /**
-     * Generated from protobuf field <code>optional string subject = 1;</code>
+     * Generated from protobuf field <code>string subject = 1;</code>
      * @param string $var
      * @return $this
      */
@@ -86,26 +76,16 @@ class OSDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string body = 2;</code>
+     * Generated from protobuf field <code>string body = 2;</code>
      * @return string
      */
     public function getBody()
     {
-        return isset($this->body) ? $this->body : '';
-    }
-
-    public function hasBody()
-    {
-        return isset($this->body);
-    }
-
-    public function clearBody()
-    {
-        unset($this->body);
+        return $this->body;
     }
 
     /**
-     * Generated from protobuf field <code>optional string body = 2;</code>
+     * Generated from protobuf field <code>string body = 2;</code>
      * @param string $var
      * @return $this
      */
@@ -118,7 +98,7 @@ class OSDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.Button okButton = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.Button okButton = 3;</code>
      * @return \App\Api\Protobuf\MangaPlus\Popup\Button|null
      */
     public function getOkButton()
@@ -137,7 +117,7 @@ class OSDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.Button okButton = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.Button okButton = 3;</code>
      * @param \App\Api\Protobuf\MangaPlus\Popup\Button $var
      * @return $this
      */
@@ -150,7 +130,7 @@ class OSDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.Button neutralButton = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.Button neutralButton = 4;</code>
      * @return \App\Api\Protobuf\MangaPlus\Popup\Button|null
      */
     public function getNeutralButton()
@@ -169,7 +149,7 @@ class OSDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.Button neutralButton = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.Button neutralButton = 4;</code>
      * @param \App\Api\Protobuf\MangaPlus\Popup\Button $var
      * @return $this
      */
@@ -182,7 +162,7 @@ class OSDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.Button cancelButton = 5;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.Button cancelButton = 5;</code>
      * @return \App\Api\Protobuf\MangaPlus\Popup\Button|null
      */
     public function getCancelButton()
@@ -201,7 +181,7 @@ class OSDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.Button cancelButton = 5;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.Button cancelButton = 5;</code>
      * @param \App\Api\Protobuf\MangaPlus\Popup\Button $var
      * @return $this
      */

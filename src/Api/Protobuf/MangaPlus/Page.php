@@ -15,19 +15,19 @@ use Google\Protobuf\RepeatedField;
 class Page extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Page.MangaPage mangaPage = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Page.MangaPage mangaPage = 1;</code>
      */
     protected $mangaPage = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Page.BannerList bannerList = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Page.BannerList bannerList = 2;</code>
      */
     protected $bannerList = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Page.LastPage lastPage = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.Page.LastPage lastPage = 3;</code>
      */
     protected $lastPage = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetworkList advertisement = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetworkList advertisement = 4;</code>
      */
     protected $advertisement = null;
 
@@ -49,7 +49,7 @@ class Page extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Page.MangaPage mangaPage = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Page.MangaPage mangaPage = 1;</code>
      * @return \App\Api\Protobuf\MangaPlus\Page\MangaPage|null
      */
     public function getMangaPage()
@@ -68,7 +68,7 @@ class Page extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Page.MangaPage mangaPage = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Page.MangaPage mangaPage = 1;</code>
      * @param \App\Api\Protobuf\MangaPlus\Page\MangaPage $var
      * @return $this
      */
@@ -81,7 +81,7 @@ class Page extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Page.BannerList bannerList = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Page.BannerList bannerList = 2;</code>
      * @return \App\Api\Protobuf\MangaPlus\Page\BannerList|null
      */
     public function getBannerList()
@@ -100,7 +100,7 @@ class Page extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Page.BannerList bannerList = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Page.BannerList bannerList = 2;</code>
      * @param \App\Api\Protobuf\MangaPlus\Page\BannerList $var
      * @return $this
      */
@@ -113,7 +113,7 @@ class Page extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Page.LastPage lastPage = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.Page.LastPage lastPage = 3;</code>
      * @return \App\Api\Protobuf\MangaPlus\Page\LastPage|null
      */
     public function getLastPage()
@@ -132,7 +132,7 @@ class Page extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Page.LastPage lastPage = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.Page.LastPage lastPage = 3;</code>
      * @param \App\Api\Protobuf\MangaPlus\Page\LastPage $var
      * @return $this
      */
@@ -145,7 +145,7 @@ class Page extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetworkList advertisement = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetworkList advertisement = 4;</code>
      * @return \App\Api\Protobuf\MangaPlus\AdNetworkList|null
      */
     public function getAdvertisement()
@@ -164,7 +164,7 @@ class Page extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetworkList advertisement = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetworkList advertisement = 4;</code>
      * @param \App\Api\Protobuf\MangaPlus\AdNetworkList $var
      * @return $this
      */

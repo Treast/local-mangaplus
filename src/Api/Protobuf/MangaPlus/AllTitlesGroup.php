@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class AllTitlesGroup extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string theTitle = 1;</code>
+     * Generated from protobuf field <code>string theTitle = 1;</code>
      */
-    protected $theTitle = null;
+    protected $theTitle = '';
     /**
      * Generated from protobuf field <code>repeated .MangaPlus.Title titles = 2;</code>
      */
@@ -31,9 +31,9 @@ class AllTitlesGroup extends \Google\Protobuf\Internal\Message
      */
     private $labels;
     /**
-     * Generated from protobuf field <code>optional uint32 nextChapterStartTimestamp = 5;</code>
+     * Generated from protobuf field <code>uint32 nextChapterStartTimestamp = 5;</code>
      */
-    protected $nextChapterStartTimestamp = null;
+    protected $nextChapterStartTimestamp = 0;
 
     /**
      * Constructor.
@@ -54,26 +54,16 @@ class AllTitlesGroup extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string theTitle = 1;</code>
+     * Generated from protobuf field <code>string theTitle = 1;</code>
      * @return string
      */
     public function getTheTitle()
     {
-        return isset($this->theTitle) ? $this->theTitle : '';
-    }
-
-    public function hasTheTitle()
-    {
-        return isset($this->theTitle);
-    }
-
-    public function clearTheTitle()
-    {
-        unset($this->theTitle);
+        return $this->theTitle;
     }
 
     /**
-     * Generated from protobuf field <code>optional string theTitle = 1;</code>
+     * Generated from protobuf field <code>string theTitle = 1;</code>
      * @param string $var
      * @return $this
      */
@@ -152,26 +142,16 @@ class AllTitlesGroup extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 nextChapterStartTimestamp = 5;</code>
+     * Generated from protobuf field <code>uint32 nextChapterStartTimestamp = 5;</code>
      * @return int
      */
     public function getNextChapterStartTimestamp()
     {
-        return isset($this->nextChapterStartTimestamp) ? $this->nextChapterStartTimestamp : 0;
-    }
-
-    public function hasNextChapterStartTimestamp()
-    {
-        return isset($this->nextChapterStartTimestamp);
-    }
-
-    public function clearNextChapterStartTimestamp()
-    {
-        unset($this->nextChapterStartTimestamp);
+        return $this->nextChapterStartTimestamp;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 nextChapterStartTimestamp = 5;</code>
+     * Generated from protobuf field <code>uint32 nextChapterStartTimestamp = 5;</code>
      * @param int $var
      * @return $this
      */

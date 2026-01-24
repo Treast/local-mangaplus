@@ -15,37 +15,41 @@ use Google\Protobuf\RepeatedField;
 class TitleDetailView extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Title title = 1;</code>
+     * Conservé du v1
+     *
+     * Generated from protobuf field <code>.MangaPlus.Title title = 1;</code>
      */
     protected $title = null;
     /**
-     * Generated from protobuf field <code>optional string titleImageUrl = 2;</code>
+     * Generated from protobuf field <code>string titleImageUrl = 2;</code>
      */
-    protected $titleImageUrl = null;
+    protected $titleImageUrl = '';
     /**
-     * Generated from protobuf field <code>optional string overview = 3;</code>
+     * Synopsis
+     *
+     * Generated from protobuf field <code>string overview = 3;</code>
      */
-    protected $overview = null;
+    protected $overview = '';
     /**
-     * Generated from protobuf field <code>optional string backgroundImageUrl = 4;</code>
+     * Generated from protobuf field <code>string backgroundImageUrl = 4;</code>
      */
-    protected $backgroundImageUrl = null;
+    protected $backgroundImageUrl = '';
     /**
-     * Generated from protobuf field <code>optional uint32 nextTimeStamp = 5;</code>
+     * Generated from protobuf field <code>int64 nextTimeStamp = 5;</code>
      */
-    protected $nextTimeStamp = null;
+    protected $nextTimeStamp = 0;
     /**
-     * Generated from protobuf field <code>optional int32 updateTiming = 6;</code>
+     * Generated from protobuf field <code>int32 updateTiming = 6;</code>
      */
-    protected $updateTiming = null;
+    protected $updateTiming = 0;
     /**
-     * Generated from protobuf field <code>optional string viewingPeriodDescription = 7;</code>
+     * Generated from protobuf field <code>string viewingPeriodDescription = 7;</code>
      */
-    protected $viewingPeriodDescription = null;
+    protected $viewingPeriodDescription = '';
     /**
-     * Generated from protobuf field <code>optional string nonAppearanceInfo = 8;</code>
+     * Generated from protobuf field <code>string nonAppearanceInfo = 8;</code>
      */
-    protected $nonAppearanceInfo = null;
+    protected $nonAppearanceInfo = '';
     /**
      * Generated from protobuf field <code>repeated .MangaPlus.Chapter firstChapterList = 9;</code>
      */
@@ -63,38 +67,36 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
      */
     private $recommendedTitleList;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Sns sns = 13;</code>
+     * SnsShare dans le v2
+     *
+     * Generated from protobuf field <code>.MangaPlus.Sns sns = 13;</code>
      */
     protected $sns = null;
     /**
-     * Generated from protobuf field <code>optional bool isSimulReleased = 14;</code>
+     * Generated from protobuf field <code>bool isSimulReleased = 14;</code>
      */
-    protected $isSimulReleased = null;
+    protected $isSimulReleased = false;
     /**
-     * Generated from protobuf field <code>optional bool isSubscribed = 15;</code>
+     * Generated from protobuf field <code>bool isSubscribed = 15;</code>
      */
-    protected $isSubscribed = null;
+    protected $isSubscribed = false;
     /**
-     * Generated from protobuf field <code>optional int32 rating = 16;</code>
+     * Generated from protobuf field <code>int32 rating = 16;</code>
      */
-    protected $rating = null;
+    protected $rating = 0;
     /**
-     * Generated from protobuf field <code>optional bool chaptersDescending = 17;</code>
+     * Generated from protobuf field <code>bool chaptersDescending = 17;</code>
      */
-    protected $chaptersDescending = null;
+    protected $chaptersDescending = false;
     /**
-     * Generated from protobuf field <code>optional uint32 numberOfViews = 18;</code>
+     * Generated from protobuf field <code>uint32 numberOfViews = 18;</code>
      */
-    protected $numberOfViews = null;
+    protected $numberOfViews = 0;
     /**
-     * repeated PublisherItem publisherItems = 19;
-     *
      * Generated from protobuf field <code>repeated .MangaPlus.Banner titleBanners = 20;</code>
      */
     private $titleBanners;
     /**
-     * optional UserTickets userTickets = 21;
-     *
      * Generated from protobuf field <code>repeated .MangaPlus.Chapter ticketChapterList = 22;</code>
      */
     private $ticketChapterList;
@@ -103,46 +105,47 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
      */
     private $ticketTitleList;
     /**
-     * Generated from protobuf field <code>optional bool hasChaptersBetween = 24;</code>
+     * Generated from protobuf field <code>bool hasChaptersBetween = 24;</code>
      */
-    protected $hasChaptersBetween = null;
+    protected $hasChaptersBetween = false;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner publisherBanner = 25;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner publisherBanner = 25;</code>
      */
     protected $publisherBanner = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetworkList advertisement = 26;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetworkList advertisement = 26;</code>
      */
     protected $advertisement = null;
     /**
-     * repeated TitleLanguages titleLanguages = 27;
-     *
-     * Generated from protobuf field <code>repeated .MangaPlus.TitleDetailView.ChapterGroup chapterListGroup = 28;</code>
+     * Generated from protobuf field <code>repeated .MangaPlus.LanguageVersion availableLanguages = 27;</code>
+     */
+    private $availableLanguages;
+    /**
+     * Generated from protobuf field <code>repeated .MangaPlus.ChapterGroup chapterListGroup = 28;</code>
      */
     private $chapterListGroup;
     /**
-     * optional FreeViewDialogue freeViewDialogue = 29;
-     *
-     * Generated from protobuf field <code>optional string regionCode = 30;</code>
+     * Generated from protobuf field <code>string regionCode = 30;</code>
      */
-    protected $regionCode = null;
+    protected $regionCode = '';
     /**
      * Generated from protobuf field <code>repeated .MangaPlus.Tag tags = 31;</code>
      */
     private $tags;
     /**
-     * optional TitleLabels titleLabels = 32;
-     * optional Subscription subscription = 33;
-     *
-     * Generated from protobuf field <code>optional .MangaPlus.Label label = 34;</code>
+     * Generated from protobuf field <code>.MangaPlus.Label label = 34;</code>
      */
     protected $label = null;
     /**
-     * optional MetaInfo metaInfo = 36;
-     *
-     * Generated from protobuf field <code>optional bool isFirstTimeFree = 35;</code>
+     * Generated from protobuf field <code>bool isFirstTimeFree = 35;</code>
      */
-    protected $isFirstTimeFree = null;
+    protected $isFirstTimeFree = false;
+    /**
+     * Ajouté du v2
+     *
+     * Generated from protobuf field <code>repeated .MangaPlus.Chapter chapters = 38;</code>
+     */
+    private $chapters;
 
     /**
      * Constructor.
@@ -151,10 +154,12 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \App\Api\Protobuf\MangaPlus\Title $title
+     *           Conservé du v1
      *     @type string $titleImageUrl
      *     @type string $overview
+     *           Synopsis
      *     @type string $backgroundImageUrl
-     *     @type int $nextTimeStamp
+     *     @type int|string $nextTimeStamp
      *     @type int $updateTiming
      *     @type string $viewingPeriodDescription
      *     @type string $nonAppearanceInfo
@@ -163,29 +168,26 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
      *     @type \App\Api\Protobuf\MangaPlus\Banner[] $banners
      *     @type \App\Api\Protobuf\MangaPlus\Title[] $recommendedTitleList
      *     @type \App\Api\Protobuf\MangaPlus\Sns $sns
+     *           SnsShare dans le v2
      *     @type bool $isSimulReleased
      *     @type bool $isSubscribed
      *     @type int $rating
      *     @type bool $chaptersDescending
      *     @type int $numberOfViews
      *     @type \App\Api\Protobuf\MangaPlus\Banner[] $titleBanners
-     *           repeated PublisherItem publisherItems = 19;
      *     @type \App\Api\Protobuf\MangaPlus\Chapter[] $ticketChapterList
-     *           optional UserTickets userTickets = 21;
      *     @type \App\Api\Protobuf\MangaPlus\Title[] $ticketTitleList
      *     @type bool $hasChaptersBetween
      *     @type \App\Api\Protobuf\MangaPlus\Banner $publisherBanner
      *     @type \App\Api\Protobuf\MangaPlus\AdNetworkList $advertisement
-     *     @type \App\Api\Protobuf\MangaPlus\TitleDetailView\ChapterGroup[] $chapterListGroup
-     *           repeated TitleLanguages titleLanguages = 27;
+     *     @type \App\Api\Protobuf\MangaPlus\LanguageVersion[] $availableLanguages
+     *     @type \App\Api\Protobuf\MangaPlus\ChapterGroup[] $chapterListGroup
      *     @type string $regionCode
-     *           optional FreeViewDialogue freeViewDialogue = 29;
      *     @type \App\Api\Protobuf\MangaPlus\Tag[] $tags
      *     @type \App\Api\Protobuf\MangaPlus\Label $label
-     *           optional TitleLabels titleLabels = 32;
-     *           optional Subscription subscription = 33;
      *     @type bool $isFirstTimeFree
-     *           optional MetaInfo metaInfo = 36;
+     *     @type \App\Api\Protobuf\MangaPlus\Chapter[] $chapters
+     *           Ajouté du v2
      * }
      */
     public function __construct($data = NULL) {
@@ -194,7 +196,9 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Title title = 1;</code>
+     * Conservé du v1
+     *
+     * Generated from protobuf field <code>.MangaPlus.Title title = 1;</code>
      * @return \App\Api\Protobuf\MangaPlus\Title|null
      */
     public function getTitle()
@@ -213,7 +217,9 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Title title = 1;</code>
+     * Conservé du v1
+     *
+     * Generated from protobuf field <code>.MangaPlus.Title title = 1;</code>
      * @param \App\Api\Protobuf\MangaPlus\Title $var
      * @return $this
      */
@@ -226,26 +232,16 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string titleImageUrl = 2;</code>
+     * Generated from protobuf field <code>string titleImageUrl = 2;</code>
      * @return string
      */
     public function getTitleImageUrl()
     {
-        return isset($this->titleImageUrl) ? $this->titleImageUrl : '';
-    }
-
-    public function hasTitleImageUrl()
-    {
-        return isset($this->titleImageUrl);
-    }
-
-    public function clearTitleImageUrl()
-    {
-        unset($this->titleImageUrl);
+        return $this->titleImageUrl;
     }
 
     /**
-     * Generated from protobuf field <code>optional string titleImageUrl = 2;</code>
+     * Generated from protobuf field <code>string titleImageUrl = 2;</code>
      * @param string $var
      * @return $this
      */
@@ -258,26 +254,20 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string overview = 3;</code>
+     * Synopsis
+     *
+     * Generated from protobuf field <code>string overview = 3;</code>
      * @return string
      */
     public function getOverview()
     {
-        return isset($this->overview) ? $this->overview : '';
-    }
-
-    public function hasOverview()
-    {
-        return isset($this->overview);
-    }
-
-    public function clearOverview()
-    {
-        unset($this->overview);
+        return $this->overview;
     }
 
     /**
-     * Generated from protobuf field <code>optional string overview = 3;</code>
+     * Synopsis
+     *
+     * Generated from protobuf field <code>string overview = 3;</code>
      * @param string $var
      * @return $this
      */
@@ -290,26 +280,16 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string backgroundImageUrl = 4;</code>
+     * Generated from protobuf field <code>string backgroundImageUrl = 4;</code>
      * @return string
      */
     public function getBackgroundImageUrl()
     {
-        return isset($this->backgroundImageUrl) ? $this->backgroundImageUrl : '';
-    }
-
-    public function hasBackgroundImageUrl()
-    {
-        return isset($this->backgroundImageUrl);
-    }
-
-    public function clearBackgroundImageUrl()
-    {
-        unset($this->backgroundImageUrl);
+        return $this->backgroundImageUrl;
     }
 
     /**
-     * Generated from protobuf field <code>optional string backgroundImageUrl = 4;</code>
+     * Generated from protobuf field <code>string backgroundImageUrl = 4;</code>
      * @param string $var
      * @return $this
      */
@@ -322,58 +302,38 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 nextTimeStamp = 5;</code>
-     * @return int
+     * Generated from protobuf field <code>int64 nextTimeStamp = 5;</code>
+     * @return int|string
      */
     public function getNextTimeStamp()
     {
-        return isset($this->nextTimeStamp) ? $this->nextTimeStamp : 0;
-    }
-
-    public function hasNextTimeStamp()
-    {
-        return isset($this->nextTimeStamp);
-    }
-
-    public function clearNextTimeStamp()
-    {
-        unset($this->nextTimeStamp);
+        return $this->nextTimeStamp;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 nextTimeStamp = 5;</code>
-     * @param int $var
+     * Generated from protobuf field <code>int64 nextTimeStamp = 5;</code>
+     * @param int|string $var
      * @return $this
      */
     public function setNextTimeStamp($var)
     {
-        GPBUtil::checkUint32($var);
+        GPBUtil::checkInt64($var);
         $this->nextTimeStamp = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 updateTiming = 6;</code>
+     * Generated from protobuf field <code>int32 updateTiming = 6;</code>
      * @return int
      */
     public function getUpdateTiming()
     {
-        return isset($this->updateTiming) ? $this->updateTiming : 0;
-    }
-
-    public function hasUpdateTiming()
-    {
-        return isset($this->updateTiming);
-    }
-
-    public function clearUpdateTiming()
-    {
-        unset($this->updateTiming);
+        return $this->updateTiming;
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 updateTiming = 6;</code>
+     * Generated from protobuf field <code>int32 updateTiming = 6;</code>
      * @param int $var
      * @return $this
      */
@@ -386,26 +346,16 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string viewingPeriodDescription = 7;</code>
+     * Generated from protobuf field <code>string viewingPeriodDescription = 7;</code>
      * @return string
      */
     public function getViewingPeriodDescription()
     {
-        return isset($this->viewingPeriodDescription) ? $this->viewingPeriodDescription : '';
-    }
-
-    public function hasViewingPeriodDescription()
-    {
-        return isset($this->viewingPeriodDescription);
-    }
-
-    public function clearViewingPeriodDescription()
-    {
-        unset($this->viewingPeriodDescription);
+        return $this->viewingPeriodDescription;
     }
 
     /**
-     * Generated from protobuf field <code>optional string viewingPeriodDescription = 7;</code>
+     * Generated from protobuf field <code>string viewingPeriodDescription = 7;</code>
      * @param string $var
      * @return $this
      */
@@ -418,26 +368,16 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string nonAppearanceInfo = 8;</code>
+     * Generated from protobuf field <code>string nonAppearanceInfo = 8;</code>
      * @return string
      */
     public function getNonAppearanceInfo()
     {
-        return isset($this->nonAppearanceInfo) ? $this->nonAppearanceInfo : '';
-    }
-
-    public function hasNonAppearanceInfo()
-    {
-        return isset($this->nonAppearanceInfo);
-    }
-
-    public function clearNonAppearanceInfo()
-    {
-        unset($this->nonAppearanceInfo);
+        return $this->nonAppearanceInfo;
     }
 
     /**
-     * Generated from protobuf field <code>optional string nonAppearanceInfo = 8;</code>
+     * Generated from protobuf field <code>string nonAppearanceInfo = 8;</code>
      * @param string $var
      * @return $this
      */
@@ -538,7 +478,9 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Sns sns = 13;</code>
+     * SnsShare dans le v2
+     *
+     * Generated from protobuf field <code>.MangaPlus.Sns sns = 13;</code>
      * @return \App\Api\Protobuf\MangaPlus\Sns|null
      */
     public function getSns()
@@ -557,7 +499,9 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Sns sns = 13;</code>
+     * SnsShare dans le v2
+     *
+     * Generated from protobuf field <code>.MangaPlus.Sns sns = 13;</code>
      * @param \App\Api\Protobuf\MangaPlus\Sns $var
      * @return $this
      */
@@ -570,26 +514,16 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isSimulReleased = 14;</code>
+     * Generated from protobuf field <code>bool isSimulReleased = 14;</code>
      * @return bool
      */
     public function getIsSimulReleased()
     {
-        return isset($this->isSimulReleased) ? $this->isSimulReleased : false;
-    }
-
-    public function hasIsSimulReleased()
-    {
-        return isset($this->isSimulReleased);
-    }
-
-    public function clearIsSimulReleased()
-    {
-        unset($this->isSimulReleased);
+        return $this->isSimulReleased;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isSimulReleased = 14;</code>
+     * Generated from protobuf field <code>bool isSimulReleased = 14;</code>
      * @param bool $var
      * @return $this
      */
@@ -602,26 +536,16 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isSubscribed = 15;</code>
+     * Generated from protobuf field <code>bool isSubscribed = 15;</code>
      * @return bool
      */
     public function getIsSubscribed()
     {
-        return isset($this->isSubscribed) ? $this->isSubscribed : false;
-    }
-
-    public function hasIsSubscribed()
-    {
-        return isset($this->isSubscribed);
-    }
-
-    public function clearIsSubscribed()
-    {
-        unset($this->isSubscribed);
+        return $this->isSubscribed;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isSubscribed = 15;</code>
+     * Generated from protobuf field <code>bool isSubscribed = 15;</code>
      * @param bool $var
      * @return $this
      */
@@ -634,26 +558,16 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 rating = 16;</code>
+     * Generated from protobuf field <code>int32 rating = 16;</code>
      * @return int
      */
     public function getRating()
     {
-        return isset($this->rating) ? $this->rating : 0;
-    }
-
-    public function hasRating()
-    {
-        return isset($this->rating);
-    }
-
-    public function clearRating()
-    {
-        unset($this->rating);
+        return $this->rating;
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 rating = 16;</code>
+     * Generated from protobuf field <code>int32 rating = 16;</code>
      * @param int $var
      * @return $this
      */
@@ -666,26 +580,16 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool chaptersDescending = 17;</code>
+     * Generated from protobuf field <code>bool chaptersDescending = 17;</code>
      * @return bool
      */
     public function getChaptersDescending()
     {
-        return isset($this->chaptersDescending) ? $this->chaptersDescending : false;
-    }
-
-    public function hasChaptersDescending()
-    {
-        return isset($this->chaptersDescending);
-    }
-
-    public function clearChaptersDescending()
-    {
-        unset($this->chaptersDescending);
+        return $this->chaptersDescending;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool chaptersDescending = 17;</code>
+     * Generated from protobuf field <code>bool chaptersDescending = 17;</code>
      * @param bool $var
      * @return $this
      */
@@ -698,26 +602,16 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 numberOfViews = 18;</code>
+     * Generated from protobuf field <code>uint32 numberOfViews = 18;</code>
      * @return int
      */
     public function getNumberOfViews()
     {
-        return isset($this->numberOfViews) ? $this->numberOfViews : 0;
-    }
-
-    public function hasNumberOfViews()
-    {
-        return isset($this->numberOfViews);
-    }
-
-    public function clearNumberOfViews()
-    {
-        unset($this->numberOfViews);
+        return $this->numberOfViews;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 numberOfViews = 18;</code>
+     * Generated from protobuf field <code>uint32 numberOfViews = 18;</code>
      * @param int $var
      * @return $this
      */
@@ -730,8 +624,6 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * repeated PublisherItem publisherItems = 19;
-     *
      * Generated from protobuf field <code>repeated .MangaPlus.Banner titleBanners = 20;</code>
      * @return RepeatedField<\App\Api\Protobuf\MangaPlus\Banner>
      */
@@ -741,8 +633,6 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * repeated PublisherItem publisherItems = 19;
-     *
      * Generated from protobuf field <code>repeated .MangaPlus.Banner titleBanners = 20;</code>
      * @param \App\Api\Protobuf\MangaPlus\Banner[] $var
      * @return $this
@@ -756,8 +646,6 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * optional UserTickets userTickets = 21;
-     *
      * Generated from protobuf field <code>repeated .MangaPlus.Chapter ticketChapterList = 22;</code>
      * @return RepeatedField<\App\Api\Protobuf\MangaPlus\Chapter>
      */
@@ -767,8 +655,6 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * optional UserTickets userTickets = 21;
-     *
      * Generated from protobuf field <code>repeated .MangaPlus.Chapter ticketChapterList = 22;</code>
      * @param \App\Api\Protobuf\MangaPlus\Chapter[] $var
      * @return $this
@@ -804,26 +690,16 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool hasChaptersBetween = 24;</code>
+     * Generated from protobuf field <code>bool hasChaptersBetween = 24;</code>
      * @return bool
      */
     public function getHasChaptersBetween()
     {
-        return isset($this->hasChaptersBetween) ? $this->hasChaptersBetween : false;
-    }
-
-    public function hasHasChaptersBetween()
-    {
-        return isset($this->hasChaptersBetween);
-    }
-
-    public function clearHasChaptersBetween()
-    {
-        unset($this->hasChaptersBetween);
+        return $this->hasChaptersBetween;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool hasChaptersBetween = 24;</code>
+     * Generated from protobuf field <code>bool hasChaptersBetween = 24;</code>
      * @param bool $var
      * @return $this
      */
@@ -836,7 +712,7 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner publisherBanner = 25;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner publisherBanner = 25;</code>
      * @return \App\Api\Protobuf\MangaPlus\Banner|null
      */
     public function getPublisherBanner()
@@ -855,7 +731,7 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner publisherBanner = 25;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner publisherBanner = 25;</code>
      * @param \App\Api\Protobuf\MangaPlus\Banner $var
      * @return $this
      */
@@ -868,7 +744,7 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetworkList advertisement = 26;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetworkList advertisement = 26;</code>
      * @return \App\Api\Protobuf\MangaPlus\AdNetworkList|null
      */
     public function getAdvertisement()
@@ -887,7 +763,7 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetworkList advertisement = 26;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetworkList advertisement = 26;</code>
      * @param \App\Api\Protobuf\MangaPlus\AdNetworkList $var
      * @return $this
      */
@@ -900,10 +776,30 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * repeated TitleLanguages titleLanguages = 27;
-     *
-     * Generated from protobuf field <code>repeated .MangaPlus.TitleDetailView.ChapterGroup chapterListGroup = 28;</code>
-     * @return RepeatedField<\App\Api\Protobuf\MangaPlus\TitleDetailView\ChapterGroup>
+     * Generated from protobuf field <code>repeated .MangaPlus.LanguageVersion availableLanguages = 27;</code>
+     * @return RepeatedField<\App\Api\Protobuf\MangaPlus\LanguageVersion>
+     */
+    public function getAvailableLanguages()
+    {
+        return $this->availableLanguages;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .MangaPlus.LanguageVersion availableLanguages = 27;</code>
+     * @param \App\Api\Protobuf\MangaPlus\LanguageVersion[] $var
+     * @return $this
+     */
+    public function setAvailableLanguages($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \App\Api\Protobuf\MangaPlus\LanguageVersion::class);
+        $this->availableLanguages = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .MangaPlus.ChapterGroup chapterListGroup = 28;</code>
+     * @return RepeatedField<\App\Api\Protobuf\MangaPlus\ChapterGroup>
      */
     public function getChapterListGroup()
     {
@@ -911,45 +807,29 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * repeated TitleLanguages titleLanguages = 27;
-     *
-     * Generated from protobuf field <code>repeated .MangaPlus.TitleDetailView.ChapterGroup chapterListGroup = 28;</code>
-     * @param \App\Api\Protobuf\MangaPlus\TitleDetailView\ChapterGroup[] $var
+     * Generated from protobuf field <code>repeated .MangaPlus.ChapterGroup chapterListGroup = 28;</code>
+     * @param \App\Api\Protobuf\MangaPlus\ChapterGroup[] $var
      * @return $this
      */
     public function setChapterListGroup($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \App\Api\Protobuf\MangaPlus\TitleDetailView\ChapterGroup::class);
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \App\Api\Protobuf\MangaPlus\ChapterGroup::class);
         $this->chapterListGroup = $arr;
 
         return $this;
     }
 
     /**
-     * optional FreeViewDialogue freeViewDialogue = 29;
-     *
-     * Generated from protobuf field <code>optional string regionCode = 30;</code>
+     * Generated from protobuf field <code>string regionCode = 30;</code>
      * @return string
      */
     public function getRegionCode()
     {
-        return isset($this->regionCode) ? $this->regionCode : '';
-    }
-
-    public function hasRegionCode()
-    {
-        return isset($this->regionCode);
-    }
-
-    public function clearRegionCode()
-    {
-        unset($this->regionCode);
+        return $this->regionCode;
     }
 
     /**
-     * optional FreeViewDialogue freeViewDialogue = 29;
-     *
-     * Generated from protobuf field <code>optional string regionCode = 30;</code>
+     * Generated from protobuf field <code>string regionCode = 30;</code>
      * @param string $var
      * @return $this
      */
@@ -984,10 +864,7 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * optional TitleLabels titleLabels = 32;
-     * optional Subscription subscription = 33;
-     *
-     * Generated from protobuf field <code>optional .MangaPlus.Label label = 34;</code>
+     * Generated from protobuf field <code>.MangaPlus.Label label = 34;</code>
      * @return \App\Api\Protobuf\MangaPlus\Label|null
      */
     public function getLabel()
@@ -1006,10 +883,7 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * optional TitleLabels titleLabels = 32;
-     * optional Subscription subscription = 33;
-     *
-     * Generated from protobuf field <code>optional .MangaPlus.Label label = 34;</code>
+     * Generated from protobuf field <code>.MangaPlus.Label label = 34;</code>
      * @param \App\Api\Protobuf\MangaPlus\Label $var
      * @return $this
      */
@@ -1022,30 +896,16 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * optional MetaInfo metaInfo = 36;
-     *
-     * Generated from protobuf field <code>optional bool isFirstTimeFree = 35;</code>
+     * Generated from protobuf field <code>bool isFirstTimeFree = 35;</code>
      * @return bool
      */
     public function getIsFirstTimeFree()
     {
-        return isset($this->isFirstTimeFree) ? $this->isFirstTimeFree : false;
-    }
-
-    public function hasIsFirstTimeFree()
-    {
-        return isset($this->isFirstTimeFree);
-    }
-
-    public function clearIsFirstTimeFree()
-    {
-        unset($this->isFirstTimeFree);
+        return $this->isFirstTimeFree;
     }
 
     /**
-     * optional MetaInfo metaInfo = 36;
-     *
-     * Generated from protobuf field <code>optional bool isFirstTimeFree = 35;</code>
+     * Generated from protobuf field <code>bool isFirstTimeFree = 35;</code>
      * @param bool $var
      * @return $this
      */
@@ -1053,6 +913,32 @@ class TitleDetailView extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->isFirstTimeFree = $var;
+
+        return $this;
+    }
+
+    /**
+     * Ajouté du v2
+     *
+     * Generated from protobuf field <code>repeated .MangaPlus.Chapter chapters = 38;</code>
+     * @return RepeatedField<\App\Api\Protobuf\MangaPlus\Chapter>
+     */
+    public function getChapters()
+    {
+        return $this->chapters;
+    }
+
+    /**
+     * Ajouté du v2
+     *
+     * Generated from protobuf field <code>repeated .MangaPlus.Chapter chapters = 38;</code>
+     * @param \App\Api\Protobuf\MangaPlus\Chapter[] $var
+     * @return $this
+     */
+    public function setChapters($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \App\Api\Protobuf\MangaPlus\Chapter::class);
+        $this->chapters = $arr;
 
         return $this;
     }

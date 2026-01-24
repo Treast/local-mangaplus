@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class BannerList extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string bannerTitle = 1;</code>
+     * Generated from protobuf field <code>string bannerTitle = 1;</code>
      */
-    protected $bannerTitle = null;
+    protected $bannerTitle = '';
     /**
      * Generated from protobuf field <code>repeated .MangaPlus.Banner banners = 2;</code>
      */
@@ -39,26 +39,16 @@ class BannerList extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string bannerTitle = 1;</code>
+     * Generated from protobuf field <code>string bannerTitle = 1;</code>
      * @return string
      */
     public function getBannerTitle()
     {
-        return isset($this->bannerTitle) ? $this->bannerTitle : '';
-    }
-
-    public function hasBannerTitle()
-    {
-        return isset($this->bannerTitle);
-    }
-
-    public function clearBannerTitle()
-    {
-        unset($this->bannerTitle);
+        return $this->bannerTitle;
     }
 
     /**
-     * Generated from protobuf field <code>optional string bannerTitle = 1;</code>
+     * Generated from protobuf field <code>string bannerTitle = 1;</code>
      * @param string $var
      * @return $this
      */

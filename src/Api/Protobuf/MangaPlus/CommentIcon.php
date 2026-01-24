@@ -15,13 +15,13 @@ use Google\Protobuf\RepeatedField;
 class CommentIcon extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional uint32 id = 1;</code>
+     * Generated from protobuf field <code>uint32 id = 1;</code>
      */
-    protected $id = null;
+    protected $id = 0;
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 2;</code>
+     * Generated from protobuf field <code>string imageUrl = 2;</code>
      */
-    protected $imageUrl = null;
+    protected $imageUrl = '';
 
     /**
      * Constructor.
@@ -39,26 +39,16 @@ class CommentIcon extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 id = 1;</code>
+     * Generated from protobuf field <code>uint32 id = 1;</code>
      * @return int
      */
     public function getId()
     {
-        return isset($this->id) ? $this->id : 0;
-    }
-
-    public function hasId()
-    {
-        return isset($this->id);
-    }
-
-    public function clearId()
-    {
-        unset($this->id);
+        return $this->id;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 id = 1;</code>
+     * Generated from protobuf field <code>uint32 id = 1;</code>
      * @param int $var
      * @return $this
      */
@@ -71,26 +61,16 @@ class CommentIcon extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 2;</code>
+     * Generated from protobuf field <code>string imageUrl = 2;</code>
      * @return string
      */
     public function getImageUrl()
     {
-        return isset($this->imageUrl) ? $this->imageUrl : '';
-    }
-
-    public function hasImageUrl()
-    {
-        return isset($this->imageUrl);
-    }
-
-    public function clearImageUrl()
-    {
-        unset($this->imageUrl);
+        return $this->imageUrl;
     }
 
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 2;</code>
+     * Generated from protobuf field <code>string imageUrl = 2;</code>
      * @param string $var
      * @return $this
      */

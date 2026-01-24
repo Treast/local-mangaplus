@@ -15,11 +15,11 @@ use Google\Protobuf\RepeatedField;
 class LastPage extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Chapter currentChapter = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Chapter currentChapter = 1;</code>
      */
     protected $currentChapter = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Chapter nextChapter = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Chapter nextChapter = 2;</code>
      */
     protected $nextChapter = null;
     /**
@@ -27,23 +27,23 @@ class LastPage extends \Google\Protobuf\Internal\Message
      */
     private $topComments;
     /**
-     * Generated from protobuf field <code>optional bool isSubscribed = 4;</code>
+     * Generated from protobuf field <code>bool isSubscribed = 4;</code>
      */
-    protected $isSubscribed = null;
+    protected $isSubscribed = false;
     /**
-     * Generated from protobuf field <code>optional uint32 nextTimeStamp = 5;</code>
+     * Generated from protobuf field <code>uint32 nextTimeStamp = 5;</code>
      */
-    protected $nextTimeStamp = null;
+    protected $nextTimeStamp = 0;
     /**
-     * Generated from protobuf field <code>optional int32 chapterType = 6;</code>
+     * Generated from protobuf field <code>int32 chapterType = 6;</code>
      */
-    protected $chapterType = null;
+    protected $chapterType = 0;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetworkList advertisement = 7;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetworkList advertisement = 7;</code>
      */
     protected $advertisement = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup movieReward = 8;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup movieReward = 8;</code>
      */
     protected $movieReward = null;
 
@@ -69,7 +69,7 @@ class LastPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Chapter currentChapter = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Chapter currentChapter = 1;</code>
      * @return \App\Api\Protobuf\MangaPlus\Chapter|null
      */
     public function getCurrentChapter()
@@ -88,7 +88,7 @@ class LastPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Chapter currentChapter = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Chapter currentChapter = 1;</code>
      * @param \App\Api\Protobuf\MangaPlus\Chapter $var
      * @return $this
      */
@@ -101,7 +101,7 @@ class LastPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Chapter nextChapter = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Chapter nextChapter = 2;</code>
      * @return \App\Api\Protobuf\MangaPlus\Chapter|null
      */
     public function getNextChapter()
@@ -120,7 +120,7 @@ class LastPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Chapter nextChapter = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Chapter nextChapter = 2;</code>
      * @param \App\Api\Protobuf\MangaPlus\Chapter $var
      * @return $this
      */
@@ -155,26 +155,16 @@ class LastPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isSubscribed = 4;</code>
+     * Generated from protobuf field <code>bool isSubscribed = 4;</code>
      * @return bool
      */
     public function getIsSubscribed()
     {
-        return isset($this->isSubscribed) ? $this->isSubscribed : false;
-    }
-
-    public function hasIsSubscribed()
-    {
-        return isset($this->isSubscribed);
-    }
-
-    public function clearIsSubscribed()
-    {
-        unset($this->isSubscribed);
+        return $this->isSubscribed;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isSubscribed = 4;</code>
+     * Generated from protobuf field <code>bool isSubscribed = 4;</code>
      * @param bool $var
      * @return $this
      */
@@ -187,26 +177,16 @@ class LastPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 nextTimeStamp = 5;</code>
+     * Generated from protobuf field <code>uint32 nextTimeStamp = 5;</code>
      * @return int
      */
     public function getNextTimeStamp()
     {
-        return isset($this->nextTimeStamp) ? $this->nextTimeStamp : 0;
-    }
-
-    public function hasNextTimeStamp()
-    {
-        return isset($this->nextTimeStamp);
-    }
-
-    public function clearNextTimeStamp()
-    {
-        unset($this->nextTimeStamp);
+        return $this->nextTimeStamp;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 nextTimeStamp = 5;</code>
+     * Generated from protobuf field <code>uint32 nextTimeStamp = 5;</code>
      * @param int $var
      * @return $this
      */
@@ -219,26 +199,16 @@ class LastPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 chapterType = 6;</code>
+     * Generated from protobuf field <code>int32 chapterType = 6;</code>
      * @return int
      */
     public function getChapterType()
     {
-        return isset($this->chapterType) ? $this->chapterType : 0;
-    }
-
-    public function hasChapterType()
-    {
-        return isset($this->chapterType);
-    }
-
-    public function clearChapterType()
-    {
-        unset($this->chapterType);
+        return $this->chapterType;
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 chapterType = 6;</code>
+     * Generated from protobuf field <code>int32 chapterType = 6;</code>
      * @param int $var
      * @return $this
      */
@@ -251,7 +221,7 @@ class LastPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetworkList advertisement = 7;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetworkList advertisement = 7;</code>
      * @return \App\Api\Protobuf\MangaPlus\AdNetworkList|null
      */
     public function getAdvertisement()
@@ -270,7 +240,7 @@ class LastPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetworkList advertisement = 7;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetworkList advertisement = 7;</code>
      * @param \App\Api\Protobuf\MangaPlus\AdNetworkList $var
      * @return $this
      */
@@ -283,7 +253,7 @@ class LastPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup movieReward = 8;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup movieReward = 8;</code>
      * @return \App\Api\Protobuf\MangaPlus\Popup|null
      */
     public function getMovieReward()
@@ -302,7 +272,7 @@ class LastPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup movieReward = 8;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup movieReward = 8;</code>
      * @param \App\Api\Protobuf\MangaPlus\Popup $var
      * @return $this
      */

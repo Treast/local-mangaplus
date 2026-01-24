@@ -15,25 +15,25 @@ use Google\Protobuf\RepeatedField;
 class MangaPage extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 1;</code>
+     * Generated from protobuf field <code>string imageUrl = 1;</code>
      */
-    protected $imageUrl = null;
+    protected $imageUrl = '';
     /**
-     * Generated from protobuf field <code>optional uint32 width = 2;</code>
+     * Generated from protobuf field <code>uint32 width = 2;</code>
      */
-    protected $width = null;
+    protected $width = 0;
     /**
-     * Generated from protobuf field <code>optional uint32 height = 3;</code>
+     * Generated from protobuf field <code>uint32 height = 3;</code>
      */
-    protected $height = null;
+    protected $height = 0;
     /**
-     * Generated from protobuf field <code>optional int32 type = 4;</code>
+     * Generated from protobuf field <code>int32 type = 4;</code>
      */
-    protected $type = null;
+    protected $type = 0;
     /**
-     * Generated from protobuf field <code>optional string encryptionKey = 5;</code>
+     * Generated from protobuf field <code>string encryptionKey = 5;</code>
      */
-    protected $encryptionKey = null;
+    protected $encryptionKey = '';
 
     /**
      * Constructor.
@@ -54,26 +54,16 @@ class MangaPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 1;</code>
+     * Generated from protobuf field <code>string imageUrl = 1;</code>
      * @return string
      */
     public function getImageUrl()
     {
-        return isset($this->imageUrl) ? $this->imageUrl : '';
-    }
-
-    public function hasImageUrl()
-    {
-        return isset($this->imageUrl);
-    }
-
-    public function clearImageUrl()
-    {
-        unset($this->imageUrl);
+        return $this->imageUrl;
     }
 
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 1;</code>
+     * Generated from protobuf field <code>string imageUrl = 1;</code>
      * @param string $var
      * @return $this
      */
@@ -86,26 +76,16 @@ class MangaPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 width = 2;</code>
+     * Generated from protobuf field <code>uint32 width = 2;</code>
      * @return int
      */
     public function getWidth()
     {
-        return isset($this->width) ? $this->width : 0;
-    }
-
-    public function hasWidth()
-    {
-        return isset($this->width);
-    }
-
-    public function clearWidth()
-    {
-        unset($this->width);
+        return $this->width;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 width = 2;</code>
+     * Generated from protobuf field <code>uint32 width = 2;</code>
      * @param int $var
      * @return $this
      */
@@ -118,26 +98,16 @@ class MangaPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 height = 3;</code>
+     * Generated from protobuf field <code>uint32 height = 3;</code>
      * @return int
      */
     public function getHeight()
     {
-        return isset($this->height) ? $this->height : 0;
-    }
-
-    public function hasHeight()
-    {
-        return isset($this->height);
-    }
-
-    public function clearHeight()
-    {
-        unset($this->height);
+        return $this->height;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 height = 3;</code>
+     * Generated from protobuf field <code>uint32 height = 3;</code>
      * @param int $var
      * @return $this
      */
@@ -150,26 +120,16 @@ class MangaPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 type = 4;</code>
+     * Generated from protobuf field <code>int32 type = 4;</code>
      * @return int
      */
     public function getType()
     {
-        return isset($this->type) ? $this->type : 0;
-    }
-
-    public function hasType()
-    {
-        return isset($this->type);
-    }
-
-    public function clearType()
-    {
-        unset($this->type);
+        return $this->type;
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 type = 4;</code>
+     * Generated from protobuf field <code>int32 type = 4;</code>
      * @param int $var
      * @return $this
      */
@@ -182,26 +142,16 @@ class MangaPage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string encryptionKey = 5;</code>
+     * Generated from protobuf field <code>string encryptionKey = 5;</code>
      * @return string
      */
     public function getEncryptionKey()
     {
-        return isset($this->encryptionKey) ? $this->encryptionKey : '';
-    }
-
-    public function hasEncryptionKey()
-    {
-        return isset($this->encryptionKey);
-    }
-
-    public function clearEncryptionKey()
-    {
-        unset($this->encryptionKey);
+        return $this->encryptionKey;
     }
 
     /**
-     * Generated from protobuf field <code>optional string encryptionKey = 5;</code>
+     * Generated from protobuf field <code>string encryptionKey = 5;</code>
      * @param string $var
      * @return $this
      */

@@ -15,77 +15,76 @@ use Google\Protobuf\RepeatedField;
 class SuccessResult extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional bool isFeaturedUpdated = 1;</code>
+     * Champs combinés des deux versions
+     *
+     * Generated from protobuf field <code>bool isFeaturedUpdated = 1;</code>
      */
-    protected $isFeaturedUpdated = null;
+    protected $isFeaturedUpdated = false;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.RegistrationData registerationData = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.RegistrationData registerationData = 2;</code>
      */
     protected $registerationData = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.HomeView homeView = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.HomeView homeView = 3;</code>
      */
     protected $homeView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.FeaturedTitlesView featuredTitlesView = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.FeaturedTitlesView featuredTitlesView = 4;</code>
      */
     protected $featuredTitlesView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AllTitlesView allTitlesView = 5;</code>
+     * Generated from protobuf field <code>.MangaPlus.AllTitlesView allTitlesView = 5;</code>
      */
     protected $allTitlesView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TitleRankingView titleRankingView = 6;</code>
+     * Generated from protobuf field <code>.MangaPlus.TitleRankingView titleRankingView = 6;</code>
      */
     protected $titleRankingView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.SubscribedTitlesView subscribedTitlesView = 7;</code>
+     * Generated from protobuf field <code>.MangaPlus.SubscribedTitlesView subscribedTitlesView = 7;</code>
      */
     protected $subscribedTitlesView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TitleDetailView titleDetailView = 8;</code>
-     */
-    protected $titleDetailView = null;
-    /**
-     * Generated from protobuf field <code>optional .MangaPlus.CommentListView commentListView = 9;</code>
+     * Generated from protobuf field <code>.MangaPlus.CommentListView commentListView = 9;</code>
      */
     protected $commentListView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.MangaViewer mangaViewer = 10;</code>
+     * Generated from protobuf field <code>.MangaPlus.MangaViewer mangaViewer = 10;</code>
      */
     protected $mangaViewer = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.WebHomeView webHomeView = 11;</code>
+     * Generated from protobuf field <code>.MangaPlus.WebHomeView webHomeView = 11;</code>
      */
     protected $webHomeView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.SettingsView settingsView = 12;</code>
+     * Generated from protobuf field <code>.MangaPlus.SettingsView settingsView = 12;</code>
      */
     protected $settingsView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.ProfileSettingsView profileSettingsView = 13;</code>
+     * Generated from protobuf field <code>.MangaPlus.ProfileSettingsView profileSettingsView = 13;</code>
      */
     protected $profileSettingsView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.UpdateProfileResultView updateProfileResultView = 14;</code>
+     * Generated from protobuf field <code>.MangaPlus.UpdateProfileResultView updateProfileResultView = 14;</code>
      */
     protected $updateProfileResultView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.ServiceAnnouncementsView serviceAnnouncementsView = 15;</code>
+     * Generated from protobuf field <code>.MangaPlus.ServiceAnnouncementsView serviceAnnouncementsView = 15;</code>
      */
     protected $serviceAnnouncementsView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.InitialView initialView = 16;</code>
+     * Generated from protobuf field <code>.MangaPlus.InitialView initialView = 16;</code>
      */
     protected $initialView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.FeedbackView feedbackView = 17;</code>
+     * Generated from protobuf field <code>.MangaPlus.FeedbackView feedbackView = 17;</code>
      */
     protected $feedbackView = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AllTitlesViewV2 allTitlesViewV2 = 25;</code>
+     * Generated from protobuf field <code>.MangaPlus.AllTitlesViewV2 allTitlesViewV2 = 25;</code>
      */
     protected $allTitlesViewV2 = null;
+    protected $data;
 
     /**
      * Constructor.
@@ -94,6 +93,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type bool $isFeaturedUpdated
+     *           Champs combinés des deux versions
      *     @type \App\Api\Protobuf\MangaPlus\RegistrationData $registerationData
      *     @type \App\Api\Protobuf\MangaPlus\HomeView $homeView
      *     @type \App\Api\Protobuf\MangaPlus\FeaturedTitlesView $featuredTitlesView
@@ -101,6 +101,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
      *     @type \App\Api\Protobuf\MangaPlus\TitleRankingView $titleRankingView
      *     @type \App\Api\Protobuf\MangaPlus\SubscribedTitlesView $subscribedTitlesView
      *     @type \App\Api\Protobuf\MangaPlus\TitleDetailView $titleDetailView
+     *     @type \App\Api\Protobuf\MangaPlus\AllTitlesViewV3 $allTitlesViewV3
      *     @type \App\Api\Protobuf\MangaPlus\CommentListView $commentListView
      *     @type \App\Api\Protobuf\MangaPlus\MangaViewer $mangaViewer
      *     @type \App\Api\Protobuf\MangaPlus\WebHomeView $webHomeView
@@ -119,26 +120,20 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isFeaturedUpdated = 1;</code>
+     * Champs combinés des deux versions
+     *
+     * Generated from protobuf field <code>bool isFeaturedUpdated = 1;</code>
      * @return bool
      */
     public function getIsFeaturedUpdated()
     {
-        return isset($this->isFeaturedUpdated) ? $this->isFeaturedUpdated : false;
-    }
-
-    public function hasIsFeaturedUpdated()
-    {
-        return isset($this->isFeaturedUpdated);
-    }
-
-    public function clearIsFeaturedUpdated()
-    {
-        unset($this->isFeaturedUpdated);
+        return $this->isFeaturedUpdated;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isFeaturedUpdated = 1;</code>
+     * Champs combinés des deux versions
+     *
+     * Generated from protobuf field <code>bool isFeaturedUpdated = 1;</code>
      * @param bool $var
      * @return $this
      */
@@ -151,7 +146,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.RegistrationData registerationData = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.RegistrationData registerationData = 2;</code>
      * @return \App\Api\Protobuf\MangaPlus\RegistrationData|null
      */
     public function getRegisterationData()
@@ -170,7 +165,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.RegistrationData registerationData = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.RegistrationData registerationData = 2;</code>
      * @param \App\Api\Protobuf\MangaPlus\RegistrationData $var
      * @return $this
      */
@@ -183,7 +178,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.HomeView homeView = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.HomeView homeView = 3;</code>
      * @return \App\Api\Protobuf\MangaPlus\HomeView|null
      */
     public function getHomeView()
@@ -202,7 +197,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.HomeView homeView = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.HomeView homeView = 3;</code>
      * @param \App\Api\Protobuf\MangaPlus\HomeView $var
      * @return $this
      */
@@ -215,7 +210,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.FeaturedTitlesView featuredTitlesView = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.FeaturedTitlesView featuredTitlesView = 4;</code>
      * @return \App\Api\Protobuf\MangaPlus\FeaturedTitlesView|null
      */
     public function getFeaturedTitlesView()
@@ -234,7 +229,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.FeaturedTitlesView featuredTitlesView = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.FeaturedTitlesView featuredTitlesView = 4;</code>
      * @param \App\Api\Protobuf\MangaPlus\FeaturedTitlesView $var
      * @return $this
      */
@@ -247,7 +242,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AllTitlesView allTitlesView = 5;</code>
+     * Generated from protobuf field <code>.MangaPlus.AllTitlesView allTitlesView = 5;</code>
      * @return \App\Api\Protobuf\MangaPlus\AllTitlesView|null
      */
     public function getAllTitlesView()
@@ -266,7 +261,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AllTitlesView allTitlesView = 5;</code>
+     * Generated from protobuf field <code>.MangaPlus.AllTitlesView allTitlesView = 5;</code>
      * @param \App\Api\Protobuf\MangaPlus\AllTitlesView $var
      * @return $this
      */
@@ -279,7 +274,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TitleRankingView titleRankingView = 6;</code>
+     * Generated from protobuf field <code>.MangaPlus.TitleRankingView titleRankingView = 6;</code>
      * @return \App\Api\Protobuf\MangaPlus\TitleRankingView|null
      */
     public function getTitleRankingView()
@@ -298,7 +293,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TitleRankingView titleRankingView = 6;</code>
+     * Generated from protobuf field <code>.MangaPlus.TitleRankingView titleRankingView = 6;</code>
      * @param \App\Api\Protobuf\MangaPlus\TitleRankingView $var
      * @return $this
      */
@@ -311,7 +306,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.SubscribedTitlesView subscribedTitlesView = 7;</code>
+     * Generated from protobuf field <code>.MangaPlus.SubscribedTitlesView subscribedTitlesView = 7;</code>
      * @return \App\Api\Protobuf\MangaPlus\SubscribedTitlesView|null
      */
     public function getSubscribedTitlesView()
@@ -330,7 +325,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.SubscribedTitlesView subscribedTitlesView = 7;</code>
+     * Generated from protobuf field <code>.MangaPlus.SubscribedTitlesView subscribedTitlesView = 7;</code>
      * @param \App\Api\Protobuf\MangaPlus\SubscribedTitlesView $var
      * @return $this
      */
@@ -343,39 +338,61 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TitleDetailView titleDetailView = 8;</code>
+     * Generated from protobuf field <code>.MangaPlus.TitleDetailView titleDetailView = 8;</code>
      * @return \App\Api\Protobuf\MangaPlus\TitleDetailView|null
      */
     public function getTitleDetailView()
     {
-        return $this->titleDetailView;
+        return $this->readOneof(8);
     }
 
     public function hasTitleDetailView()
     {
-        return isset($this->titleDetailView);
-    }
-
-    public function clearTitleDetailView()
-    {
-        unset($this->titleDetailView);
+        return $this->hasOneof(8);
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TitleDetailView titleDetailView = 8;</code>
+     * Generated from protobuf field <code>.MangaPlus.TitleDetailView titleDetailView = 8;</code>
      * @param \App\Api\Protobuf\MangaPlus\TitleDetailView $var
      * @return $this
      */
     public function setTitleDetailView($var)
     {
         GPBUtil::checkMessage($var, \App\Api\Protobuf\MangaPlus\TitleDetailView::class);
-        $this->titleDetailView = $var;
+        $this->writeOneof(8, $var);
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.CommentListView commentListView = 9;</code>
+     * Generated from protobuf field <code>.MangaPlus.AllTitlesViewV3 allTitlesViewV3 = 35;</code>
+     * @return \App\Api\Protobuf\MangaPlus\AllTitlesViewV3|null
+     */
+    public function getAllTitlesViewV3()
+    {
+        return $this->readOneof(35);
+    }
+
+    public function hasAllTitlesViewV3()
+    {
+        return $this->hasOneof(35);
+    }
+
+    /**
+     * Generated from protobuf field <code>.MangaPlus.AllTitlesViewV3 allTitlesViewV3 = 35;</code>
+     * @param \App\Api\Protobuf\MangaPlus\AllTitlesViewV3 $var
+     * @return $this
+     */
+    public function setAllTitlesViewV3($var)
+    {
+        GPBUtil::checkMessage($var, \App\Api\Protobuf\MangaPlus\AllTitlesViewV3::class);
+        $this->writeOneof(35, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.MangaPlus.CommentListView commentListView = 9;</code>
      * @return \App\Api\Protobuf\MangaPlus\CommentListView|null
      */
     public function getCommentListView()
@@ -394,7 +411,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.CommentListView commentListView = 9;</code>
+     * Generated from protobuf field <code>.MangaPlus.CommentListView commentListView = 9;</code>
      * @param \App\Api\Protobuf\MangaPlus\CommentListView $var
      * @return $this
      */
@@ -407,7 +424,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.MangaViewer mangaViewer = 10;</code>
+     * Generated from protobuf field <code>.MangaPlus.MangaViewer mangaViewer = 10;</code>
      * @return \App\Api\Protobuf\MangaPlus\MangaViewer|null
      */
     public function getMangaViewer()
@@ -426,7 +443,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.MangaViewer mangaViewer = 10;</code>
+     * Generated from protobuf field <code>.MangaPlus.MangaViewer mangaViewer = 10;</code>
      * @param \App\Api\Protobuf\MangaPlus\MangaViewer $var
      * @return $this
      */
@@ -439,7 +456,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.WebHomeView webHomeView = 11;</code>
+     * Generated from protobuf field <code>.MangaPlus.WebHomeView webHomeView = 11;</code>
      * @return \App\Api\Protobuf\MangaPlus\WebHomeView|null
      */
     public function getWebHomeView()
@@ -458,7 +475,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.WebHomeView webHomeView = 11;</code>
+     * Generated from protobuf field <code>.MangaPlus.WebHomeView webHomeView = 11;</code>
      * @param \App\Api\Protobuf\MangaPlus\WebHomeView $var
      * @return $this
      */
@@ -471,7 +488,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.SettingsView settingsView = 12;</code>
+     * Generated from protobuf field <code>.MangaPlus.SettingsView settingsView = 12;</code>
      * @return \App\Api\Protobuf\MangaPlus\SettingsView|null
      */
     public function getSettingsView()
@@ -490,7 +507,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.SettingsView settingsView = 12;</code>
+     * Generated from protobuf field <code>.MangaPlus.SettingsView settingsView = 12;</code>
      * @param \App\Api\Protobuf\MangaPlus\SettingsView $var
      * @return $this
      */
@@ -503,7 +520,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.ProfileSettingsView profileSettingsView = 13;</code>
+     * Generated from protobuf field <code>.MangaPlus.ProfileSettingsView profileSettingsView = 13;</code>
      * @return \App\Api\Protobuf\MangaPlus\ProfileSettingsView|null
      */
     public function getProfileSettingsView()
@@ -522,7 +539,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.ProfileSettingsView profileSettingsView = 13;</code>
+     * Generated from protobuf field <code>.MangaPlus.ProfileSettingsView profileSettingsView = 13;</code>
      * @param \App\Api\Protobuf\MangaPlus\ProfileSettingsView $var
      * @return $this
      */
@@ -535,7 +552,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.UpdateProfileResultView updateProfileResultView = 14;</code>
+     * Generated from protobuf field <code>.MangaPlus.UpdateProfileResultView updateProfileResultView = 14;</code>
      * @return \App\Api\Protobuf\MangaPlus\UpdateProfileResultView|null
      */
     public function getUpdateProfileResultView()
@@ -554,7 +571,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.UpdateProfileResultView updateProfileResultView = 14;</code>
+     * Generated from protobuf field <code>.MangaPlus.UpdateProfileResultView updateProfileResultView = 14;</code>
      * @param \App\Api\Protobuf\MangaPlus\UpdateProfileResultView $var
      * @return $this
      */
@@ -567,7 +584,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.ServiceAnnouncementsView serviceAnnouncementsView = 15;</code>
+     * Generated from protobuf field <code>.MangaPlus.ServiceAnnouncementsView serviceAnnouncementsView = 15;</code>
      * @return \App\Api\Protobuf\MangaPlus\ServiceAnnouncementsView|null
      */
     public function getServiceAnnouncementsView()
@@ -586,7 +603,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.ServiceAnnouncementsView serviceAnnouncementsView = 15;</code>
+     * Generated from protobuf field <code>.MangaPlus.ServiceAnnouncementsView serviceAnnouncementsView = 15;</code>
      * @param \App\Api\Protobuf\MangaPlus\ServiceAnnouncementsView $var
      * @return $this
      */
@@ -599,7 +616,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.InitialView initialView = 16;</code>
+     * Generated from protobuf field <code>.MangaPlus.InitialView initialView = 16;</code>
      * @return \App\Api\Protobuf\MangaPlus\InitialView|null
      */
     public function getInitialView()
@@ -618,7 +635,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.InitialView initialView = 16;</code>
+     * Generated from protobuf field <code>.MangaPlus.InitialView initialView = 16;</code>
      * @param \App\Api\Protobuf\MangaPlus\InitialView $var
      * @return $this
      */
@@ -631,7 +648,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.FeedbackView feedbackView = 17;</code>
+     * Generated from protobuf field <code>.MangaPlus.FeedbackView feedbackView = 17;</code>
      * @return \App\Api\Protobuf\MangaPlus\FeedbackView|null
      */
     public function getFeedbackView()
@@ -650,7 +667,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.FeedbackView feedbackView = 17;</code>
+     * Generated from protobuf field <code>.MangaPlus.FeedbackView feedbackView = 17;</code>
      * @param \App\Api\Protobuf\MangaPlus\FeedbackView $var
      * @return $this
      */
@@ -663,7 +680,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AllTitlesViewV2 allTitlesViewV2 = 25;</code>
+     * Generated from protobuf field <code>.MangaPlus.AllTitlesViewV2 allTitlesViewV2 = 25;</code>
      * @return \App\Api\Protobuf\MangaPlus\AllTitlesViewV2|null
      */
     public function getAllTitlesViewV2()
@@ -682,7 +699,7 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AllTitlesViewV2 allTitlesViewV2 = 25;</code>
+     * Generated from protobuf field <code>.MangaPlus.AllTitlesViewV2 allTitlesViewV2 = 25;</code>
      * @param \App\Api\Protobuf\MangaPlus\AllTitlesViewV2 $var
      * @return $this
      */
@@ -692,6 +709,14 @@ class SuccessResult extends \Google\Protobuf\Internal\Message
         $this->allTitlesViewV2 = $var;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getData()
+    {
+        return $this->whichOneof("data");
     }
 
 }

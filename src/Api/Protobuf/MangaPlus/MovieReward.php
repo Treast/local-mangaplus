@@ -15,11 +15,11 @@ use Google\Protobuf\RepeatedField;
 class MovieReward extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 1;</code>
+     * Generated from protobuf field <code>string imageUrl = 1;</code>
      */
-    protected $imageUrl = null;
+    protected $imageUrl = '';
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetworkList advertisement = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetworkList advertisement = 2;</code>
      */
     protected $advertisement = null;
 
@@ -39,26 +39,16 @@ class MovieReward extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 1;</code>
+     * Generated from protobuf field <code>string imageUrl = 1;</code>
      * @return string
      */
     public function getImageUrl()
     {
-        return isset($this->imageUrl) ? $this->imageUrl : '';
-    }
-
-    public function hasImageUrl()
-    {
-        return isset($this->imageUrl);
-    }
-
-    public function clearImageUrl()
-    {
-        unset($this->imageUrl);
+        return $this->imageUrl;
     }
 
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 1;</code>
+     * Generated from protobuf field <code>string imageUrl = 1;</code>
      * @param string $var
      * @return $this
      */
@@ -71,7 +61,7 @@ class MovieReward extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetworkList advertisement = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetworkList advertisement = 2;</code>
      * @return \App\Api\Protobuf\MangaPlus\AdNetworkList|null
      */
     public function getAdvertisement()
@@ -90,7 +80,7 @@ class MovieReward extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetworkList advertisement = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetworkList advertisement = 2;</code>
      * @param \App\Api\Protobuf\MangaPlus\AdNetworkList $var
      * @return $this
      */

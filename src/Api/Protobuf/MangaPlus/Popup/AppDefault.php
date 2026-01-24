@@ -15,21 +15,21 @@ use Google\Protobuf\RepeatedField;
 class AppDefault extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string subject = 1;</code>
+     * Generated from protobuf field <code>string subject = 1;</code>
      */
-    protected $subject = null;
+    protected $subject = '';
     /**
-     * Generated from protobuf field <code>optional string body = 2;</code>
+     * Generated from protobuf field <code>string body = 2;</code>
      */
-    protected $body = null;
+    protected $body = '';
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TransitionAction action = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.TransitionAction action = 3;</code>
      */
     protected $action = null;
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 4;</code>
+     * Generated from protobuf field <code>string imageUrl = 4;</code>
      */
-    protected $imageUrl = null;
+    protected $imageUrl = '';
 
     /**
      * Constructor.
@@ -49,26 +49,16 @@ class AppDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string subject = 1;</code>
+     * Generated from protobuf field <code>string subject = 1;</code>
      * @return string
      */
     public function getSubject()
     {
-        return isset($this->subject) ? $this->subject : '';
-    }
-
-    public function hasSubject()
-    {
-        return isset($this->subject);
-    }
-
-    public function clearSubject()
-    {
-        unset($this->subject);
+        return $this->subject;
     }
 
     /**
-     * Generated from protobuf field <code>optional string subject = 1;</code>
+     * Generated from protobuf field <code>string subject = 1;</code>
      * @param string $var
      * @return $this
      */
@@ -81,26 +71,16 @@ class AppDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string body = 2;</code>
+     * Generated from protobuf field <code>string body = 2;</code>
      * @return string
      */
     public function getBody()
     {
-        return isset($this->body) ? $this->body : '';
-    }
-
-    public function hasBody()
-    {
-        return isset($this->body);
-    }
-
-    public function clearBody()
-    {
-        unset($this->body);
+        return $this->body;
     }
 
     /**
-     * Generated from protobuf field <code>optional string body = 2;</code>
+     * Generated from protobuf field <code>string body = 2;</code>
      * @param string $var
      * @return $this
      */
@@ -113,7 +93,7 @@ class AppDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TransitionAction action = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.TransitionAction action = 3;</code>
      * @return \App\Api\Protobuf\MangaPlus\TransitionAction|null
      */
     public function getAction()
@@ -132,7 +112,7 @@ class AppDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TransitionAction action = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.TransitionAction action = 3;</code>
      * @param \App\Api\Protobuf\MangaPlus\TransitionAction $var
      * @return $this
      */
@@ -145,26 +125,16 @@ class AppDefault extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 4;</code>
+     * Generated from protobuf field <code>string imageUrl = 4;</code>
      * @return string
      */
     public function getImageUrl()
     {
-        return isset($this->imageUrl) ? $this->imageUrl : '';
-    }
-
-    public function hasImageUrl()
-    {
-        return isset($this->imageUrl);
-    }
-
-    public function clearImageUrl()
-    {
-        unset($this->imageUrl);
+        return $this->imageUrl;
     }
 
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 4;</code>
+     * Generated from protobuf field <code>string imageUrl = 4;</code>
      * @param string $var
      * @return $this
      */

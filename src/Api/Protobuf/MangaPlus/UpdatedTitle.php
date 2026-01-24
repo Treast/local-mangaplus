@@ -15,29 +15,29 @@ use Google\Protobuf\RepeatedField;
 class UpdatedTitle extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Title title = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Title title = 1;</code>
      */
     protected $title = null;
     /**
-     * Generated from protobuf field <code>optional uint32 chapterId = 2;</code>
+     * Generated from protobuf field <code>uint32 chapterId = 2;</code>
      */
-    protected $chapterId = null;
+    protected $chapterId = 0;
     /**
-     * Generated from protobuf field <code>optional string chapterName = 3;</code>
+     * Generated from protobuf field <code>string chapterName = 3;</code>
      */
-    protected $chapterName = null;
+    protected $chapterName = '';
     /**
-     * Generated from protobuf field <code>optional string chapterSubTitle = 4;</code>
+     * Generated from protobuf field <code>string chapterSubTitle = 4;</code>
      */
-    protected $chapterSubTitle = null;
+    protected $chapterSubTitle = '';
     /**
-     * Generated from protobuf field <code>optional bool isLatest = 5;</code>
+     * Generated from protobuf field <code>bool isLatest = 5;</code>
      */
-    protected $isLatest = null;
+    protected $isLatest = false;
     /**
-     * Generated from protobuf field <code>optional bool isVerticalOnly = 6;</code>
+     * Generated from protobuf field <code>bool isVerticalOnly = 6;</code>
      */
-    protected $isVerticalOnly = null;
+    protected $isVerticalOnly = false;
 
     /**
      * Constructor.
@@ -59,7 +59,7 @@ class UpdatedTitle extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Title title = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Title title = 1;</code>
      * @return \App\Api\Protobuf\MangaPlus\Title|null
      */
     public function getTitle()
@@ -78,7 +78,7 @@ class UpdatedTitle extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Title title = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Title title = 1;</code>
      * @param \App\Api\Protobuf\MangaPlus\Title $var
      * @return $this
      */
@@ -91,26 +91,16 @@ class UpdatedTitle extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 chapterId = 2;</code>
+     * Generated from protobuf field <code>uint32 chapterId = 2;</code>
      * @return int
      */
     public function getChapterId()
     {
-        return isset($this->chapterId) ? $this->chapterId : 0;
-    }
-
-    public function hasChapterId()
-    {
-        return isset($this->chapterId);
-    }
-
-    public function clearChapterId()
-    {
-        unset($this->chapterId);
+        return $this->chapterId;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 chapterId = 2;</code>
+     * Generated from protobuf field <code>uint32 chapterId = 2;</code>
      * @param int $var
      * @return $this
      */
@@ -123,26 +113,16 @@ class UpdatedTitle extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string chapterName = 3;</code>
+     * Generated from protobuf field <code>string chapterName = 3;</code>
      * @return string
      */
     public function getChapterName()
     {
-        return isset($this->chapterName) ? $this->chapterName : '';
-    }
-
-    public function hasChapterName()
-    {
-        return isset($this->chapterName);
-    }
-
-    public function clearChapterName()
-    {
-        unset($this->chapterName);
+        return $this->chapterName;
     }
 
     /**
-     * Generated from protobuf field <code>optional string chapterName = 3;</code>
+     * Generated from protobuf field <code>string chapterName = 3;</code>
      * @param string $var
      * @return $this
      */
@@ -155,26 +135,16 @@ class UpdatedTitle extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string chapterSubTitle = 4;</code>
+     * Generated from protobuf field <code>string chapterSubTitle = 4;</code>
      * @return string
      */
     public function getChapterSubTitle()
     {
-        return isset($this->chapterSubTitle) ? $this->chapterSubTitle : '';
-    }
-
-    public function hasChapterSubTitle()
-    {
-        return isset($this->chapterSubTitle);
-    }
-
-    public function clearChapterSubTitle()
-    {
-        unset($this->chapterSubTitle);
+        return $this->chapterSubTitle;
     }
 
     /**
-     * Generated from protobuf field <code>optional string chapterSubTitle = 4;</code>
+     * Generated from protobuf field <code>string chapterSubTitle = 4;</code>
      * @param string $var
      * @return $this
      */
@@ -187,26 +157,16 @@ class UpdatedTitle extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isLatest = 5;</code>
+     * Generated from protobuf field <code>bool isLatest = 5;</code>
      * @return bool
      */
     public function getIsLatest()
     {
-        return isset($this->isLatest) ? $this->isLatest : false;
-    }
-
-    public function hasIsLatest()
-    {
-        return isset($this->isLatest);
-    }
-
-    public function clearIsLatest()
-    {
-        unset($this->isLatest);
+        return $this->isLatest;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isLatest = 5;</code>
+     * Generated from protobuf field <code>bool isLatest = 5;</code>
      * @param bool $var
      * @return $this
      */
@@ -219,26 +179,16 @@ class UpdatedTitle extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isVerticalOnly = 6;</code>
+     * Generated from protobuf field <code>bool isVerticalOnly = 6;</code>
      * @return bool
      */
     public function getIsVerticalOnly()
     {
-        return isset($this->isVerticalOnly) ? $this->isVerticalOnly : false;
-    }
-
-    public function hasIsVerticalOnly()
-    {
-        return isset($this->isVerticalOnly);
-    }
-
-    public function clearIsVerticalOnly()
-    {
-        unset($this->isVerticalOnly);
+        return $this->isVerticalOnly;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isVerticalOnly = 6;</code>
+     * Generated from protobuf field <code>bool isVerticalOnly = 6;</code>
      * @param bool $var
      * @return $this
      */

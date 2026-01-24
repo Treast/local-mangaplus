@@ -15,33 +15,33 @@ use Google\Protobuf\RepeatedField;
 class Title extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional uint32 titleId = 1;</code>
+     * Generated from protobuf field <code>uint32 titleId = 1;</code>
      */
-    protected $titleId = null;
+    protected $titleId = 0;
     /**
-     * Generated from protobuf field <code>optional string name = 2;</code>
+     * Generated from protobuf field <code>string name = 2;</code>
      */
-    protected $name = null;
+    protected $name = '';
     /**
-     * Generated from protobuf field <code>optional string author = 3;</code>
+     * Generated from protobuf field <code>string author = 3;</code>
      */
-    protected $author = null;
+    protected $author = '';
     /**
-     * Generated from protobuf field <code>optional string portraitImageUrl = 4;</code>
+     * Generated from protobuf field <code>string portraitImageUrl = 4;</code>
      */
-    protected $portraitImageUrl = null;
+    protected $portraitImageUrl = '';
     /**
-     * Generated from protobuf field <code>optional string landscapeImageUrl = 5;</code>
+     * Generated from protobuf field <code>string landscapeImageUrl = 5;</code>
      */
-    protected $landscapeImageUrl = null;
+    protected $landscapeImageUrl = '';
     /**
-     * Generated from protobuf field <code>optional uint32 viewCount = 6;</code>
+     * Generated from protobuf field <code>uint32 viewCount = 6;</code>
      */
-    protected $viewCount = null;
+    protected $viewCount = 0;
     /**
-     * Generated from protobuf field <code>optional int32 language = 7;</code>
+     * Generated from protobuf field <code>int32 language = 7;</code>
      */
-    protected $language = null;
+    protected $language = 0;
 
     /**
      * Constructor.
@@ -64,26 +64,16 @@ class Title extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 titleId = 1;</code>
+     * Generated from protobuf field <code>uint32 titleId = 1;</code>
      * @return int
      */
     public function getTitleId()
     {
-        return isset($this->titleId) ? $this->titleId : 0;
-    }
-
-    public function hasTitleId()
-    {
-        return isset($this->titleId);
-    }
-
-    public function clearTitleId()
-    {
-        unset($this->titleId);
+        return $this->titleId;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 titleId = 1;</code>
+     * Generated from protobuf field <code>uint32 titleId = 1;</code>
      * @param int $var
      * @return $this
      */
@@ -96,26 +86,16 @@ class Title extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string name = 2;</code>
+     * Generated from protobuf field <code>string name = 2;</code>
      * @return string
      */
     public function getName()
     {
-        return isset($this->name) ? $this->name : '';
-    }
-
-    public function hasName()
-    {
-        return isset($this->name);
-    }
-
-    public function clearName()
-    {
-        unset($this->name);
+        return $this->name;
     }
 
     /**
-     * Generated from protobuf field <code>optional string name = 2;</code>
+     * Generated from protobuf field <code>string name = 2;</code>
      * @param string $var
      * @return $this
      */
@@ -128,26 +108,16 @@ class Title extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string author = 3;</code>
+     * Generated from protobuf field <code>string author = 3;</code>
      * @return string
      */
     public function getAuthor()
     {
-        return isset($this->author) ? $this->author : '';
-    }
-
-    public function hasAuthor()
-    {
-        return isset($this->author);
-    }
-
-    public function clearAuthor()
-    {
-        unset($this->author);
+        return $this->author;
     }
 
     /**
-     * Generated from protobuf field <code>optional string author = 3;</code>
+     * Generated from protobuf field <code>string author = 3;</code>
      * @param string $var
      * @return $this
      */
@@ -160,26 +130,16 @@ class Title extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string portraitImageUrl = 4;</code>
+     * Generated from protobuf field <code>string portraitImageUrl = 4;</code>
      * @return string
      */
     public function getPortraitImageUrl()
     {
-        return isset($this->portraitImageUrl) ? $this->portraitImageUrl : '';
-    }
-
-    public function hasPortraitImageUrl()
-    {
-        return isset($this->portraitImageUrl);
-    }
-
-    public function clearPortraitImageUrl()
-    {
-        unset($this->portraitImageUrl);
+        return $this->portraitImageUrl;
     }
 
     /**
-     * Generated from protobuf field <code>optional string portraitImageUrl = 4;</code>
+     * Generated from protobuf field <code>string portraitImageUrl = 4;</code>
      * @param string $var
      * @return $this
      */
@@ -192,26 +152,16 @@ class Title extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string landscapeImageUrl = 5;</code>
+     * Generated from protobuf field <code>string landscapeImageUrl = 5;</code>
      * @return string
      */
     public function getLandscapeImageUrl()
     {
-        return isset($this->landscapeImageUrl) ? $this->landscapeImageUrl : '';
-    }
-
-    public function hasLandscapeImageUrl()
-    {
-        return isset($this->landscapeImageUrl);
-    }
-
-    public function clearLandscapeImageUrl()
-    {
-        unset($this->landscapeImageUrl);
+        return $this->landscapeImageUrl;
     }
 
     /**
-     * Generated from protobuf field <code>optional string landscapeImageUrl = 5;</code>
+     * Generated from protobuf field <code>string landscapeImageUrl = 5;</code>
      * @param string $var
      * @return $this
      */
@@ -224,26 +174,16 @@ class Title extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 viewCount = 6;</code>
+     * Generated from protobuf field <code>uint32 viewCount = 6;</code>
      * @return int
      */
     public function getViewCount()
     {
-        return isset($this->viewCount) ? $this->viewCount : 0;
-    }
-
-    public function hasViewCount()
-    {
-        return isset($this->viewCount);
-    }
-
-    public function clearViewCount()
-    {
-        unset($this->viewCount);
+        return $this->viewCount;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 viewCount = 6;</code>
+     * Generated from protobuf field <code>uint32 viewCount = 6;</code>
      * @param int $var
      * @return $this
      */
@@ -256,26 +196,16 @@ class Title extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 language = 7;</code>
+     * Generated from protobuf field <code>int32 language = 7;</code>
      * @return int
      */
     public function getLanguage()
     {
-        return isset($this->language) ? $this->language : 0;
-    }
-
-    public function hasLanguage()
-    {
-        return isset($this->language);
-    }
-
-    public function clearLanguage()
-    {
-        unset($this->language);
+        return $this->language;
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 language = 7;</code>
+     * Generated from protobuf field <code>int32 language = 7;</code>
      * @param int $var
      * @return $this
      */

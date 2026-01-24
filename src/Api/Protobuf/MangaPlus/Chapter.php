@@ -15,41 +15,53 @@ use Google\Protobuf\RepeatedField;
 class Chapter extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional uint32 titleId = 1;</code>
+     * Generated from protobuf field <code>uint32 titleId = 1;</code>
      */
-    protected $titleId = null;
+    protected $titleId = 0;
     /**
-     * Generated from protobuf field <code>optional uint32 chapterId = 2;</code>
+     * Generated from protobuf field <code>uint32 chapterId = 2;</code>
      */
-    protected $chapterId = null;
+    protected $chapterId = 0;
     /**
-     * Generated from protobuf field <code>optional string name = 3;</code>
+     * Nom dans v1, correspond souvent au titre
+     *
+     * Generated from protobuf field <code>string name = 3;</code>
      */
-    protected $name = null;
+    protected $name = '';
     /**
-     * Generated from protobuf field <code>optional string subTitle = 4;</code>
+     * Generated from protobuf field <code>string subTitle = 4;</code>
      */
-    protected $subTitle = null;
+    protected $subTitle = '';
     /**
-     * Generated from protobuf field <code>optional string thumbnailUrl = 5;</code>
+     * Generated from protobuf field <code>string thumbnailUrl = 5;</code>
      */
-    protected $thumbnailUrl = null;
+    protected $thumbnailUrl = '';
     /**
-     * Generated from protobuf field <code>optional uint32 startTimeStamp = 6;</code>
+     * Generated from protobuf field <code>int64 startTimeStamp = 6;</code>
      */
-    protected $startTimeStamp = null;
+    protected $startTimeStamp = 0;
     /**
-     * Generated from protobuf field <code>optional uint32 endTimeStamp = 7;</code>
+     * Generated from protobuf field <code>int64 endTimeStamp = 7;</code>
      */
-    protected $endTimeStamp = null;
+    protected $endTimeStamp = 0;
     /**
-     * Generated from protobuf field <code>optional bool alreadyViewed = 8;</code>
+     * Generated from protobuf field <code>bool alreadyViewed = 8;</code>
      */
-    protected $alreadyViewed = null;
+    protected $alreadyViewed = false;
     /**
-     * Generated from protobuf field <code>optional bool isVerticalOnly = 9;</code>
+     * Generated from protobuf field <code>bool isVerticalOnly = 9;</code>
      */
-    protected $isVerticalOnly = null;
+    protected $isVerticalOnly = false;
+    /**
+     * Adapté du v2 (champ 3) pour éviter les conflits
+     *
+     * Generated from protobuf field <code>string number = 10;</code>
+     */
+    protected $number = '';
+    /**
+     * Generated from protobuf field <code>uint32 commentCount = 13;</code>
+     */
+    protected $commentCount = 0;
 
     /**
      * Constructor.
@@ -60,12 +72,16 @@ class Chapter extends \Google\Protobuf\Internal\Message
      *     @type int $titleId
      *     @type int $chapterId
      *     @type string $name
+     *           Nom dans v1, correspond souvent au titre
      *     @type string $subTitle
      *     @type string $thumbnailUrl
-     *     @type int $startTimeStamp
-     *     @type int $endTimeStamp
+     *     @type int|string $startTimeStamp
+     *     @type int|string $endTimeStamp
      *     @type bool $alreadyViewed
      *     @type bool $isVerticalOnly
+     *     @type string $number
+     *           Adapté du v2 (champ 3) pour éviter les conflits
+     *     @type int $commentCount
      * }
      */
     public function __construct($data = NULL) {
@@ -74,26 +90,16 @@ class Chapter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 titleId = 1;</code>
+     * Generated from protobuf field <code>uint32 titleId = 1;</code>
      * @return int
      */
     public function getTitleId()
     {
-        return isset($this->titleId) ? $this->titleId : 0;
-    }
-
-    public function hasTitleId()
-    {
-        return isset($this->titleId);
-    }
-
-    public function clearTitleId()
-    {
-        unset($this->titleId);
+        return $this->titleId;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 titleId = 1;</code>
+     * Generated from protobuf field <code>uint32 titleId = 1;</code>
      * @param int $var
      * @return $this
      */
@@ -106,26 +112,16 @@ class Chapter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 chapterId = 2;</code>
+     * Generated from protobuf field <code>uint32 chapterId = 2;</code>
      * @return int
      */
     public function getChapterId()
     {
-        return isset($this->chapterId) ? $this->chapterId : 0;
-    }
-
-    public function hasChapterId()
-    {
-        return isset($this->chapterId);
-    }
-
-    public function clearChapterId()
-    {
-        unset($this->chapterId);
+        return $this->chapterId;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 chapterId = 2;</code>
+     * Generated from protobuf field <code>uint32 chapterId = 2;</code>
      * @param int $var
      * @return $this
      */
@@ -138,26 +134,20 @@ class Chapter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string name = 3;</code>
+     * Nom dans v1, correspond souvent au titre
+     *
+     * Generated from protobuf field <code>string name = 3;</code>
      * @return string
      */
     public function getName()
     {
-        return isset($this->name) ? $this->name : '';
-    }
-
-    public function hasName()
-    {
-        return isset($this->name);
-    }
-
-    public function clearName()
-    {
-        unset($this->name);
+        return $this->name;
     }
 
     /**
-     * Generated from protobuf field <code>optional string name = 3;</code>
+     * Nom dans v1, correspond souvent au titre
+     *
+     * Generated from protobuf field <code>string name = 3;</code>
      * @param string $var
      * @return $this
      */
@@ -170,26 +160,16 @@ class Chapter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string subTitle = 4;</code>
+     * Generated from protobuf field <code>string subTitle = 4;</code>
      * @return string
      */
     public function getSubTitle()
     {
-        return isset($this->subTitle) ? $this->subTitle : '';
-    }
-
-    public function hasSubTitle()
-    {
-        return isset($this->subTitle);
-    }
-
-    public function clearSubTitle()
-    {
-        unset($this->subTitle);
+        return $this->subTitle;
     }
 
     /**
-     * Generated from protobuf field <code>optional string subTitle = 4;</code>
+     * Generated from protobuf field <code>string subTitle = 4;</code>
      * @param string $var
      * @return $this
      */
@@ -202,26 +182,16 @@ class Chapter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string thumbnailUrl = 5;</code>
+     * Generated from protobuf field <code>string thumbnailUrl = 5;</code>
      * @return string
      */
     public function getThumbnailUrl()
     {
-        return isset($this->thumbnailUrl) ? $this->thumbnailUrl : '';
-    }
-
-    public function hasThumbnailUrl()
-    {
-        return isset($this->thumbnailUrl);
-    }
-
-    public function clearThumbnailUrl()
-    {
-        unset($this->thumbnailUrl);
+        return $this->thumbnailUrl;
     }
 
     /**
-     * Generated from protobuf field <code>optional string thumbnailUrl = 5;</code>
+     * Generated from protobuf field <code>string thumbnailUrl = 5;</code>
      * @param string $var
      * @return $this
      */
@@ -234,90 +204,60 @@ class Chapter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 startTimeStamp = 6;</code>
-     * @return int
+     * Generated from protobuf field <code>int64 startTimeStamp = 6;</code>
+     * @return int|string
      */
     public function getStartTimeStamp()
     {
-        return isset($this->startTimeStamp) ? $this->startTimeStamp : 0;
-    }
-
-    public function hasStartTimeStamp()
-    {
-        return isset($this->startTimeStamp);
-    }
-
-    public function clearStartTimeStamp()
-    {
-        unset($this->startTimeStamp);
+        return $this->startTimeStamp;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 startTimeStamp = 6;</code>
-     * @param int $var
+     * Generated from protobuf field <code>int64 startTimeStamp = 6;</code>
+     * @param int|string $var
      * @return $this
      */
     public function setStartTimeStamp($var)
     {
-        GPBUtil::checkUint32($var);
+        GPBUtil::checkInt64($var);
         $this->startTimeStamp = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 endTimeStamp = 7;</code>
-     * @return int
+     * Generated from protobuf field <code>int64 endTimeStamp = 7;</code>
+     * @return int|string
      */
     public function getEndTimeStamp()
     {
-        return isset($this->endTimeStamp) ? $this->endTimeStamp : 0;
-    }
-
-    public function hasEndTimeStamp()
-    {
-        return isset($this->endTimeStamp);
-    }
-
-    public function clearEndTimeStamp()
-    {
-        unset($this->endTimeStamp);
+        return $this->endTimeStamp;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 endTimeStamp = 7;</code>
-     * @param int $var
+     * Generated from protobuf field <code>int64 endTimeStamp = 7;</code>
+     * @param int|string $var
      * @return $this
      */
     public function setEndTimeStamp($var)
     {
-        GPBUtil::checkUint32($var);
+        GPBUtil::checkInt64($var);
         $this->endTimeStamp = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool alreadyViewed = 8;</code>
+     * Generated from protobuf field <code>bool alreadyViewed = 8;</code>
      * @return bool
      */
     public function getAlreadyViewed()
     {
-        return isset($this->alreadyViewed) ? $this->alreadyViewed : false;
-    }
-
-    public function hasAlreadyViewed()
-    {
-        return isset($this->alreadyViewed);
-    }
-
-    public function clearAlreadyViewed()
-    {
-        unset($this->alreadyViewed);
+        return $this->alreadyViewed;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool alreadyViewed = 8;</code>
+     * Generated from protobuf field <code>bool alreadyViewed = 8;</code>
      * @param bool $var
      * @return $this
      */
@@ -330,26 +270,16 @@ class Chapter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isVerticalOnly = 9;</code>
+     * Generated from protobuf field <code>bool isVerticalOnly = 9;</code>
      * @return bool
      */
     public function getIsVerticalOnly()
     {
-        return isset($this->isVerticalOnly) ? $this->isVerticalOnly : false;
-    }
-
-    public function hasIsVerticalOnly()
-    {
-        return isset($this->isVerticalOnly);
-    }
-
-    public function clearIsVerticalOnly()
-    {
-        unset($this->isVerticalOnly);
+        return $this->isVerticalOnly;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isVerticalOnly = 9;</code>
+     * Generated from protobuf field <code>bool isVerticalOnly = 9;</code>
      * @param bool $var
      * @return $this
      */
@@ -357,6 +287,54 @@ class Chapter extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->isVerticalOnly = $var;
+
+        return $this;
+    }
+
+    /**
+     * Adapté du v2 (champ 3) pour éviter les conflits
+     *
+     * Generated from protobuf field <code>string number = 10;</code>
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
+     * Adapté du v2 (champ 3) pour éviter les conflits
+     *
+     * Generated from protobuf field <code>string number = 10;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setNumber($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->number = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 commentCount = 13;</code>
+     * @return int
+     */
+    public function getCommentCount()
+    {
+        return $this->commentCount;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 commentCount = 13;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setCommentCount($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->commentCount = $var;
 
         return $this;
     }

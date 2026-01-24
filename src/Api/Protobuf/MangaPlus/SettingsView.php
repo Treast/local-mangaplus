@@ -15,29 +15,29 @@ use Google\Protobuf\RepeatedField;
 class SettingsView extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.CommentIcon myIcon = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.CommentIcon myIcon = 1;</code>
      */
     protected $myIcon = null;
     /**
-     * Generated from protobuf field <code>optional string userName = 2;</code>
+     * Generated from protobuf field <code>string userName = 2;</code>
      */
-    protected $userName = null;
+    protected $userName = '';
     /**
-     * Generated from protobuf field <code>optional bool noticeOfNewsAndEvents = 3;</code>
+     * Generated from protobuf field <code>bool noticeOfNewsAndEvents = 3;</code>
      */
-    protected $noticeOfNewsAndEvents = null;
+    protected $noticeOfNewsAndEvents = false;
     /**
-     * Generated from protobuf field <code>optional bool noticeOfUpdatesOfSubscribedTitles = 4;</code>
+     * Generated from protobuf field <code>bool noticeOfUpdatesOfSubscribedTitles = 4;</code>
      */
-    protected $noticeOfUpdatesOfSubscribedTitles = null;
+    protected $noticeOfUpdatesOfSubscribedTitles = false;
     /**
-     * Generated from protobuf field <code>optional uint32 englishTitlesCount = 5;</code>
+     * Generated from protobuf field <code>uint32 englishTitlesCount = 5;</code>
      */
-    protected $englishTitlesCount = null;
+    protected $englishTitlesCount = 0;
     /**
-     * Generated from protobuf field <code>optional uint32 spanishTitlesCount = 6;</code>
+     * Generated from protobuf field <code>uint32 spanishTitlesCount = 6;</code>
      */
-    protected $spanishTitlesCount = null;
+    protected $spanishTitlesCount = 0;
 
     /**
      * Constructor.
@@ -59,7 +59,7 @@ class SettingsView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.CommentIcon myIcon = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.CommentIcon myIcon = 1;</code>
      * @return \App\Api\Protobuf\MangaPlus\CommentIcon|null
      */
     public function getMyIcon()
@@ -78,7 +78,7 @@ class SettingsView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.CommentIcon myIcon = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.CommentIcon myIcon = 1;</code>
      * @param \App\Api\Protobuf\MangaPlus\CommentIcon $var
      * @return $this
      */
@@ -91,26 +91,16 @@ class SettingsView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string userName = 2;</code>
+     * Generated from protobuf field <code>string userName = 2;</code>
      * @return string
      */
     public function getUserName()
     {
-        return isset($this->userName) ? $this->userName : '';
-    }
-
-    public function hasUserName()
-    {
-        return isset($this->userName);
-    }
-
-    public function clearUserName()
-    {
-        unset($this->userName);
+        return $this->userName;
     }
 
     /**
-     * Generated from protobuf field <code>optional string userName = 2;</code>
+     * Generated from protobuf field <code>string userName = 2;</code>
      * @param string $var
      * @return $this
      */
@@ -123,26 +113,16 @@ class SettingsView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool noticeOfNewsAndEvents = 3;</code>
+     * Generated from protobuf field <code>bool noticeOfNewsAndEvents = 3;</code>
      * @return bool
      */
     public function getNoticeOfNewsAndEvents()
     {
-        return isset($this->noticeOfNewsAndEvents) ? $this->noticeOfNewsAndEvents : false;
-    }
-
-    public function hasNoticeOfNewsAndEvents()
-    {
-        return isset($this->noticeOfNewsAndEvents);
-    }
-
-    public function clearNoticeOfNewsAndEvents()
-    {
-        unset($this->noticeOfNewsAndEvents);
+        return $this->noticeOfNewsAndEvents;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool noticeOfNewsAndEvents = 3;</code>
+     * Generated from protobuf field <code>bool noticeOfNewsAndEvents = 3;</code>
      * @param bool $var
      * @return $this
      */
@@ -155,26 +135,16 @@ class SettingsView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool noticeOfUpdatesOfSubscribedTitles = 4;</code>
+     * Generated from protobuf field <code>bool noticeOfUpdatesOfSubscribedTitles = 4;</code>
      * @return bool
      */
     public function getNoticeOfUpdatesOfSubscribedTitles()
     {
-        return isset($this->noticeOfUpdatesOfSubscribedTitles) ? $this->noticeOfUpdatesOfSubscribedTitles : false;
-    }
-
-    public function hasNoticeOfUpdatesOfSubscribedTitles()
-    {
-        return isset($this->noticeOfUpdatesOfSubscribedTitles);
-    }
-
-    public function clearNoticeOfUpdatesOfSubscribedTitles()
-    {
-        unset($this->noticeOfUpdatesOfSubscribedTitles);
+        return $this->noticeOfUpdatesOfSubscribedTitles;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool noticeOfUpdatesOfSubscribedTitles = 4;</code>
+     * Generated from protobuf field <code>bool noticeOfUpdatesOfSubscribedTitles = 4;</code>
      * @param bool $var
      * @return $this
      */
@@ -187,26 +157,16 @@ class SettingsView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 englishTitlesCount = 5;</code>
+     * Generated from protobuf field <code>uint32 englishTitlesCount = 5;</code>
      * @return int
      */
     public function getEnglishTitlesCount()
     {
-        return isset($this->englishTitlesCount) ? $this->englishTitlesCount : 0;
-    }
-
-    public function hasEnglishTitlesCount()
-    {
-        return isset($this->englishTitlesCount);
-    }
-
-    public function clearEnglishTitlesCount()
-    {
-        unset($this->englishTitlesCount);
+        return $this->englishTitlesCount;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 englishTitlesCount = 5;</code>
+     * Generated from protobuf field <code>uint32 englishTitlesCount = 5;</code>
      * @param int $var
      * @return $this
      */
@@ -219,26 +179,16 @@ class SettingsView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 spanishTitlesCount = 6;</code>
+     * Generated from protobuf field <code>uint32 spanishTitlesCount = 6;</code>
      * @return int
      */
     public function getSpanishTitlesCount()
     {
-        return isset($this->spanishTitlesCount) ? $this->spanishTitlesCount : 0;
-    }
-
-    public function hasSpanishTitlesCount()
-    {
-        return isset($this->spanishTitlesCount);
-    }
-
-    public function clearSpanishTitlesCount()
-    {
-        unset($this->spanishTitlesCount);
+        return $this->spanishTitlesCount;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 spanishTitlesCount = 6;</code>
+     * Generated from protobuf field <code>uint32 spanishTitlesCount = 6;</code>
      * @param int $var
      * @return $this
      */

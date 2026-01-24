@@ -15,17 +15,17 @@ use Google\Protobuf\RepeatedField;
 class Banner extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 1;</code>
+     * Generated from protobuf field <code>string imageUrl = 1;</code>
      */
-    protected $imageUrl = null;
+    protected $imageUrl = '';
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TransitionAction action = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.TransitionAction action = 2;</code>
      */
     protected $action = null;
     /**
-     * Generated from protobuf field <code>optional uint32 id = 3;</code>
+     * Generated from protobuf field <code>uint32 id = 3;</code>
      */
-    protected $id = null;
+    protected $id = 0;
 
     /**
      * Constructor.
@@ -44,26 +44,16 @@ class Banner extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 1;</code>
+     * Generated from protobuf field <code>string imageUrl = 1;</code>
      * @return string
      */
     public function getImageUrl()
     {
-        return isset($this->imageUrl) ? $this->imageUrl : '';
-    }
-
-    public function hasImageUrl()
-    {
-        return isset($this->imageUrl);
-    }
-
-    public function clearImageUrl()
-    {
-        unset($this->imageUrl);
+        return $this->imageUrl;
     }
 
     /**
-     * Generated from protobuf field <code>optional string imageUrl = 1;</code>
+     * Generated from protobuf field <code>string imageUrl = 1;</code>
      * @param string $var
      * @return $this
      */
@@ -76,7 +66,7 @@ class Banner extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TransitionAction action = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.TransitionAction action = 2;</code>
      * @return \App\Api\Protobuf\MangaPlus\TransitionAction|null
      */
     public function getAction()
@@ -95,7 +85,7 @@ class Banner extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TransitionAction action = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.TransitionAction action = 2;</code>
      * @param \App\Api\Protobuf\MangaPlus\TransitionAction $var
      * @return $this
      */
@@ -108,26 +98,16 @@ class Banner extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 id = 3;</code>
+     * Generated from protobuf field <code>uint32 id = 3;</code>
      * @return int
      */
     public function getId()
     {
-        return isset($this->id) ? $this->id : 0;
-    }
-
-    public function hasId()
-    {
-        return isset($this->id);
-    }
-
-    public function clearId()
-    {
-        unset($this->id);
+        return $this->id;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 id = 3;</code>
+     * Generated from protobuf field <code>uint32 id = 3;</code>
      * @param int $var
      * @return $this
      */

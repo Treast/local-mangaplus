@@ -15,17 +15,17 @@ use Google\Protobuf\RepeatedField;
 class ServiceAnnouncement extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string title = 1;</code>
+     * Generated from protobuf field <code>string title = 1;</code>
      */
-    protected $title = null;
+    protected $title = '';
     /**
-     * Generated from protobuf field <code>optional string body = 2;</code>
+     * Generated from protobuf field <code>string body = 2;</code>
      */
-    protected $body = null;
+    protected $body = '';
     /**
-     * Generated from protobuf field <code>optional int32 date = 3;</code>
+     * Generated from protobuf field <code>int32 date = 3;</code>
      */
-    protected $date = null;
+    protected $date = 0;
 
     /**
      * Constructor.
@@ -44,26 +44,16 @@ class ServiceAnnouncement extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string title = 1;</code>
+     * Generated from protobuf field <code>string title = 1;</code>
      * @return string
      */
     public function getTitle()
     {
-        return isset($this->title) ? $this->title : '';
-    }
-
-    public function hasTitle()
-    {
-        return isset($this->title);
-    }
-
-    public function clearTitle()
-    {
-        unset($this->title);
+        return $this->title;
     }
 
     /**
-     * Generated from protobuf field <code>optional string title = 1;</code>
+     * Generated from protobuf field <code>string title = 1;</code>
      * @param string $var
      * @return $this
      */
@@ -76,26 +66,16 @@ class ServiceAnnouncement extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string body = 2;</code>
+     * Generated from protobuf field <code>string body = 2;</code>
      * @return string
      */
     public function getBody()
     {
-        return isset($this->body) ? $this->body : '';
-    }
-
-    public function hasBody()
-    {
-        return isset($this->body);
-    }
-
-    public function clearBody()
-    {
-        unset($this->body);
+        return $this->body;
     }
 
     /**
-     * Generated from protobuf field <code>optional string body = 2;</code>
+     * Generated from protobuf field <code>string body = 2;</code>
      * @param string $var
      * @return $this
      */
@@ -108,26 +88,16 @@ class ServiceAnnouncement extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 date = 3;</code>
+     * Generated from protobuf field <code>int32 date = 3;</code>
      * @return int
      */
     public function getDate()
     {
-        return isset($this->date) ? $this->date : 0;
-    }
-
-    public function hasDate()
-    {
-        return isset($this->date);
-    }
-
-    public function clearDate()
-    {
-        unset($this->date);
+        return $this->date;
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 date = 3;</code>
+     * Generated from protobuf field <code>int32 date = 3;</code>
      * @param int $var
      * @return $this
      */

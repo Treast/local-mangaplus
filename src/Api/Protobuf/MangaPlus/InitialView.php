@@ -15,17 +15,17 @@ use Google\Protobuf\RepeatedField;
 class InitialView extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional bool gdprAgreementRequired = 1;</code>
+     * Generated from protobuf field <code>bool gdprAgreementRequired = 1;</code>
      */
-    protected $gdprAgreementRequired = null;
+    protected $gdprAgreementRequired = false;
     /**
-     * Generated from protobuf field <code>optional uint32 englishTitlesCount = 2;</code>
+     * Generated from protobuf field <code>uint32 englishTitlesCount = 2;</code>
      */
-    protected $englishTitlesCount = null;
+    protected $englishTitlesCount = 0;
     /**
-     * Generated from protobuf field <code>optional uint32 spanishTitlesCount = 3;</code>
+     * Generated from protobuf field <code>uint32 spanishTitlesCount = 3;</code>
      */
-    protected $spanishTitlesCount = null;
+    protected $spanishTitlesCount = 0;
 
     /**
      * Constructor.
@@ -44,26 +44,16 @@ class InitialView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool gdprAgreementRequired = 1;</code>
+     * Generated from protobuf field <code>bool gdprAgreementRequired = 1;</code>
      * @return bool
      */
     public function getGdprAgreementRequired()
     {
-        return isset($this->gdprAgreementRequired) ? $this->gdprAgreementRequired : false;
-    }
-
-    public function hasGdprAgreementRequired()
-    {
-        return isset($this->gdprAgreementRequired);
-    }
-
-    public function clearGdprAgreementRequired()
-    {
-        unset($this->gdprAgreementRequired);
+        return $this->gdprAgreementRequired;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool gdprAgreementRequired = 1;</code>
+     * Generated from protobuf field <code>bool gdprAgreementRequired = 1;</code>
      * @param bool $var
      * @return $this
      */
@@ -76,26 +66,16 @@ class InitialView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 englishTitlesCount = 2;</code>
+     * Generated from protobuf field <code>uint32 englishTitlesCount = 2;</code>
      * @return int
      */
     public function getEnglishTitlesCount()
     {
-        return isset($this->englishTitlesCount) ? $this->englishTitlesCount : 0;
-    }
-
-    public function hasEnglishTitlesCount()
-    {
-        return isset($this->englishTitlesCount);
-    }
-
-    public function clearEnglishTitlesCount()
-    {
-        unset($this->englishTitlesCount);
+        return $this->englishTitlesCount;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 englishTitlesCount = 2;</code>
+     * Generated from protobuf field <code>uint32 englishTitlesCount = 2;</code>
      * @param int $var
      * @return $this
      */
@@ -108,26 +88,16 @@ class InitialView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 spanishTitlesCount = 3;</code>
+     * Generated from protobuf field <code>uint32 spanishTitlesCount = 3;</code>
      * @return int
      */
     public function getSpanishTitlesCount()
     {
-        return isset($this->spanishTitlesCount) ? $this->spanishTitlesCount : 0;
-    }
-
-    public function hasSpanishTitlesCount()
-    {
-        return isset($this->spanishTitlesCount);
-    }
-
-    public function clearSpanishTitlesCount()
-    {
-        unset($this->spanishTitlesCount);
+        return $this->spanishTitlesCount;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 spanishTitlesCount = 3;</code>
+     * Generated from protobuf field <code>uint32 spanishTitlesCount = 3;</code>
      * @param int $var
      * @return $this
      */

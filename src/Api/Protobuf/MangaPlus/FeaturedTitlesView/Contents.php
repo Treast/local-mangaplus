@@ -15,11 +15,11 @@ use Google\Protobuf\RepeatedField;
 class Contents extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner banner = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner banner = 1;</code>
      */
     protected $banner = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TitleList titleList = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.TitleList titleList = 2;</code>
      */
     protected $titleList = null;
 
@@ -39,7 +39,7 @@ class Contents extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner banner = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner banner = 1;</code>
      * @return \App\Api\Protobuf\MangaPlus\Banner|null
      */
     public function getBanner()
@@ -58,7 +58,7 @@ class Contents extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner banner = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner banner = 1;</code>
      * @param \App\Api\Protobuf\MangaPlus\Banner $var
      * @return $this
      */
@@ -71,7 +71,7 @@ class Contents extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TitleList titleList = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.TitleList titleList = 2;</code>
      * @return \App\Api\Protobuf\MangaPlus\TitleList|null
      */
     public function getTitleList()
@@ -90,7 +90,7 @@ class Contents extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TitleList titleList = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.TitleList titleList = 2;</code>
      * @param \App\Api\Protobuf\MangaPlus\TitleList $var
      * @return $this
      */

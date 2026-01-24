@@ -19,11 +19,11 @@ class ProfileSettingsView extends \Google\Protobuf\Internal\Message
      */
     private $iconList;
     /**
-     * Generated from protobuf field <code>optional string userName = 2;</code>
+     * Generated from protobuf field <code>string userName = 2;</code>
      */
-    protected $userName = null;
+    protected $userName = '';
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.CommentIcon myIcon = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.CommentIcon myIcon = 3;</code>
      */
     protected $myIcon = null;
 
@@ -66,26 +66,16 @@ class ProfileSettingsView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string userName = 2;</code>
+     * Generated from protobuf field <code>string userName = 2;</code>
      * @return string
      */
     public function getUserName()
     {
-        return isset($this->userName) ? $this->userName : '';
-    }
-
-    public function hasUserName()
-    {
-        return isset($this->userName);
-    }
-
-    public function clearUserName()
-    {
-        unset($this->userName);
+        return $this->userName;
     }
 
     /**
-     * Generated from protobuf field <code>optional string userName = 2;</code>
+     * Generated from protobuf field <code>string userName = 2;</code>
      * @param string $var
      * @return $this
      */
@@ -98,7 +88,7 @@ class ProfileSettingsView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.CommentIcon myIcon = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.CommentIcon myIcon = 3;</code>
      * @return \App\Api\Protobuf\MangaPlus\CommentIcon|null
      */
     public function getMyIcon()
@@ -117,7 +107,7 @@ class ProfileSettingsView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.CommentIcon myIcon = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.CommentIcon myIcon = 3;</code>
      * @param \App\Api\Protobuf\MangaPlus\CommentIcon $var
      * @return $this
      */

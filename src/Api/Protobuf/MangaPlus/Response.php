@@ -14,14 +14,7 @@ use Google\Protobuf\RepeatedField;
  */
 class Response extends \Google\Protobuf\Internal\Message
 {
-    /**
-     * Generated from protobuf field <code>optional .MangaPlus.SuccessResult success = 1;</code>
-     */
-    protected $success = null;
-    /**
-     * Generated from protobuf field <code>optional .MangaPlus.ErrorResult error = 2;</code>
-     */
-    protected $error = null;
+    protected $result;
 
     /**
      * Constructor.
@@ -39,67 +32,65 @@ class Response extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.SuccessResult success = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.SuccessResult success = 1;</code>
      * @return \App\Api\Protobuf\MangaPlus\SuccessResult|null
      */
     public function getSuccess()
     {
-        return $this->success;
+        return $this->readOneof(1);
     }
 
     public function hasSuccess()
     {
-        return isset($this->success);
-    }
-
-    public function clearSuccess()
-    {
-        unset($this->success);
+        return $this->hasOneof(1);
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.SuccessResult success = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.SuccessResult success = 1;</code>
      * @param \App\Api\Protobuf\MangaPlus\SuccessResult $var
      * @return $this
      */
     public function setSuccess($var)
     {
         GPBUtil::checkMessage($var, \App\Api\Protobuf\MangaPlus\SuccessResult::class);
-        $this->success = $var;
+        $this->writeOneof(1, $var);
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.ErrorResult error = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.ErrorResult error = 2;</code>
      * @return \App\Api\Protobuf\MangaPlus\ErrorResult|null
      */
     public function getError()
     {
-        return $this->error;
+        return $this->readOneof(2);
     }
 
     public function hasError()
     {
-        return isset($this->error);
-    }
-
-    public function clearError()
-    {
-        unset($this->error);
+        return $this->hasOneof(2);
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.ErrorResult error = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.ErrorResult error = 2;</code>
      * @param \App\Api\Protobuf\MangaPlus\ErrorResult $var
      * @return $this
      */
     public function setError($var)
     {
         GPBUtil::checkMessage($var, \App\Api\Protobuf\MangaPlus\ErrorResult::class);
-        $this->error = $var;
+        $this->writeOneof(2, $var);
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResult()
+    {
+        return $this->whichOneof("result");
     }
 
 }

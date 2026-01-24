@@ -19,9 +19,9 @@ class CommentListView extends \Google\Protobuf\Internal\Message
      */
     private $comments;
     /**
-     * Generated from protobuf field <code>optional bool ifSetUserName = 2;</code>
+     * Generated from protobuf field <code>bool ifSetUserName = 2;</code>
      */
-    protected $ifSetUserName = null;
+    protected $ifSetUserName = false;
 
     /**
      * Constructor.
@@ -61,26 +61,16 @@ class CommentListView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool ifSetUserName = 2;</code>
+     * Generated from protobuf field <code>bool ifSetUserName = 2;</code>
      * @return bool
      */
     public function getIfSetUserName()
     {
-        return isset($this->ifSetUserName) ? $this->ifSetUserName : false;
-    }
-
-    public function hasIfSetUserName()
-    {
-        return isset($this->ifSetUserName);
-    }
-
-    public function clearIfSetUserName()
-    {
-        unset($this->ifSetUserName);
+        return $this->ifSetUserName;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool ifSetUserName = 2;</code>
+     * Generated from protobuf field <code>bool ifSetUserName = 2;</code>
      * @param bool $var
      * @return $this
      */

@@ -3,25 +3,21 @@
 # NO CHECKED-IN PROTOBUF GENCODE
 # source: ShueishaMangaPlus.proto
 
-namespace App\Api\Protobuf\MangaPlus\TitleDetailView;
+namespace App\Api\Protobuf\MangaPlus;
 
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\GPBUtil;
 use Google\Protobuf\RepeatedField;
 
 /**
- * message PublisherItem {
- * TODO
- * }
- *
- * Generated from protobuf message <code>MangaPlus.TitleDetailView.ChapterGroup</code>
+ * Generated from protobuf message <code>MangaPlus.ChapterGroup</code>
  */
 class ChapterGroup extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string chapterNumbers = 1;</code>
+     * Generated from protobuf field <code>string chapterNumbers = 1;</code>
      */
-    protected $chapterNumbers = null;
+    protected $chapterNumbers = '';
     /**
      * Generated from protobuf field <code>repeated .MangaPlus.Chapter firstChapterList = 2;</code>
      */
@@ -53,26 +49,16 @@ class ChapterGroup extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string chapterNumbers = 1;</code>
+     * Generated from protobuf field <code>string chapterNumbers = 1;</code>
      * @return string
      */
     public function getChapterNumbers()
     {
-        return isset($this->chapterNumbers) ? $this->chapterNumbers : '';
-    }
-
-    public function hasChapterNumbers()
-    {
-        return isset($this->chapterNumbers);
-    }
-
-    public function clearChapterNumbers()
-    {
-        unset($this->chapterNumbers);
+        return $this->chapterNumbers;
     }
 
     /**
-     * Generated from protobuf field <code>optional string chapterNumbers = 1;</code>
+     * Generated from protobuf field <code>string chapterNumbers = 1;</code>
      * @param string $var
      * @return $this
      */

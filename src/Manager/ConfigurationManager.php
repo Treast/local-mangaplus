@@ -13,6 +13,16 @@ readonly class ConfigurationManager
         private EntityManagerInterface $entityManager
     ) {}
 
+    public function get(string $key): ?Configuration
+    {
+        return $this->configurationRepository->get($key);
+    }
+
+    public function getValue(string $key): mixed
+    {
+        return $this->configurationRepository->getValue($key);
+    }
+
     public function set(string $key, mixed $value): void
     {
         if (!$configuration = $this->configurationRepository->get($key)) {

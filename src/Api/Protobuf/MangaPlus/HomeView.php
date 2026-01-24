@@ -23,14 +23,7 @@ class HomeView extends \Google\Protobuf\Internal\Message
      */
     private $groups;
     /**
-     *optional TYPE NAME = 3;
-     *optional TYPE NAME = 4;
-     *optional TYPE NAME = 5;
-     *optional TYPE NAME = 6;
-     *optional TYPE NAME = 7;
-     *optional TYPE NAME = 8;
-     *
-     * Generated from protobuf field <code>optional .MangaPlus.Popup popup = 9;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup popup = 9;</code>
      */
     protected $popup = null;
 
@@ -43,12 +36,6 @@ class HomeView extends \Google\Protobuf\Internal\Message
      *     @type \App\Api\Protobuf\MangaPlus\Banner[] $topBanners
      *     @type \App\Api\Protobuf\MangaPlus\UpdatedTitleGroup[] $groups
      *     @type \App\Api\Protobuf\MangaPlus\Popup $popup
-     *          optional TYPE NAME = 3;
-     *          optional TYPE NAME = 4;
-     *          optional TYPE NAME = 5;
-     *          optional TYPE NAME = 6;
-     *          optional TYPE NAME = 7;
-     *          optional TYPE NAME = 8;
      * }
      */
     public function __construct($data = NULL) {
@@ -101,14 +88,7 @@ class HomeView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *optional TYPE NAME = 3;
-     *optional TYPE NAME = 4;
-     *optional TYPE NAME = 5;
-     *optional TYPE NAME = 6;
-     *optional TYPE NAME = 7;
-     *optional TYPE NAME = 8;
-     *
-     * Generated from protobuf field <code>optional .MangaPlus.Popup popup = 9;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup popup = 9;</code>
      * @return \App\Api\Protobuf\MangaPlus\Popup|null
      */
     public function getPopup()
@@ -127,14 +107,7 @@ class HomeView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *optional TYPE NAME = 3;
-     *optional TYPE NAME = 4;
-     *optional TYPE NAME = 5;
-     *optional TYPE NAME = 6;
-     *optional TYPE NAME = 7;
-     *optional TYPE NAME = 8;
-     *
-     * Generated from protobuf field <code>optional .MangaPlus.Popup popup = 9;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup popup = 9;</code>
      * @param \App\Api\Protobuf\MangaPlus\Popup $var
      * @return $this
      */

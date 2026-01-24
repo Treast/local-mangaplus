@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class Facebook extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string placementID = 1;</code>
+     * Generated from protobuf field <code>string placementID = 1;</code>
      */
-    protected $placementID = null;
+    protected $placementID = '';
 
     /**
      * Constructor.
@@ -34,26 +34,16 @@ class Facebook extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string placementID = 1;</code>
+     * Generated from protobuf field <code>string placementID = 1;</code>
      * @return string
      */
     public function getPlacementID()
     {
-        return isset($this->placementID) ? $this->placementID : '';
-    }
-
-    public function hasPlacementID()
-    {
-        return isset($this->placementID);
-    }
-
-    public function clearPlacementID()
-    {
-        unset($this->placementID);
+        return $this->placementID;
     }
 
     /**
-     * Generated from protobuf field <code>optional string placementID = 1;</code>
+     * Generated from protobuf field <code>string placementID = 1;</code>
      * @param string $var
      * @return $this
      */

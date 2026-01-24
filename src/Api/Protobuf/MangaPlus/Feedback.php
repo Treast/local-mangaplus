@@ -15,17 +15,17 @@ use Google\Protobuf\RepeatedField;
 class Feedback extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional uint32 timeStamp = 1;</code>
+     * Generated from protobuf field <code>uint32 timeStamp = 1;</code>
      */
-    protected $timeStamp = null;
+    protected $timeStamp = 0;
     /**
-     * Generated from protobuf field <code>optional string body = 2;</code>
+     * Generated from protobuf field <code>string body = 2;</code>
      */
-    protected $body = null;
+    protected $body = '';
     /**
-     * Generated from protobuf field <code>optional int32 responseType = 3;</code>
+     * Generated from protobuf field <code>int32 responseType = 3;</code>
      */
-    protected $responseType = null;
+    protected $responseType = 0;
 
     /**
      * Constructor.
@@ -44,26 +44,16 @@ class Feedback extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 timeStamp = 1;</code>
+     * Generated from protobuf field <code>uint32 timeStamp = 1;</code>
      * @return int
      */
     public function getTimeStamp()
     {
-        return isset($this->timeStamp) ? $this->timeStamp : 0;
-    }
-
-    public function hasTimeStamp()
-    {
-        return isset($this->timeStamp);
-    }
-
-    public function clearTimeStamp()
-    {
-        unset($this->timeStamp);
+        return $this->timeStamp;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 timeStamp = 1;</code>
+     * Generated from protobuf field <code>uint32 timeStamp = 1;</code>
      * @param int $var
      * @return $this
      */
@@ -76,26 +66,16 @@ class Feedback extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string body = 2;</code>
+     * Generated from protobuf field <code>string body = 2;</code>
      * @return string
      */
     public function getBody()
     {
-        return isset($this->body) ? $this->body : '';
-    }
-
-    public function hasBody()
-    {
-        return isset($this->body);
-    }
-
-    public function clearBody()
-    {
-        unset($this->body);
+        return $this->body;
     }
 
     /**
-     * Generated from protobuf field <code>optional string body = 2;</code>
+     * Generated from protobuf field <code>string body = 2;</code>
      * @param string $var
      * @return $this
      */
@@ -108,26 +88,16 @@ class Feedback extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 responseType = 3;</code>
+     * Generated from protobuf field <code>int32 responseType = 3;</code>
      * @return int
      */
     public function getResponseType()
     {
-        return isset($this->responseType) ? $this->responseType : 0;
-    }
-
-    public function hasResponseType()
-    {
-        return isset($this->responseType);
-    }
-
-    public function clearResponseType()
-    {
-        unset($this->responseType);
+        return $this->responseType;
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 responseType = 3;</code>
+     * Generated from protobuf field <code>int32 responseType = 3;</code>
      * @param int $var
      * @return $this
      */

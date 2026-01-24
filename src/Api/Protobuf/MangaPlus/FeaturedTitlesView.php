@@ -15,15 +15,15 @@ use Google\Protobuf\RepeatedField;
 class FeaturedTitlesView extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner mainBanner = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner mainBanner = 1;</code>
      */
     protected $mainBanner = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner subBanner_1 = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner subBanner_1 = 2;</code>
      */
     protected $subBanner_1 = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner subBanner_2 = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner subBanner_2 = 3;</code>
      */
     protected $subBanner_2 = null;
     /**
@@ -49,7 +49,7 @@ class FeaturedTitlesView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner mainBanner = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner mainBanner = 1;</code>
      * @return \App\Api\Protobuf\MangaPlus\Banner|null
      */
     public function getMainBanner()
@@ -68,7 +68,7 @@ class FeaturedTitlesView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner mainBanner = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner mainBanner = 1;</code>
      * @param \App\Api\Protobuf\MangaPlus\Banner $var
      * @return $this
      */
@@ -81,7 +81,7 @@ class FeaturedTitlesView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner subBanner_1 = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner subBanner_1 = 2;</code>
      * @return \App\Api\Protobuf\MangaPlus\Banner|null
      */
     public function getSubBanner1()
@@ -100,7 +100,7 @@ class FeaturedTitlesView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner subBanner_1 = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner subBanner_1 = 2;</code>
      * @param \App\Api\Protobuf\MangaPlus\Banner $var
      * @return $this
      */
@@ -113,7 +113,7 @@ class FeaturedTitlesView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner subBanner_2 = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner subBanner_2 = 3;</code>
      * @return \App\Api\Protobuf\MangaPlus\Banner|null
      */
     public function getSubBanner2()
@@ -132,7 +132,7 @@ class FeaturedTitlesView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Banner subBanner_2 = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.Banner subBanner_2 = 3;</code>
      * @param \App\Api\Protobuf\MangaPlus\Banner $var
      * @return $this
      */

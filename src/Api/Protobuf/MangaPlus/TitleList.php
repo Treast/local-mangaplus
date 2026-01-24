@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class TitleList extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string listName = 1;</code>
+     * Generated from protobuf field <code>string listName = 1;</code>
      */
-    protected $listName = null;
+    protected $listName = '';
     /**
      * Generated from protobuf field <code>repeated .MangaPlus.Title featuredTitles = 2;</code>
      */
@@ -39,26 +39,16 @@ class TitleList extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string listName = 1;</code>
+     * Generated from protobuf field <code>string listName = 1;</code>
      * @return string
      */
     public function getListName()
     {
-        return isset($this->listName) ? $this->listName : '';
-    }
-
-    public function hasListName()
-    {
-        return isset($this->listName);
-    }
-
-    public function clearListName()
-    {
-        unset($this->listName);
+        return $this->listName;
     }
 
     /**
-     * Generated from protobuf field <code>optional string listName = 1;</code>
+     * Generated from protobuf field <code>string listName = 1;</code>
      * @param string $var
      * @return $this
      */

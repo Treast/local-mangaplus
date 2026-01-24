@@ -15,13 +15,13 @@ use Google\Protobuf\RepeatedField;
 class Sns extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string body = 1;</code>
+     * Generated from protobuf field <code>string body = 1;</code>
      */
-    protected $body = null;
+    protected $body = '';
     /**
-     * Generated from protobuf field <code>optional string url = 2;</code>
+     * Generated from protobuf field <code>string url = 2;</code>
      */
-    protected $url = null;
+    protected $url = '';
 
     /**
      * Constructor.
@@ -39,26 +39,16 @@ class Sns extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string body = 1;</code>
+     * Generated from protobuf field <code>string body = 1;</code>
      * @return string
      */
     public function getBody()
     {
-        return isset($this->body) ? $this->body : '';
-    }
-
-    public function hasBody()
-    {
-        return isset($this->body);
-    }
-
-    public function clearBody()
-    {
-        unset($this->body);
+        return $this->body;
     }
 
     /**
-     * Generated from protobuf field <code>optional string body = 1;</code>
+     * Generated from protobuf field <code>string body = 1;</code>
      * @param string $var
      * @return $this
      */
@@ -71,26 +61,16 @@ class Sns extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string url = 2;</code>
+     * Generated from protobuf field <code>string url = 2;</code>
      * @return string
      */
     public function getUrl()
     {
-        return isset($this->url) ? $this->url : '';
-    }
-
-    public function hasUrl()
-    {
-        return isset($this->url);
-    }
-
-    public function clearUrl()
-    {
-        unset($this->url);
+        return $this->url;
     }
 
     /**
-     * Generated from protobuf field <code>optional string url = 2;</code>
+     * Generated from protobuf field <code>string url = 2;</code>
      * @param string $var
      * @return $this
      */

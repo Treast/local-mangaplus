@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class RegistrationData extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string deviceSecret = 1;</code>
+     * Generated from protobuf field <code>string deviceSecret = 1;</code>
      */
-    protected $deviceSecret = null;
+    protected $deviceSecret = '';
 
     /**
      * Constructor.
@@ -34,26 +34,16 @@ class RegistrationData extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string deviceSecret = 1;</code>
+     * Generated from protobuf field <code>string deviceSecret = 1;</code>
      * @return string
      */
     public function getDeviceSecret()
     {
-        return isset($this->deviceSecret) ? $this->deviceSecret : '';
-    }
-
-    public function hasDeviceSecret()
-    {
-        return isset($this->deviceSecret);
-    }
-
-    public function clearDeviceSecret()
-    {
-        unset($this->deviceSecret);
+        return $this->deviceSecret;
     }
 
     /**
-     * Generated from protobuf field <code>optional string deviceSecret = 1;</code>
+     * Generated from protobuf field <code>string deviceSecret = 1;</code>
      * @param string $var
      * @return $this
      */

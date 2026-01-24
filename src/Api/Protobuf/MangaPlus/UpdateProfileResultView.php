@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class UpdateProfileResultView extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional int32 result = 1;</code>
+     * Generated from protobuf field <code>int32 result = 1;</code>
      */
-    protected $result = null;
+    protected $result = 0;
 
     /**
      * Constructor.
@@ -34,26 +34,16 @@ class UpdateProfileResultView extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 result = 1;</code>
+     * Generated from protobuf field <code>int32 result = 1;</code>
      * @return int
      */
     public function getResult()
     {
-        return isset($this->result) ? $this->result : 0;
-    }
-
-    public function hasResult()
-    {
-        return isset($this->result);
-    }
-
-    public function clearResult()
-    {
-        unset($this->result);
+        return $this->result;
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 result = 1;</code>
+     * Generated from protobuf field <code>int32 result = 1;</code>
      * @param int $var
      * @return $this
      */

@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class UpdatedTitleGroup extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string groupName = 1;</code>
+     * Generated from protobuf field <code>string groupName = 1;</code>
      */
-    protected $groupName = null;
+    protected $groupName = '';
     /**
      * Generated from protobuf field <code>repeated .MangaPlus.UpdatedTitle titles = 2;</code>
      */
@@ -39,26 +39,16 @@ class UpdatedTitleGroup extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string groupName = 1;</code>
+     * Generated from protobuf field <code>string groupName = 1;</code>
      * @return string
      */
     public function getGroupName()
     {
-        return isset($this->groupName) ? $this->groupName : '';
-    }
-
-    public function hasGroupName()
-    {
-        return isset($this->groupName);
-    }
-
-    public function clearGroupName()
-    {
-        unset($this->groupName);
+        return $this->groupName;
     }
 
     /**
-     * Generated from protobuf field <code>optional string groupName = 1;</code>
+     * Generated from protobuf field <code>string groupName = 1;</code>
      * @param string $var
      * @return $this
      */

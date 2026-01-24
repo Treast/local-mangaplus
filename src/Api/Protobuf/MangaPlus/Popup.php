@@ -15,15 +15,15 @@ use Google\Protobuf\RepeatedField;
 class Popup extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.OSDefault osDefault = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.OSDefault osDefault = 1;</code>
      */
     protected $osDefault = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.AppDefault appDefault = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.AppDefault appDefault = 2;</code>
      */
     protected $appDefault = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.MovieReward movieReward = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.MovieReward movieReward = 3;</code>
      */
     protected $movieReward = null;
 
@@ -44,7 +44,7 @@ class Popup extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.OSDefault osDefault = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.OSDefault osDefault = 1;</code>
      * @return \App\Api\Protobuf\MangaPlus\Popup\OSDefault|null
      */
     public function getOsDefault()
@@ -63,7 +63,7 @@ class Popup extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.OSDefault osDefault = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.OSDefault osDefault = 1;</code>
      * @param \App\Api\Protobuf\MangaPlus\Popup\OSDefault $var
      * @return $this
      */
@@ -76,7 +76,7 @@ class Popup extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.AppDefault appDefault = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.AppDefault appDefault = 2;</code>
      * @return \App\Api\Protobuf\MangaPlus\Popup\AppDefault|null
      */
     public function getAppDefault()
@@ -95,7 +95,7 @@ class Popup extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.AppDefault appDefault = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.AppDefault appDefault = 2;</code>
      * @param \App\Api\Protobuf\MangaPlus\Popup\AppDefault $var
      * @return $this
      */
@@ -108,7 +108,7 @@ class Popup extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.MovieReward movieReward = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.MovieReward movieReward = 3;</code>
      * @return \App\Api\Protobuf\MangaPlus\MovieReward|null
      */
     public function getMovieReward()
@@ -127,7 +127,7 @@ class Popup extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.MovieReward movieReward = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.MovieReward movieReward = 3;</code>
      * @param \App\Api\Protobuf\MangaPlus\MovieReward $var
      * @return $this
      */

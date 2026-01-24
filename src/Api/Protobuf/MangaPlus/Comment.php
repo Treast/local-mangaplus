@@ -15,45 +15,41 @@ use Google\Protobuf\RepeatedField;
 class Comment extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional uint32 id = 1;</code>
+     * Generated from protobuf field <code>uint32 id = 1;</code>
      */
-    protected $id = null;
+    protected $id = 0;
     /**
-     * Generated from protobuf field <code>optional uint32 index = 2;</code>
+     * Generated from protobuf field <code>uint32 index = 2;</code>
      */
-    protected $index = null;
+    protected $index = 0;
     /**
-     * Generated from protobuf field <code>optional string userName = 3;</code>
+     * Generated from protobuf field <code>string userName = 3;</code>
      */
-    protected $userName = null;
+    protected $userName = '';
     /**
-     * Generated from protobuf field <code>optional string iconUrl = 4;</code>
+     * Generated from protobuf field <code>string iconUrl = 4;</code>
      */
-    protected $iconUrl = null;
+    protected $iconUrl = '';
     /**
-     *optional TYPE NAME = 5;
-     *
-     * Generated from protobuf field <code>optional bool isMyComment = 6;</code>
+     * Generated from protobuf field <code>bool isMyComment = 6;</code>
      */
-    protected $isMyComment = null;
+    protected $isMyComment = false;
     /**
-     * Generated from protobuf field <code>optional bool alreadyLiked = 7;</code>
+     * Generated from protobuf field <code>bool alreadyLiked = 7;</code>
      */
-    protected $alreadyLiked = null;
+    protected $alreadyLiked = false;
     /**
-     *optional TYPE NAME = 8;
-     *
-     * Generated from protobuf field <code>optional uint32 numberOfLikes = 9;</code>
+     * Generated from protobuf field <code>uint32 numberOfLikes = 9;</code>
      */
-    protected $numberOfLikes = null;
+    protected $numberOfLikes = 0;
     /**
-     * Generated from protobuf field <code>optional string body = 10;</code>
+     * Generated from protobuf field <code>string body = 10;</code>
      */
-    protected $body = null;
+    protected $body = '';
     /**
-     * Generated from protobuf field <code>optional uint32 created = 11;</code>
+     * Generated from protobuf field <code>uint32 created = 11;</code>
      */
-    protected $created = null;
+    protected $created = 0;
 
     /**
      * Constructor.
@@ -66,10 +62,8 @@ class Comment extends \Google\Protobuf\Internal\Message
      *     @type string $userName
      *     @type string $iconUrl
      *     @type bool $isMyComment
-     *          optional TYPE NAME = 5;
      *     @type bool $alreadyLiked
      *     @type int $numberOfLikes
-     *          optional TYPE NAME = 8;
      *     @type string $body
      *     @type int $created
      * }
@@ -80,26 +74,16 @@ class Comment extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 id = 1;</code>
+     * Generated from protobuf field <code>uint32 id = 1;</code>
      * @return int
      */
     public function getId()
     {
-        return isset($this->id) ? $this->id : 0;
-    }
-
-    public function hasId()
-    {
-        return isset($this->id);
-    }
-
-    public function clearId()
-    {
-        unset($this->id);
+        return $this->id;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 id = 1;</code>
+     * Generated from protobuf field <code>uint32 id = 1;</code>
      * @param int $var
      * @return $this
      */
@@ -112,26 +96,16 @@ class Comment extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 index = 2;</code>
+     * Generated from protobuf field <code>uint32 index = 2;</code>
      * @return int
      */
     public function getIndex()
     {
-        return isset($this->index) ? $this->index : 0;
-    }
-
-    public function hasIndex()
-    {
-        return isset($this->index);
-    }
-
-    public function clearIndex()
-    {
-        unset($this->index);
+        return $this->index;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 index = 2;</code>
+     * Generated from protobuf field <code>uint32 index = 2;</code>
      * @param int $var
      * @return $this
      */
@@ -144,26 +118,16 @@ class Comment extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string userName = 3;</code>
+     * Generated from protobuf field <code>string userName = 3;</code>
      * @return string
      */
     public function getUserName()
     {
-        return isset($this->userName) ? $this->userName : '';
-    }
-
-    public function hasUserName()
-    {
-        return isset($this->userName);
-    }
-
-    public function clearUserName()
-    {
-        unset($this->userName);
+        return $this->userName;
     }
 
     /**
-     * Generated from protobuf field <code>optional string userName = 3;</code>
+     * Generated from protobuf field <code>string userName = 3;</code>
      * @param string $var
      * @return $this
      */
@@ -176,26 +140,16 @@ class Comment extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string iconUrl = 4;</code>
+     * Generated from protobuf field <code>string iconUrl = 4;</code>
      * @return string
      */
     public function getIconUrl()
     {
-        return isset($this->iconUrl) ? $this->iconUrl : '';
-    }
-
-    public function hasIconUrl()
-    {
-        return isset($this->iconUrl);
-    }
-
-    public function clearIconUrl()
-    {
-        unset($this->iconUrl);
+        return $this->iconUrl;
     }
 
     /**
-     * Generated from protobuf field <code>optional string iconUrl = 4;</code>
+     * Generated from protobuf field <code>string iconUrl = 4;</code>
      * @param string $var
      * @return $this
      */
@@ -208,30 +162,16 @@ class Comment extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *optional TYPE NAME = 5;
-     *
-     * Generated from protobuf field <code>optional bool isMyComment = 6;</code>
+     * Generated from protobuf field <code>bool isMyComment = 6;</code>
      * @return bool
      */
     public function getIsMyComment()
     {
-        return isset($this->isMyComment) ? $this->isMyComment : false;
-    }
-
-    public function hasIsMyComment()
-    {
-        return isset($this->isMyComment);
-    }
-
-    public function clearIsMyComment()
-    {
-        unset($this->isMyComment);
+        return $this->isMyComment;
     }
 
     /**
-     *optional TYPE NAME = 5;
-     *
-     * Generated from protobuf field <code>optional bool isMyComment = 6;</code>
+     * Generated from protobuf field <code>bool isMyComment = 6;</code>
      * @param bool $var
      * @return $this
      */
@@ -244,26 +184,16 @@ class Comment extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool alreadyLiked = 7;</code>
+     * Generated from protobuf field <code>bool alreadyLiked = 7;</code>
      * @return bool
      */
     public function getAlreadyLiked()
     {
-        return isset($this->alreadyLiked) ? $this->alreadyLiked : false;
-    }
-
-    public function hasAlreadyLiked()
-    {
-        return isset($this->alreadyLiked);
-    }
-
-    public function clearAlreadyLiked()
-    {
-        unset($this->alreadyLiked);
+        return $this->alreadyLiked;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool alreadyLiked = 7;</code>
+     * Generated from protobuf field <code>bool alreadyLiked = 7;</code>
      * @param bool $var
      * @return $this
      */
@@ -276,30 +206,16 @@ class Comment extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *optional TYPE NAME = 8;
-     *
-     * Generated from protobuf field <code>optional uint32 numberOfLikes = 9;</code>
+     * Generated from protobuf field <code>uint32 numberOfLikes = 9;</code>
      * @return int
      */
     public function getNumberOfLikes()
     {
-        return isset($this->numberOfLikes) ? $this->numberOfLikes : 0;
-    }
-
-    public function hasNumberOfLikes()
-    {
-        return isset($this->numberOfLikes);
-    }
-
-    public function clearNumberOfLikes()
-    {
-        unset($this->numberOfLikes);
+        return $this->numberOfLikes;
     }
 
     /**
-     *optional TYPE NAME = 8;
-     *
-     * Generated from protobuf field <code>optional uint32 numberOfLikes = 9;</code>
+     * Generated from protobuf field <code>uint32 numberOfLikes = 9;</code>
      * @param int $var
      * @return $this
      */
@@ -312,26 +228,16 @@ class Comment extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string body = 10;</code>
+     * Generated from protobuf field <code>string body = 10;</code>
      * @return string
      */
     public function getBody()
     {
-        return isset($this->body) ? $this->body : '';
-    }
-
-    public function hasBody()
-    {
-        return isset($this->body);
-    }
-
-    public function clearBody()
-    {
-        unset($this->body);
+        return $this->body;
     }
 
     /**
-     * Generated from protobuf field <code>optional string body = 10;</code>
+     * Generated from protobuf field <code>string body = 10;</code>
      * @param string $var
      * @return $this
      */
@@ -344,26 +250,16 @@ class Comment extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 created = 11;</code>
+     * Generated from protobuf field <code>uint32 created = 11;</code>
      * @return int
      */
     public function getCreated()
     {
-        return isset($this->created) ? $this->created : 0;
-    }
-
-    public function hasCreated()
-    {
-        return isset($this->created);
-    }
-
-    public function clearCreated()
-    {
-        unset($this->created);
+        return $this->created;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 created = 11;</code>
+     * Generated from protobuf field <code>uint32 created = 11;</code>
      * @param int $var
      * @return $this
      */

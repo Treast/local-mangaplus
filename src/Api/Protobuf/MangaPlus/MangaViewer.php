@@ -19,41 +19,41 @@ class MangaViewer extends \Google\Protobuf\Internal\Message
      */
     private $pages;
     /**
-     * Generated from protobuf field <code>optional uint32 chapterId = 2;</code>
+     * Generated from protobuf field <code>uint32 chapterId = 2;</code>
      */
-    protected $chapterId = null;
+    protected $chapterId = 0;
     /**
      * Generated from protobuf field <code>repeated .MangaPlus.Chapter chapters = 3;</code>
      */
     private $chapters;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Sns sns = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.Sns sns = 4;</code>
      */
     protected $sns = null;
     /**
-     * Generated from protobuf field <code>optional string titleName = 5;</code>
+     * Generated from protobuf field <code>string titleName = 5;</code>
      */
-    protected $titleName = null;
+    protected $titleName = '';
     /**
-     * Generated from protobuf field <code>optional string chapterName = 6;</code>
+     * Generated from protobuf field <code>string chapterName = 6;</code>
      */
-    protected $chapterName = null;
+    protected $chapterName = '';
     /**
-     * Generated from protobuf field <code>optional uint32 numberOfComments = 7;</code>
+     * Generated from protobuf field <code>uint32 numberOfComments = 7;</code>
      */
-    protected $numberOfComments = null;
+    protected $numberOfComments = 0;
     /**
-     * Generated from protobuf field <code>optional bool isVerticalOnly = 8;</code>
+     * Generated from protobuf field <code>bool isVerticalOnly = 8;</code>
      */
-    protected $isVerticalOnly = null;
+    protected $isVerticalOnly = false;
     /**
-     * Generated from protobuf field <code>optional uint32 titleId = 9;</code>
+     * Generated from protobuf field <code>uint32 titleId = 9;</code>
      */
-    protected $titleId = null;
+    protected $titleId = 0;
     /**
-     * Generated from protobuf field <code>optional bool startFromRight = 10;</code>
+     * Generated from protobuf field <code>bool startFromRight = 10;</code>
      */
-    protected $startFromRight = null;
+    protected $startFromRight = false;
 
     /**
      * Constructor.
@@ -101,26 +101,16 @@ class MangaViewer extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 chapterId = 2;</code>
+     * Generated from protobuf field <code>uint32 chapterId = 2;</code>
      * @return int
      */
     public function getChapterId()
     {
-        return isset($this->chapterId) ? $this->chapterId : 0;
-    }
-
-    public function hasChapterId()
-    {
-        return isset($this->chapterId);
-    }
-
-    public function clearChapterId()
-    {
-        unset($this->chapterId);
+        return $this->chapterId;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 chapterId = 2;</code>
+     * Generated from protobuf field <code>uint32 chapterId = 2;</code>
      * @param int $var
      * @return $this
      */
@@ -155,7 +145,7 @@ class MangaViewer extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Sns sns = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.Sns sns = 4;</code>
      * @return \App\Api\Protobuf\MangaPlus\Sns|null
      */
     public function getSns()
@@ -174,7 +164,7 @@ class MangaViewer extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Sns sns = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.Sns sns = 4;</code>
      * @param \App\Api\Protobuf\MangaPlus\Sns $var
      * @return $this
      */
@@ -187,26 +177,16 @@ class MangaViewer extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string titleName = 5;</code>
+     * Generated from protobuf field <code>string titleName = 5;</code>
      * @return string
      */
     public function getTitleName()
     {
-        return isset($this->titleName) ? $this->titleName : '';
-    }
-
-    public function hasTitleName()
-    {
-        return isset($this->titleName);
-    }
-
-    public function clearTitleName()
-    {
-        unset($this->titleName);
+        return $this->titleName;
     }
 
     /**
-     * Generated from protobuf field <code>optional string titleName = 5;</code>
+     * Generated from protobuf field <code>string titleName = 5;</code>
      * @param string $var
      * @return $this
      */
@@ -219,26 +199,16 @@ class MangaViewer extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string chapterName = 6;</code>
+     * Generated from protobuf field <code>string chapterName = 6;</code>
      * @return string
      */
     public function getChapterName()
     {
-        return isset($this->chapterName) ? $this->chapterName : '';
-    }
-
-    public function hasChapterName()
-    {
-        return isset($this->chapterName);
-    }
-
-    public function clearChapterName()
-    {
-        unset($this->chapterName);
+        return $this->chapterName;
     }
 
     /**
-     * Generated from protobuf field <code>optional string chapterName = 6;</code>
+     * Generated from protobuf field <code>string chapterName = 6;</code>
      * @param string $var
      * @return $this
      */
@@ -251,26 +221,16 @@ class MangaViewer extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 numberOfComments = 7;</code>
+     * Generated from protobuf field <code>uint32 numberOfComments = 7;</code>
      * @return int
      */
     public function getNumberOfComments()
     {
-        return isset($this->numberOfComments) ? $this->numberOfComments : 0;
-    }
-
-    public function hasNumberOfComments()
-    {
-        return isset($this->numberOfComments);
-    }
-
-    public function clearNumberOfComments()
-    {
-        unset($this->numberOfComments);
+        return $this->numberOfComments;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 numberOfComments = 7;</code>
+     * Generated from protobuf field <code>uint32 numberOfComments = 7;</code>
      * @param int $var
      * @return $this
      */
@@ -283,26 +243,16 @@ class MangaViewer extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isVerticalOnly = 8;</code>
+     * Generated from protobuf field <code>bool isVerticalOnly = 8;</code>
      * @return bool
      */
     public function getIsVerticalOnly()
     {
-        return isset($this->isVerticalOnly) ? $this->isVerticalOnly : false;
-    }
-
-    public function hasIsVerticalOnly()
-    {
-        return isset($this->isVerticalOnly);
-    }
-
-    public function clearIsVerticalOnly()
-    {
-        unset($this->isVerticalOnly);
+        return $this->isVerticalOnly;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool isVerticalOnly = 8;</code>
+     * Generated from protobuf field <code>bool isVerticalOnly = 8;</code>
      * @param bool $var
      * @return $this
      */
@@ -315,26 +265,16 @@ class MangaViewer extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 titleId = 9;</code>
+     * Generated from protobuf field <code>uint32 titleId = 9;</code>
      * @return int
      */
     public function getTitleId()
     {
-        return isset($this->titleId) ? $this->titleId : 0;
-    }
-
-    public function hasTitleId()
-    {
-        return isset($this->titleId);
-    }
-
-    public function clearTitleId()
-    {
-        unset($this->titleId);
+        return $this->titleId;
     }
 
     /**
-     * Generated from protobuf field <code>optional uint32 titleId = 9;</code>
+     * Generated from protobuf field <code>uint32 titleId = 9;</code>
      * @param int $var
      * @return $this
      */
@@ -347,26 +287,16 @@ class MangaViewer extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional bool startFromRight = 10;</code>
+     * Generated from protobuf field <code>bool startFromRight = 10;</code>
      * @return bool
      */
     public function getStartFromRight()
     {
-        return isset($this->startFromRight) ? $this->startFromRight : false;
-    }
-
-    public function hasStartFromRight()
-    {
-        return isset($this->startFromRight);
-    }
-
-    public function clearStartFromRight()
-    {
-        unset($this->startFromRight);
+        return $this->startFromRight;
     }
 
     /**
-     * Generated from protobuf field <code>optional bool startFromRight = 10;</code>
+     * Generated from protobuf field <code>bool startFromRight = 10;</code>
      * @param bool $var
      * @return $this
      */

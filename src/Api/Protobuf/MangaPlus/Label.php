@@ -15,13 +15,13 @@ use Google\Protobuf\RepeatedField;
 class Label extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional int32 label = 1;</code>
+     * Generated from protobuf field <code>int32 label = 1;</code>
      */
-    protected $label = null;
+    protected $label = 0;
     /**
-     * Generated from protobuf field <code>optional string description = 2;</code>
+     * Generated from protobuf field <code>string description = 2;</code>
      */
-    protected $description = null;
+    protected $description = '';
 
     /**
      * Constructor.
@@ -39,26 +39,16 @@ class Label extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 label = 1;</code>
+     * Generated from protobuf field <code>int32 label = 1;</code>
      * @return int
      */
     public function getLabel()
     {
-        return isset($this->label) ? $this->label : 0;
-    }
-
-    public function hasLabel()
-    {
-        return isset($this->label);
-    }
-
-    public function clearLabel()
-    {
-        unset($this->label);
+        return $this->label;
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 label = 1;</code>
+     * Generated from protobuf field <code>int32 label = 1;</code>
      * @param int $var
      * @return $this
      */
@@ -71,26 +61,16 @@ class Label extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string description = 2;</code>
+     * Generated from protobuf field <code>string description = 2;</code>
      * @return string
      */
     public function getDescription()
     {
-        return isset($this->description) ? $this->description : '';
-    }
-
-    public function hasDescription()
-    {
-        return isset($this->description);
-    }
-
-    public function clearDescription()
-    {
-        unset($this->description);
+        return $this->description;
     }
 
     /**
-     * Generated from protobuf field <code>optional string description = 2;</code>
+     * Generated from protobuf field <code>string description = 2;</code>
      * @param string $var
      * @return $this
      */

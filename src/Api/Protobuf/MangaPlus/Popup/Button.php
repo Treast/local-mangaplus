@@ -15,11 +15,11 @@ use Google\Protobuf\RepeatedField;
 class Button extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string text = 1;</code>
+     * Generated from protobuf field <code>string text = 1;</code>
      */
-    protected $text = null;
+    protected $text = '';
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TransitionAction action = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.TransitionAction action = 2;</code>
      */
     protected $action = null;
 
@@ -39,26 +39,16 @@ class Button extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string text = 1;</code>
+     * Generated from protobuf field <code>string text = 1;</code>
      * @return string
      */
     public function getText()
     {
-        return isset($this->text) ? $this->text : '';
-    }
-
-    public function hasText()
-    {
-        return isset($this->text);
-    }
-
-    public function clearText()
-    {
-        unset($this->text);
+        return $this->text;
     }
 
     /**
-     * Generated from protobuf field <code>optional string text = 1;</code>
+     * Generated from protobuf field <code>string text = 1;</code>
      * @param string $var
      * @return $this
      */
@@ -71,7 +61,7 @@ class Button extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TransitionAction action = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.TransitionAction action = 2;</code>
      * @return \App\Api\Protobuf\MangaPlus\TransitionAction|null
      */
     public function getAction()
@@ -90,7 +80,7 @@ class Button extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.TransitionAction action = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.TransitionAction action = 2;</code>
      * @param \App\Api\Protobuf\MangaPlus\TransitionAction $var
      * @return $this
      */

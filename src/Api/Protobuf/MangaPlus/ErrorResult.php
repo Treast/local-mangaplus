@@ -15,21 +15,21 @@ use Google\Protobuf\RepeatedField;
 class ErrorResult extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional int32 action = 1;</code>
+     * Generated from protobuf field <code>int32 action = 1;</code>
      */
-    protected $action = null;
+    protected $action = 0;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.OSDefault englishPopup = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.OSDefault englishPopup = 2;</code>
      */
     protected $englishPopup = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.OSDefault spanishPopup = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.OSDefault spanishPopup = 3;</code>
      */
     protected $spanishPopup = null;
     /**
-     * Generated from protobuf field <code>optional string debugInfo = 4;</code>
+     * Generated from protobuf field <code>string debugInfo = 4;</code>
      */
-    protected $debugInfo = null;
+    protected $debugInfo = '';
 
     /**
      * Constructor.
@@ -49,26 +49,16 @@ class ErrorResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 action = 1;</code>
+     * Generated from protobuf field <code>int32 action = 1;</code>
      * @return int
      */
     public function getAction()
     {
-        return isset($this->action) ? $this->action : 0;
-    }
-
-    public function hasAction()
-    {
-        return isset($this->action);
-    }
-
-    public function clearAction()
-    {
-        unset($this->action);
+        return $this->action;
     }
 
     /**
-     * Generated from protobuf field <code>optional int32 action = 1;</code>
+     * Generated from protobuf field <code>int32 action = 1;</code>
      * @param int $var
      * @return $this
      */
@@ -81,7 +71,7 @@ class ErrorResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.OSDefault englishPopup = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.OSDefault englishPopup = 2;</code>
      * @return \App\Api\Protobuf\MangaPlus\Popup\OSDefault|null
      */
     public function getEnglishPopup()
@@ -100,7 +90,7 @@ class ErrorResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.OSDefault englishPopup = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.OSDefault englishPopup = 2;</code>
      * @param \App\Api\Protobuf\MangaPlus\Popup\OSDefault $var
      * @return $this
      */
@@ -113,7 +103,7 @@ class ErrorResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.OSDefault spanishPopup = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.OSDefault spanishPopup = 3;</code>
      * @return \App\Api\Protobuf\MangaPlus\Popup\OSDefault|null
      */
     public function getSpanishPopup()
@@ -132,7 +122,7 @@ class ErrorResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.Popup.OSDefault spanishPopup = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.Popup.OSDefault spanishPopup = 3;</code>
      * @param \App\Api\Protobuf\MangaPlus\Popup\OSDefault $var
      * @return $this
      */
@@ -145,26 +135,16 @@ class ErrorResult extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string debugInfo = 4;</code>
+     * Generated from protobuf field <code>string debugInfo = 4;</code>
      * @return string
      */
     public function getDebugInfo()
     {
-        return isset($this->debugInfo) ? $this->debugInfo : '';
-    }
-
-    public function hasDebugInfo()
-    {
-        return isset($this->debugInfo);
-    }
-
-    public function clearDebugInfo()
-    {
-        unset($this->debugInfo);
+        return $this->debugInfo;
     }
 
     /**
-     * Generated from protobuf field <code>optional string debugInfo = 4;</code>
+     * Generated from protobuf field <code>string debugInfo = 4;</code>
      * @param string $var
      * @return $this
      */

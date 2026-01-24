@@ -2,7 +2,10 @@
 
 namespace App\ImmutableValue;
 
-enum Language: string
+use Symfony\Contracts\Translation\TranslatableInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
+
+enum Language: string implements TranslatableInterface
 {
     case Spanish = 'es';
     case French = 'fr';
@@ -23,5 +26,10 @@ enum Language: string
             6 => self::Thai,
             default => self::English,
         };
+    }
+
+    public function trans(TranslatorInterface $translator, ?string $locale = null): string
+    {
+        return $translator->trans($this->value, [], 'languages', $locale);
     }
 }

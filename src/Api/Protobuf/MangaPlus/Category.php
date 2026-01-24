@@ -10,14 +10,14 @@ use Google\Protobuf\Internal\GPBUtil;
 use Google\Protobuf\RepeatedField;
 
 /**
- * Generated from protobuf message <code>MangaPlus.Tag</code>
+ * Generated from protobuf message <code>MangaPlus.Category</code>
  */
-class Tag extends \Google\Protobuf\Internal\Message
+class Category extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string tag = 1;</code>
+     * Generated from protobuf field <code>string label = 1;</code>
      */
-    protected $tag = '';
+    protected $label = '';
     /**
      * Generated from protobuf field <code>string slug = 2;</code>
      */
@@ -29,7 +29,7 @@ class Tag extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $tag
+     *     @type string $label
      *     @type string $slug
      * }
      */
@@ -39,23 +39,23 @@ class Tag extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string tag = 1;</code>
+     * Generated from protobuf field <code>string label = 1;</code>
      * @return string
      */
-    public function getTag()
+    public function getLabel()
     {
-        return $this->tag;
+        return $this->label;
     }
 
     /**
-     * Generated from protobuf field <code>string tag = 1;</code>
+     * Generated from protobuf field <code>string label = 1;</code>
      * @param string $var
      * @return $this
      */
-    public function setTag($var)
+    public function setLabel($var)
     {
         GPBUtil::checkString($var, True);
-        $this->tag = $var;
+        $this->label = $var;
 
         return $this;
     }

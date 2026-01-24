@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class Adsense extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional string unitID = 1;</code>
+     * Generated from protobuf field <code>string unitID = 1;</code>
      */
-    protected $unitID = null;
+    protected $unitID = '';
 
     /**
      * Constructor.
@@ -34,26 +34,16 @@ class Adsense extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional string unitID = 1;</code>
+     * Generated from protobuf field <code>string unitID = 1;</code>
      * @return string
      */
     public function getUnitID()
     {
-        return isset($this->unitID) ? $this->unitID : '';
-    }
-
-    public function hasUnitID()
-    {
-        return isset($this->unitID);
-    }
-
-    public function clearUnitID()
-    {
-        unset($this->unitID);
+        return $this->unitID;
     }
 
     /**
-     * Generated from protobuf field <code>optional string unitID = 1;</code>
+     * Generated from protobuf field <code>string unitID = 1;</code>
      * @param string $var
      * @return $this
      */

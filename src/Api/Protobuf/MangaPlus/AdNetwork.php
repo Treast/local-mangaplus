@@ -15,23 +15,23 @@ use Google\Protobuf\RepeatedField;
 class AdNetwork extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Facebook facebook = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Facebook facebook = 1;</code>
      */
     protected $facebook = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Admob admob = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Admob admob = 2;</code>
      */
     protected $admob = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Mopub mopub = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Mopub mopub = 3;</code>
      */
     protected $mopub = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Adsense adsense = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Adsense adsense = 4;</code>
      */
     protected $adsense = null;
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Applovin applovin = 5;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Applovin applovin = 5;</code>
      */
     protected $applovin = null;
 
@@ -54,7 +54,7 @@ class AdNetwork extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Facebook facebook = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Facebook facebook = 1;</code>
      * @return \App\Api\Protobuf\MangaPlus\AdNetwork\Facebook|null
      */
     public function getFacebook()
@@ -73,7 +73,7 @@ class AdNetwork extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Facebook facebook = 1;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Facebook facebook = 1;</code>
      * @param \App\Api\Protobuf\MangaPlus\AdNetwork\Facebook $var
      * @return $this
      */
@@ -86,7 +86,7 @@ class AdNetwork extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Admob admob = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Admob admob = 2;</code>
      * @return \App\Api\Protobuf\MangaPlus\AdNetwork\Admob|null
      */
     public function getAdmob()
@@ -105,7 +105,7 @@ class AdNetwork extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Admob admob = 2;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Admob admob = 2;</code>
      * @param \App\Api\Protobuf\MangaPlus\AdNetwork\Admob $var
      * @return $this
      */
@@ -118,7 +118,7 @@ class AdNetwork extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Mopub mopub = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Mopub mopub = 3;</code>
      * @return \App\Api\Protobuf\MangaPlus\AdNetwork\Mopub|null
      */
     public function getMopub()
@@ -137,7 +137,7 @@ class AdNetwork extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Mopub mopub = 3;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Mopub mopub = 3;</code>
      * @param \App\Api\Protobuf\MangaPlus\AdNetwork\Mopub $var
      * @return $this
      */
@@ -150,7 +150,7 @@ class AdNetwork extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Adsense adsense = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Adsense adsense = 4;</code>
      * @return \App\Api\Protobuf\MangaPlus\AdNetwork\Adsense|null
      */
     public function getAdsense()
@@ -169,7 +169,7 @@ class AdNetwork extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Adsense adsense = 4;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Adsense adsense = 4;</code>
      * @param \App\Api\Protobuf\MangaPlus\AdNetwork\Adsense $var
      * @return $this
      */
@@ -182,7 +182,7 @@ class AdNetwork extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Applovin applovin = 5;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Applovin applovin = 5;</code>
      * @return \App\Api\Protobuf\MangaPlus\AdNetwork\Applovin|null
      */
     public function getApplovin()
@@ -201,7 +201,7 @@ class AdNetwork extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional .MangaPlus.AdNetwork.Applovin applovin = 5;</code>
+     * Generated from protobuf field <code>.MangaPlus.AdNetwork.Applovin applovin = 5;</code>
      * @param \App\Api\Protobuf\MangaPlus\AdNetwork\Applovin $var
      * @return $this
      */
