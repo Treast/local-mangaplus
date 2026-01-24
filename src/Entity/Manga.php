@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Trait\IdTrait;
+use App\Entity\Trait\TimestampableTrait;
 use App\ImmutableValue\Language;
 use App\Repository\MangaRepository;
 use Doctrine\DBAL\Types\Types;
@@ -10,9 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MangaRepository::class)]
 #[ORM\Table(name: 'mangas')]
+#[ORM\HasLifecycleCallbacks]
 class Manga
 {
     use IdTrait;
+    use TimestampableTrait;
 
     #[ORM\Column(type: Types::STRING)]
     private ?string $title = null;
@@ -34,6 +37,9 @@ class Manga
 
     #[ORM\Column(type: Types::ENUM, length: 2, enumType: Language::class)]
     private ?Language $language = null;
+
+    #[ORM\ManyToOne(targetEntity: Serie::class, inversedBy: 'mangas')]
+    private ?Serie $serie = null;
 
     public function getTitle(): ?string
     {
@@ -115,6 +121,18 @@ class Manga
     public function setLanguage(?Language $language): self
     {
         $this->language = $language;
+
+        return $this;
+    }
+
+    public function getSerie(): ?Serie
+    {
+        return $this->serie;
+    }
+
+    public function setSerie(?Serie $serie): self
+    {
+        $this->serie = $serie;
 
         return $this;
     }

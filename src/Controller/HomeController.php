@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Api\MangaPlusApi;
 use App\Manager\SyncManager;
-use App\Repository\MangaRepository;
+use App\Repository\SerieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -13,12 +13,10 @@ use Symfony\Component\Routing\Attribute\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(MangaRepository $mangaRepository, MangaPlusApi $mangaPlusApi): Response
+    public function index(SerieRepository $serieRepository, MangaPlusApi $mangaPlusApi): Response
     {
-        dump($mangaPlusApi->getTitlesV3());
-
         return $this->render('home/index.html.twig', [
-            'mangas' => $mangaRepository->findAll(),
+            'series' => $serieRepository->getLatestUpdated(),
         ]);
     }
 

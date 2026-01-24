@@ -5,7 +5,9 @@ namespace App\Api;
 use App\Api\Protobuf\MangaPlus\Response;
 use App\DTO\ApiCredentials;
 use App\Entity\Manga;
+use App\Entity\Serie;
 use App\Manager\ApiManager;
+use App\Mapper\TitleContainerMapper;
 use App\Mapper\TitleMapper;
 use Symfony\Contracts\HttpClient\Exception\ExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -15,6 +17,7 @@ readonly class MangaPlusApi
     public function __construct(
         private HttpClientInterface $mangaPlusClient,
         private TitleMapper $titleMapper,
+        private TitleContainerMapper $titleContainerMapper,
         private ApiManager $apiManager,
     ) {}
 
@@ -44,7 +47,7 @@ readonly class MangaPlusApi
     }
 
     /**
-     * @return array<Manga>
+     * @return array<Serie>
      */
     public function getTitlesV3(): array
     {
@@ -58,7 +61,7 @@ readonly class MangaPlusApi
             return [];
         }
 
-        $mangas = [];
+        $series = [];
 
         try {
             $response = $this->mangaPlusClient->request(
@@ -70,21 +73,13 @@ readonly class MangaPlusApi
             $apiResponse = new Response();
             $apiResponse->mergeFromString($binaryData);
 
-            dump($apiResponse);
-
-            foreach ($apiResponse->getSuccess()->getAllTitlesViewV3()->getTitles() as $item) {
-                dump($item->getMainName());
-                dump($item->getTimestamp());
-                foreach ($item->getMultiLangTitles() as $title) {
-                    $mangas[] = $this->titleMapper->toManga($title);
-                }
+            foreach ($apiResponse->getSuccess()->getAllTitlesViewV3()->getTitles() as $titleContainer) {
+                $series[] = $this->titleContainerMapper->toSerie($titleContainer);
             }
-
-            dump($mangas);
         } catch (\Exception|ExceptionInterface) {
         }
 
-        return $mangas;
+        return $series;
     }
 
     private function registerDevice(ApiCredentials $apiCredentials): ?string

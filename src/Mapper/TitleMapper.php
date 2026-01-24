@@ -6,11 +6,13 @@ use App\Api\Protobuf\MangaPlus\Title;
 use App\Entity\Manga;
 use App\ImmutableValue\Language;
 use App\Repository\MangaRepository;
+use Doctrine\ORM\EntityManagerInterface;
 
 readonly class TitleMapper
 {
     public function __construct(
         private MangaRepository $mangaRepository,
+        private EntityManagerInterface $entityManager,
     ) {}
 
     public function toManga(Title $title): Manga
@@ -19,7 +21,7 @@ readonly class TitleMapper
             return $manga;
         }
 
-        return new Manga()
+        $manga = new Manga()
             ->setTitle($title->getName())
             ->setAuthor($title->getAuthor())
             ->setMangaPlusId($title->getTitleId())
@@ -28,5 +30,10 @@ readonly class TitleMapper
             ->setViewCount($title->getViewCount())
             ->setLanguage(Language::fromLanguageId($title->getLanguage()))
         ;
+
+        $this->entityManager->persist($manga);
+        $this->entityManager->flush();
+
+        return $manga;
     }
 }

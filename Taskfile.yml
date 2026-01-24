@@ -41,13 +41,21 @@ tasks:
             - "{{.COMPOSE_CMD}} exec php mv /app/src/Api/Protobuf/App/Api/Protobuf/{GPBMetadata,MangaPlus} /app/src/Api/Protobuf/"
             - "{{.COMPOSE_CMD}} exec php rm -rf /app/src/Api/Protobuf/App"
 
-    migration:
+    'db:migration':
         desc: "Make migration"
         cmd: "{{.COMPOSE_CMD}} exec php bin/console make:migration"
 
-    migrate:
+    'db:migrate':
         desc: "Migrate database"
         cmd: "{{.COMPOSE_CMD}} exec php bin/console doctrine:migrations:migrate"
+
+    'db:drop':
+        desc: "Drop database"
+        cmd: "{{.COMPOSE_CMD}} exec php bin/console doctrine:schema:drop --force"
+
+    'db:reset':
+        desc: "Reset database"
+        cmd: "{{.COMPOSE_CMD}} exec php bin/console doctrine:migrations:migrate first -n"
 
     fix:
         desc: "Run all fixers"

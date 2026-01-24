@@ -4,9 +4,9 @@
     <div class="container py-12">
         <h1 class="mb-12">Local MangaPlus</h1>
 
-        <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {% for manga in mangas %}
-                <twig:MangaCard :manga="manga" />
+        <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+            {% for serie in series %}
+                <twig:SerieCard :serie="serie" />
             {% endfor %}
         </div>
     </div>

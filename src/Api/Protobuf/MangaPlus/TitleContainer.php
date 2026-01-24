@@ -25,6 +25,10 @@ class TitleContainer extends \Google\Protobuf\Internal\Message
      */
     private $multiLangTitles;
     /**
+     * Generated from protobuf field <code>repeated .MangaPlus.Category categories = 3;</code>
+     */
+    private $categories;
+    /**
      * Generated from protobuf field <code>int64 timestamp = 5;</code>
      */
     protected $timestamp = 0;
@@ -38,6 +42,7 @@ class TitleContainer extends \Google\Protobuf\Internal\Message
      *     @type string $mainName
      *     @type \App\Api\Protobuf\MangaPlus\Title[] $multiLangTitles
      *           Utilise Title ou TitleDetail
+     *     @type \App\Api\Protobuf\MangaPlus\Category[] $categories
      *     @type int|string $timestamp
      * }
      */
@@ -90,6 +95,28 @@ class TitleContainer extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \App\Api\Protobuf\MangaPlus\Title::class);
         $this->multiLangTitles = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .MangaPlus.Category categories = 3;</code>
+     * @return RepeatedField<\App\Api\Protobuf\MangaPlus\Category>
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .MangaPlus.Category categories = 3;</code>
+     * @param \App\Api\Protobuf\MangaPlus\Category[] $var
+     * @return $this
+     */
+    public function setCategories($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \App\Api\Protobuf\MangaPlus\Category::class);
+        $this->categories = $arr;
 
         return $this;
     }

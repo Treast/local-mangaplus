@@ -15,13 +15,7 @@ readonly class SyncManager
 
     public function sync(): void
     {
-        $mangas = $this->mangaPlusApi->getTitlesV2();
-
-        foreach ($mangas as $manga) {
-            if (!$this->entityManager->contains($manga)) {
-                $this->entityManager->persist($manga);
-            }
-        }
+        $this->mangaPlusApi->getTitlesV3();
 
         $this->configurationManager->set('last_sync', new \DateTime());
         $this->entityManager->flush();
