@@ -1,7 +1,7 @@
 {% set isFavorite = false %}
+{% set first_manga = serie.firstMangaOrdered %}
 
-<div class="group relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 transition-all hover:ring-2 hover:ring-indigo-500/50 shadow-sm">
-
+<a href="{{ first_manga ? path('app.mangas.show', {id: first_manga.id}) : 'javascript:void(0)' }}" class="group relative overflow-hidden rounded-md bg-slate-100 dark:bg-slate-900 transition-all hover:ring-2 hover:ring-indigo-500/50 shadow-sm">
     <div class="relative aspect-3/4 overflow-hidden">
         <img
             src="{{ this.serie.imageUrl }}"
@@ -20,8 +20,8 @@
     </div>
 
     <div class="p-3">
-        <h3 class="line-clamp-2 text-sm font-bold leading-tight text-slate-800 dark:text-slate-100 transition-colors group-hover:text-indigo-600">
+        <h4 class="line-clamp-2 text-base font-bold leading-tight text-slate-100 transition-colors group-hover:text-indigo-500">
             {{ this.serie.title }}
-        </h3>
+        </h4>
     </div>
-</div>
+</a>

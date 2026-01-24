@@ -8,6 +8,7 @@ use App\Entity\Manga;
 use App\Entity\Serie;
 use App\Manager\ApiManager;
 use App\Mapper\TitleContainerMapper;
+use App\Mapper\TitleDetailViewMapper;
 use App\Mapper\TitleMapper;
 use Symfony\Contracts\HttpClient\Exception\ExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -18,6 +19,7 @@ readonly class MangaPlusApi
         private HttpClientInterface $mangaPlusClient,
         private TitleMapper $titleMapper,
         private TitleContainerMapper $titleContainerMapper,
+        private TitleDetailViewMapper $titleDetailViewMapper,
         private ApiManager $apiManager,
     ) {}
 
@@ -51,11 +53,7 @@ readonly class MangaPlusApi
      */
     public function getTitlesV3(): array
     {
-        $apiCrendetials = $this->apiManager->getCredientals();
-
-        if (!$apiCrendetials->getDeviceSecret() && $deviceSecret = $this->registerDevice($apiCrendetials)) {
-            $apiCrendetials->setDeviceSecret($deviceSecret);
-        }
+        $apiCrendetials = $this->getCredentials();
 
         if (!$apiCrendetials->getDeviceSecret()) {
             return [];
@@ -66,7 +64,7 @@ readonly class MangaPlusApi
         try {
             $response = $this->mangaPlusClient->request(
                 'GET',
-                $this->withAuth('title_list/allV3?type=completed&lang=fra&clang=eng%2Cfra', $apiCrendetials)
+                $this->withAuth('title_list/allV3?type=serializing&lang=fra&clang=eng%2Cfra', $apiCrendetials)
             );
             $binaryData = $response->getContent();
 
@@ -80,6 +78,36 @@ readonly class MangaPlusApi
         }
 
         return $series;
+    }
+
+    public function getTitleDetailV3(Manga $manga): ?Manga
+    {
+        $apiCrendetials = $this->getCredentials();
+
+        if (!$apiCrendetials->getDeviceSecret()) {
+            return $manga;
+        }
+
+        try {
+            $response = $this->mangaPlusClient->request(
+                'GET',
+                $this->withAuth(
+                    sprintf('title_detailV3?title_id=%s', $manga->getMangaPlusId()),
+                    $apiCrendetials
+                )
+            );
+            $binaryData = $response->getContent();
+
+            $apiResponse = new Response();
+            $apiResponse->mergeFromString($binaryData);
+
+            if ($titleDetail = $apiResponse->getSuccess()?->getTitleDetailView()) {
+                return $this->titleDetailViewMapper->updateManga($manga, $titleDetail);
+            }
+        } catch (\Exception|ExceptionInterface) {
+        }
+
+        return $manga;
     }
 
     private function registerDevice(ApiCredentials $apiCredentials): ?string
@@ -101,8 +129,6 @@ readonly class MangaPlusApi
         $apiResponse->mergeFromString($binaryData);
 
         if ($deviceSecret = $apiResponse->getSuccess()->getRegisterationData()->getDeviceSecret()) {
-            dump('Registration successful');
-            dump($deviceSecret);
             $this->apiManager->setDeviceSecret($deviceSecret);
 
             return $deviceSecret;
@@ -127,5 +153,16 @@ readonly class MangaPlusApi
             $url,
             str_contains($url, '?') ? '&' : '?'
         );
+    }
+
+    private function getCredentials(): ApiCredentials
+    {
+        $apiCrendetials = $this->apiManager->getCredientals();
+
+        if (!$apiCrendetials->getDeviceSecret() && $deviceSecret = $this->registerDevice($apiCrendetials)) {
+            $apiCrendetials->setDeviceSecret($deviceSecret);
+        }
+
+        return $apiCrendetials;
     }
 }

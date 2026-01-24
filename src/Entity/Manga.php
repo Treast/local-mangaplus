@@ -3,9 +3,12 @@
 namespace App\Entity;
 
 use App\Entity\Trait\IdTrait;
+use App\Entity\Trait\SyncableTrait;
 use App\Entity\Trait\TimestampableTrait;
 use App\ImmutableValue\Language;
 use App\Repository\MangaRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -15,6 +18,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Manga
 {
     use IdTrait;
+    use SyncableTrait;
     use TimestampableTrait;
 
     #[ORM\Column(type: Types::STRING)]
@@ -23,13 +27,19 @@ class Manga
     #[ORM\Column(type: Types::STRING)]
     private ?string $author = null;
 
-    #[ORM\Column(type: Types::STRING)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
+    #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
+    private bool $simulReleased = false;
+
+    #[ORM\Column(type: Types::INTEGER)]
     private ?int $mangaPlusId = null;
 
     #[ORM\Column(type: Types::STRING)]
     private ?string $portraitImageUrl = null;
 
-    #[ORM\Column(type: Types::STRING)]
+    #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $landscapeImageUrl = null;
 
     #[ORM\Column(type: Types::INTEGER)]
@@ -40,6 +50,15 @@ class Manga
 
     #[ORM\ManyToOne(targetEntity: Serie::class, inversedBy: 'mangas')]
     private ?Serie $serie = null;
+
+    #[ORM\OneToMany(targetEntity: Chapter::class, mappedBy: 'manga', cascade: ['persist'], orphanRemoval: false)]
+    #[ORM\OrderBy(['releasedAt' => 'DESC'])]
+    private Collection $chapters;
+
+    public function __construct()
+    {
+        $this->chapters = new ArrayCollection();
+    }
 
     public function getTitle(): ?string
     {
@@ -61,6 +80,30 @@ class Manga
     public function setAuthor(?string $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function isSimulReleased(): bool
+    {
+        return $this->simulReleased;
+    }
+
+    public function setSimulReleased(bool $simulReleased): self
+    {
+        $this->simulReleased = $simulReleased;
 
         return $this;
     }
@@ -133,6 +176,47 @@ class Manga
     public function setSerie(?Serie $serie): self
     {
         $this->serie = $serie;
+
+        return $this;
+    }
+
+    public function getChapters(): Collection
+    {
+        return $this->chapters;
+    }
+
+    public function addChapter(Chapter $chapter): self
+    {
+        if (!$this->chapters->contains($chapter)) {
+            $this->chapters->add($chapter);
+            $chapter->setManga($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChapter(Chapter $chapter): self
+    {
+        if ($this->chapters->contains($chapter)) {
+            $this->chapters->removeElement($chapter);
+            $chapter->setManga(null);
+        }
+
+        return $this;
+    }
+
+    public function setChapters(Collection $chapters): self
+    {
+        $this->chapters = $chapters;
+
+        return $this;
+    }
+
+    public function cleanChapters(): self
+    {
+        foreach ($this->chapters as $chapter) {
+            $this->removeChapter($chapter);
+        }
 
         return $this;
     }

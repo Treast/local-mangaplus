@@ -24,7 +24,7 @@ final class Genre
     /**
      * @var Collection<int, Serie>
      */
-    #[ORM\ManyToMany(targetEntity: Serie::class, mappedBy: 'genres')]
+    #[ORM\ManyToMany(targetEntity: Serie::class, mappedBy: 'genres', cascade: ['persist'])]
     private Collection $series;
 
     public function __construct()

@@ -16,6 +16,19 @@ class SerieRepository extends ServiceEntityRepository
         parent::__construct($registry, Serie::class);
     }
 
+    /**
+     * @return array<Serie>
+     */
+    public function search(string $query): array
+    {
+        return $this->createQueryBuilder('s')
+            ->where('s.title LIKE :query')
+            ->setParameter('query', "%{$query}%")
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     public function findOneByTitle(string $title): ?Serie
     {
         return $this->findOneBy(['title' => $title]);

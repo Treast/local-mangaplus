@@ -1,0 +1,10 @@
+<twig:Table:Row>
+    <twig:Table:Cell>{{ chapter.title }}</twig:Table:Cell>
+    <twig:Table:Cell>{{ chapter.subTitle }}</twig:Table:Cell>
+    <twig:Table:Cell>{{ chapter.releasedAt|date('d F Y') }}</twig:Table:Cell>
+    <twig:Table:Cell class="text-right">
+        <twig:Button as="a" href="#" variant="outline" size="icon">
+            <i data-feather="download"></i>
+        </twig:Button>
+    </twig:Table:Cell>
+</twig:Table:Row>

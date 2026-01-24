@@ -2,8 +2,10 @@
 
 @import "tailwindcss";
 
-@import './components.css';
-@import './typography.css';
+@source './templates';
+
+@import './components.css' layer(utilities);
+@import './typography.css' layer(base);
 
 @custom-variant dark (&:is(.dark *));
 

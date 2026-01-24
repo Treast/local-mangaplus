@@ -42,7 +42,10 @@ readonly class TitleContainerMapper
         }
 
         $lastUpdatedAt = new \DateTimeImmutable()->setTimestamp($titleContainer->getTimestamp());
-        $serie->setLastUpdatedAt($lastUpdatedAt);
+        $serie
+            ->setLastUpdatedAt($lastUpdatedAt)
+            ->setSynchedAt(new \DateTimeImmutable())
+        ;
 
         $this->entityManager->persist($serie);
         $this->entityManager->flush();

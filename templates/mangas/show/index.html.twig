@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container py-12 grid grid-cols-1 md:grid-cols-4 gap-x-6">
+        <div>
+            <div class="relative aspect-3/4 rounded-md overflow-hidden">
+                <img src="{{ manga.portraitImageUrl }}" alt="{{ manga.title }}" class="inset-0 object-cover">
+            </div>
+        </div>
+        <div class="md:col-span-3">
+            <div class="flex items-center justify-between">
+                <h1 class="text-left mb-4">{{ manga.title }}</h1>
+                <div class="flex items-center gap-x-2">
+                    <twig:Button as="a" href="javascript:void(0)" variant="outline">
+                        <i data-feather="book"></i>
+                        Add to library
+                    </twig:Button>
+                    <twig:Button as="a" href="{{ path('app.mangas.sync', {id: manga.id}) }}" variant="outline">
+                        <i data-feather="refresh-cw"></i>
+                    </twig:Button>
+                </div>
+            </div>
+            <h3 class="mb-6">{{ manga.author }}</h3>
+            <p class="mb-6">{{ manga.description }}</p>
+            <div class="flex flex-row items-center gap-4 flex-wrap">
+                {% for manga_version in manga.serie.mangas %}
+                    {% set is_same_manga = manga_version is same as manga %}
+                    <twig:Button
+                        as="a"
+                        :href="is_same_manga ? 'javascript:void(0)' : path('app.mangas.show', {id: manga_version.id})"
+                        :variant="is_same_manga ? 'default' : 'outline'"
+                    >
+                        {{ manga_version.language|trans }}
+                    </twig:Button>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="md:col-span-4 mt-8">
+            <twig:Table class="caption-top">
+                <twig:Table:Caption class="text-left text-lg mb-2">Chapters available</twig:Table:Caption>
+                <twig:Table:Header>
+                    <twig:Table:Row>
+                        <twig:Table:Head class="w-20">#</twig:Table:Head>
+                        <twig:Table:Head>Name</twig:Table:Head>
+                        <twig:Table:Head class="w-48">Release date</twig:Table:Head>
+                        <twig:Table:Head class="text-right w-8">Actions</twig:Table:Head>
+                    </twig:Table:Row>
+                </twig:Table:Header>
+                <twig:Table:Body>
+                    {% for chapter in manga.chapters %}
+                        {{ include('mangas/show/_chapter.html.twig', {chapter: chapter}, false) }}
+                    {% endfor %}
+                </twig:Table:Body>
+            </twig:Table>
+        </div>
+    </div>
+{% endblock %}

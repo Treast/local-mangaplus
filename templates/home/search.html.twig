@@ -1,0 +1,5 @@
+{% for serie in series %}
+    <twig:SerieCard :serie="serie" />
+{% else %}
+    <p class="col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-6 text-center">No result</p>
+{% endfor %}

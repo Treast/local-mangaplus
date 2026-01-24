@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Trait\IdTrait;
+use App\Entity\Trait\SyncableTrait;
 use App\Entity\Trait\TimestampableTrait;
 use App\ImmutableValue\Language;
 use App\Repository\SerieRepository;
@@ -17,12 +18,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Serie
 {
     use IdTrait;
+    use SyncableTrait;
     use TimestampableTrait;
 
     #[ORM\Column(type: Types::STRING)]
     private ?string $title = null;
 
-    #[ORM\Column(type: Types::STRING)]
+    #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $imageUrl = null;
 
     /**
@@ -38,7 +40,7 @@ class Serie
     #[ORM\ManyToMany(targetEntity: Genre::class, inversedBy: 'series', cascade: ['persist'])]
     private Collection $genres;
 
-    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    #[ORM\Column(type: Types::DATE_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $lastUpdatedAt = null;
 
     public function __construct()
@@ -49,13 +51,13 @@ class Serie
 
     public function getFirstPortraitImageUrl(): ?string
     {
-        $englishManga = $this->mangas->findFirst(fn (int $key, Manga $manga) => Language::English === $manga->getLanguage());
+        $englishManga = $this->getMangaByLanguage(Language::English);
 
         if ($englishManga?->getPortraitImageUrl()) {
             return $englishManga->getPortraitImageUrl();
         }
 
-        $frenchManga = $this->mangas->findFirst(fn (int $key, Manga $manga) => Language::French === $manga->getLanguage());
+        $frenchManga = $this->getMangaByLanguage(Language::French);
 
         if ($frenchManga?->getPortraitImageUrl()) {
             return $frenchManga->getPortraitImageUrl();
@@ -66,6 +68,32 @@ class Serie
         }
 
         return null;
+    }
+
+    public function getFirstMangaOrdered(): ?Manga
+    {
+        $languages = [
+            Language::English,
+            Language::French,
+            Language::Spanish,
+            Language::Portuguese,
+            Language::Russian,
+            Language::Indonesian,
+            Language::Thai,
+        ];
+
+        foreach ($languages as $language) {
+            if ($manga = $this->getMangaByLanguage($language)) {
+                return $manga;
+            }
+        }
+
+        return null;
+    }
+
+    public function getMangaByLanguage(Language $language): ?Manga
+    {
+        return $this->mangas->findFirst(fn (int $key, Manga $manga) => $manga->getLanguage() === $language);
     }
 
     public function getTitle(): ?string
