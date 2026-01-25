@@ -10,6 +10,7 @@ use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Bundle\WebProfilerBundle\WebProfilerBundle;
+use Symfony\UX\Icons\UXIconsBundle;
 use Symfony\UX\LiveComponent\LiveComponentBundle;
 use Symfony\UX\StimulusBundle\StimulusBundle;
 use Symfony\UX\Toolkit\UXToolkitBundle;
@@ -34,4 +35,5 @@ return [
     TalesFromADevTwigExtraTailwindBundle::class => ['all' => true],
     StimulusBundle::class => ['all' => true],
     LiveComponentBundle::class => ['all' => true],
+    UXIconsBundle::class => ['all' => true],
 ];

@@ -1,0 +1,17 @@
+<div {{ attributes }}>
+    <twig:Button
+        as="button"
+        variant="{{ manga.isInLibrary ? 'default' : 'outline' }}"
+        data-action="live#action"
+        data-live-action-param="toggleIsInLibrary"
+        class="cursor-pointer"
+    >
+        {% if manga.isInLibrary %}
+            <twig:ux:icon name="lucide:book" />
+            Added to library
+        {% else %}
+            <twig:ux:icon name="lucide:book" />
+            Add to library
+        {% endif %}
+    </twig:Button>
+</div>

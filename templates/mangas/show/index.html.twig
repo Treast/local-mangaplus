@@ -11,12 +11,10 @@
             <div class="flex items-center justify-between">
                 <h1 class="text-left mb-4">{{ manga.title }}</h1>
                 <div class="flex items-center gap-x-2">
-                    <twig:Button as="a" href="javascript:void(0)" variant="outline">
-                        <i data-feather="book"></i>
-                        Add to library
-                    </twig:Button>
+                    <twig:AddToLibraryButton :manga="manga" />
+
                     <twig:Button as="a" href="{{ path('app.mangas.sync', {id: manga.id}) }}" variant="outline">
-                        <i data-feather="refresh-cw"></i>
+                        <twig:ux:icon name="lucide:refresh-cw" />
                     </twig:Button>
                 </div>
             </div>

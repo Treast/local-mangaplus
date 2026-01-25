@@ -20,4 +20,12 @@ class MangaRepository extends ServiceEntityRepository
     {
         return $this->findOneBy(['mangaPlusId' => $mangaPlusId]);
     }
+
+    /**
+     * @return array<Manga>
+     */
+    public function findAllInLibrary(): array
+    {
+        return $this->findBy(['isInLibrary' => true]);
+    }
 }

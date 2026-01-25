@@ -51,6 +51,9 @@ class Manga
     #[ORM\ManyToOne(targetEntity: Serie::class, inversedBy: 'mangas')]
     private ?Serie $serie = null;
 
+    #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
+    private ?bool $isInLibrary = false;
+
     /**
      * @var Collection<int, Chapter>
      */
@@ -61,6 +64,19 @@ class Manga
     public function __construct()
     {
         $this->chapters = new ArrayCollection();
+    }
+
+    public function downloadedChaptersCount(): int
+    {
+        return $this->chapters
+            ->filter(fn (Chapter $chapter) => null !== $chapter->getDownloadUrl())
+            ->count()
+        ;
+    }
+
+    public function availableChaptersCount(): int
+    {
+        return $this->chapters->count();
     }
 
     public function getTitle(): ?string
@@ -226,6 +242,18 @@ class Manga
         foreach ($this->chapters as $chapter) {
             $this->removeChapter($chapter);
         }
+
+        return $this;
+    }
+
+    public function getIsInLibrary(): ?bool
+    {
+        return $this->isInLibrary;
+    }
+
+    public function setIsInLibrary(?bool $isInLibrary): self
+    {
+        $this->isInLibrary = $isInLibrary;
 
         return $this;
     }
