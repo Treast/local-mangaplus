@@ -19,6 +19,7 @@ readonly class TitleDetailViewMapper
         $manga
             ->setDescription($titleDetailView->getOverview())
             ->setViewCount($titleDetailView->getNumberOfViews())
+            ->setSimulReleased($titleDetailView->getIsSimulReleased())
             ->setSynchedAt(new \DateTimeImmutable())
             ->cleanChapters()
         ;

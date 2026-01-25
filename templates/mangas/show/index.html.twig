@@ -21,6 +21,11 @@
                 </div>
             </div>
             <h3 class="mb-6">{{ manga.author }}</h3>
+
+            {% if manga.simulReleased %}
+                <twig:Badge>Simultaneous Released</twig:Badge>
+            {% endif %}
+
             <p class="mb-6">{{ manga.description }}</p>
             <div class="flex flex-row items-center gap-4 flex-wrap">
                 {% for manga_version in manga.serie.mangas %}

@@ -10,10 +10,12 @@ enum Language: string implements TranslatableInterface
     case Spanish = 'es';
     case French = 'fr';
     case English = 'en';
+    case Deutsch = 'de';
     case Indonesian = 'id';
     case Portuguese = 'pt';
     case Russian = 'ru';
     case Thai = 'th';
+    case Vietnamese = 'vt';
 
     public static function fromLanguageId(int $languageId): self
     {
@@ -24,6 +26,8 @@ enum Language: string implements TranslatableInterface
             4 => self::Portuguese,
             5 => self::Russian,
             6 => self::Thai,
+            7 => self::Deutsch,
+            9 => self::Vietnamese,
             default => self::English,
         };
     }

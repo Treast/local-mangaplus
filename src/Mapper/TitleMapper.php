@@ -17,11 +17,11 @@ readonly class TitleMapper
 
     public function toManga(Title $title): Manga
     {
-        if ($manga = $this->mangaRepository->findOneByMangaPlusId($title->getTitleId())) {
-            return $manga;
+        if (!$manga = $this->mangaRepository->findOneByMangaPlusId($title->getTitleId())) {
+            $manga = new Manga();
         }
 
-        $manga = new Manga()
+        $manga
             ->setTitle($title->getName())
             ->setAuthor($title->getAuthor())
             ->setMangaPlusId($title->getTitleId())
@@ -32,7 +32,12 @@ readonly class TitleMapper
             ->setSynchedAt(new \DateTimeImmutable())
         ;
 
-        $this->entityManager->persist($manga);
+        dump($manga);
+
+        if (!$this->entityManager->contains($manga)) {
+            $this->entityManager->persist($manga);
+        }
+
         $this->entityManager->flush();
 
         return $manga;
