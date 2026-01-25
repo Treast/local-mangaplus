@@ -4,7 +4,9 @@ export default class extends Controller {
   static values = { url: String };
 
   connect() {
-    this.eventSource = new EventSource(this.urlValue);
+    this.eventSource = new EventSource(this.urlValue, {
+      withCredentials: false,
+    });
 
     this.eventSource.onmessage = (event) => {
       const data = JSON.parse(event.data);
