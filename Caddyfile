@@ -2,6 +2,9 @@
 	frankenphp {
 		php_ini memory_limit 512M
 		php_ini zend.max_allowed_stack_size -1
+		php_ini max_execution_time 180
+
+		max_wait_time 20s
 
 		worker {
 		    file public/index.php
@@ -14,9 +17,7 @@
 	supervisor {
         php bin/console messenger:consume --all -vv {
             dir /app
-            termination_grace_period 30s
-            restart_policy always
-            replicas 3
+            replicas 5
         }
 	}
 }
@@ -27,6 +28,10 @@ http://localhost https://localhost {
 	mercure {
         publisher_jwt !ChangeThisMercureHubJWTSecretKey!
         anonymous
+
+        log {
+        	level debug
+        }
     }
 
     php_server {

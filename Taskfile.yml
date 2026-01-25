@@ -14,6 +14,10 @@ tasks:
         desc: "Stop Docker container"
         cmd: "{{.COMPOSE_CMD}} down"
 
+    recreate:
+        desc: "Recreate Docker container"
+        cmd: "{{.COMPOSE_CMD}} up -d --force-recreate"
+
     restart:
         desc: "Restart Docker container"
         cmds:
@@ -30,7 +34,7 @@ tasks:
 
     sh:
         desc: "Open shell"
-        cmd: "{{.COMPOSE_CMD}} exec php /bin/bash"
+        cmd: "{{.COMPOSE_CMD}} exec php /bin/sh"
 
     proto:
         desc: "Generate protobuf classes"

@@ -4,6 +4,7 @@ namespace App\Manager;
 
 use App\Api\MangaPlusApi;
 use App\Entity\Chapter;
+use App\ImmutableValue\DownloadStatus;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -12,14 +13,29 @@ readonly class ChapterManager
     public function __construct(
         private MangaPlusApi $mangaPlusApi,
         private EntityManagerInterface $entityManager,
+        private NotificationManager $notificationManager,
         private string $chapterImagesPath,
     ) {}
 
     public function downloadChapter(Chapter $chapter): Chapter
     {
+        $chapter->setDownloadStatus(DownloadStatus::Downloading);
+        $this->entityManager->flush();
+
+        $this->notificationManager->info(
+            sprintf('Downloading chapter %s', $chapter->getSubTitle())
+        );
+
         $mangaViewer = $this->mangaPlusApi->getMangaViewer($chapter);
 
         if (!$mangaViewer) {
+            $chapter->setDownloadStatus(DownloadStatus::DownloadingFailed);
+            $this->entityManager->flush();
+
+            $this->notificationManager->error(
+                sprintf('An error occured while downloading %s', $chapter->getSubTitle())
+            );
+
             return $chapter;
         }
 
@@ -75,9 +91,16 @@ readonly class ChapterManager
 
         $zip->close();
 
-        $chapter->setDownloadUrl($cbzFilename);
+        $chapter
+            ->setDownloadStatus(DownloadStatus::Downloaded)
+            ->setCbzPath($cbzFilename)
+        ;
 
         $this->entityManager->flush();
+
+        $this->notificationManager->success(
+            sprintf('Chapter %s downloaded successfully', $chapter->getSubTitle())
+        );
 
         return $chapter;
     }

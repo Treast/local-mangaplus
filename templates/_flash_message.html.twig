@@ -1,0 +1,34 @@
+<twig:Alert
+    class="flex items-center max-w-lg gap-x-4"
+    x-data="{
+        show: true,
+        timer: null,
+        startTimer() {
+            this.timer = setTimeout(() => this.show = false, 10000)
+        },
+        stopTimer() {
+            clearTimeout(this.timer)
+        }
+    }"
+    x-show="show"
+    x-init="startTimer()"
+    x-on:mouseenter="stopTimer()"
+    x-on:mouseleave="startTimer()"
+    x-transition:leave="transition ease-in duration-300"
+    x-transition:leave-start="opacity-100 scale-100"
+    x-transition:leave-end="opacity-0 scale-90"
+>
+    {% if label == 'success' %}
+        <twig:ux:icon name="lucide:check" class="static! size-5" />
+    {% elseif label == 'error' or label == 'danger' %}
+        <twig:ux:icon name="lucide:circle-x" class="static! size-5" />
+    {% else %}
+        <twig:ux:icon name="lucide:info" class="static! size-5" />
+    {% endif %}
+    <twig:Alert:Title class="flex items-center justify-between gap-2 text-sm mb-0! pl-0! w-full">
+        {{ message }}
+        <twig:Button x-on:click="show = false" size="sm" variant="ghost">
+            <twig:ux:icon name="lucide:x" class="size-4" />
+        </twig:Button>
+    </twig:Alert:Title>
+</twig:Alert>

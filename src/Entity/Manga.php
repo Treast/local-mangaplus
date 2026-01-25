@@ -69,7 +69,7 @@ class Manga
     public function downloadedChaptersCount(): int
     {
         return $this->chapters
-            ->filter(fn (Chapter $chapter) => null !== $chapter->getDownloadUrl())
+            ->filter(fn (Chapter $chapter) => null !== $chapter->getCbzPath())
             ->count()
         ;
     }

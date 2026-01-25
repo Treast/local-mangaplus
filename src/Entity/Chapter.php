@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Trait\IdTrait;
 use App\Entity\Trait\TimestampableTrait;
+use App\ImmutableValue\DownloadStatus;
 use App\Repository\ChapterRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -29,7 +30,10 @@ class Chapter
     private ?Manga $manga = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
-    private ?string $downloadUrl = null;
+    private ?string $cbzPath = null;
+
+    #[ORM\Column(type: Types::ENUM, enumType: DownloadStatus::class, options: ['default' => DownloadStatus::NotDownloaded])]
+    private ?DownloadStatus $downloadStatus = DownloadStatus::NotDownloaded;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $releasedAt = null;
@@ -85,14 +89,26 @@ class Chapter
         return $this;
     }
 
-    public function getDownloadUrl(): ?string
+    public function getCbzPath(): ?string
     {
-        return $this->downloadUrl;
+        return $this->cbzPath;
     }
 
-    public function setDownloadUrl(?string $downloadUrl): self
+    public function setCbzPath(?string $cbzPath): self
     {
-        $this->downloadUrl = $downloadUrl;
+        $this->cbzPath = $cbzPath;
+
+        return $this;
+    }
+
+    public function getDownloadStatus(): ?DownloadStatus
+    {
+        return $this->downloadStatus;
+    }
+
+    public function setDownloadStatus(?DownloadStatus $downloadStatus): self
+    {
+        $this->downloadStatus = $downloadStatus;
 
         return $this;
     }
