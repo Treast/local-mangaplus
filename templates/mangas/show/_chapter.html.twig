@@ -3,8 +3,14 @@
     <twig:Table:Cell>{{ chapter.subTitle }}</twig:Table:Cell>
     <twig:Table:Cell>{{ chapter.releasedAt|date('d F Y') }}</twig:Table:Cell>
     <twig:Table:Cell class="text-right">
-        <twig:Button as="a" href="#" variant="outline" size="icon">
-            <twig:ux:icon name="lucide:download" />
-        </twig:Button>
+        {% if chapter.downloadUrl is null %}
+            <twig:Button as="a" href="{{ path('app.chapters.download', {id: chapter.id}) }}" variant="outline" size="icon">
+                <twig:ux:icon name="lucide:download" />
+            </twig:Button>
+        {% else %}
+            <twig:Button as="a" href="{{ chapter.downloadUrl }}" variant="default" size="icon" target="_blank">
+                <twig:ux:icon name="lucide:eye" />
+            </twig:Button>
+        {% endif %}
     </twig:Table:Cell>
 </twig:Table:Row>

@@ -13,7 +13,7 @@ readonly class ApiManager
         private ConfigurationManager $configurationManager,
     ) {}
 
-    public function getCredientals(): ApiCredentials
+    public function getCredentials(): ApiCredentials
     {
         if (!$androidId = $this->configurationManager->getValue('android_id')) {
             $androidId = $this->generateAndroidId();

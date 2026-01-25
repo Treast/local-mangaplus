@@ -2,8 +2,11 @@
 
 namespace App\Api;
 
+use App\Api\Protobuf\MangaPlus\MangaViewer;
+use App\Api\Protobuf\MangaPlus\Page;
 use App\Api\Protobuf\MangaPlus\Response;
 use App\DTO\ApiCredentials;
+use App\Entity\Chapter;
 use App\Entity\Manga;
 use App\Entity\Serie;
 use App\Manager\ApiManager;
@@ -110,6 +113,58 @@ readonly class MangaPlusApi
         return $manga;
     }
 
+    public function getMangaViewer(Chapter $chapter): ?MangaViewer
+    {
+        $apiCrendetials = $this->getCredentials();
+
+        if (!$apiCrendetials->getDeviceSecret()) {
+            return null;
+        }
+
+        try {
+            $response = $this->mangaPlusClient->request(
+                'GET',
+                $this->withAuth(
+                    sprintf('manga_viewer?img_quality=super_high&split=yes&chapter_id=%s', $chapter->getMangaPlusId()),
+                    $apiCrendetials
+                )
+            );
+            $binaryData = $response->getContent();
+
+            $apiResponse = new Response();
+            $apiResponse->mergeFromString($binaryData);
+
+            return $apiResponse->getSuccess()?->getMangaViewer();
+        } catch (\Exception|ExceptionInterface) {
+        }
+
+        return null;
+    }
+
+    public function getPage(Page $page): ?string
+    {
+        if (!$page->getMangaPage()?->getImageUrl()) {
+            return null;
+        }
+
+        try {
+            $response = $this->mangaPlusClient->request(
+                'GET',
+                $page->getMangaPage()->getImageUrl(),
+                [
+                    'headers' => [
+                        'Content-Type' => 'image/jpeg',
+                    ],
+                ]
+            );
+
+            return $response->getContent();
+        } catch (\Exception|ExceptionInterface) {
+        }
+
+        return null;
+    }
+
     private function registerDevice(ApiCredentials $apiCredentials): ?string
     {
         $response = $this->mangaPlusClient->request(
@@ -157,7 +212,7 @@ readonly class MangaPlusApi
 
     private function getCredentials(): ApiCredentials
     {
-        $apiCrendetials = $this->apiManager->getCredientals();
+        $apiCrendetials = $this->apiManager->getCredentials();
 
         if (!$apiCrendetials->getDeviceSecret() && $deviceSecret = $this->registerDevice($apiCrendetials)) {
             $apiCrendetials->setDeviceSecret($deviceSecret);

@@ -74,4 +74,4 @@ tasks:
 
     php-stan:
         desc: "Run PHPStan"
-        cmd: "{{.COMPOSE_CMD}} exec php ./vendor/bin/phpstan analyse src"
+        cmd: "{{.COMPOSE_CMD}} exec php ./vendor/bin/phpstan analyse src --memory-limit=1G"

@@ -14,6 +14,7 @@
     </head>
     <body class="min-h-screen dark">
         {{ include('_menu.html.twig', {}, false) }}
+        {{ include('_flash_messages.html.twig', {}, false) }}
         {% block content %}{% endblock %}
     </body>
 </html>

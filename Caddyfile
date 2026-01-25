@@ -1,6 +1,20 @@
 {
 	frankenphp {
 		php_ini memory_limit 512M
+
+		worker {
+		    file public/index.php
+
+            watch src/**/*.php
+            watch templates/**/*.html.twig
+		}
+	}
+
+	supervisor {
+        php bin/console messenger:consume {
+            dir /app
+            replicas 3
+        }
 	}
 }
 
