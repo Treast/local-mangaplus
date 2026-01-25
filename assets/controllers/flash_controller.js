@@ -14,9 +14,20 @@ export default class extends Controller {
         this.element.insertAdjacentHTML('afterbegin', data.html);
       }
     };
+
+    this.eventSource.onerror = () => {
+      this.closeConnection();
+    };
+  }
+  disconnect() {
+    this.closeConnection();
   }
 
-  disconnect() {
-    if (this.eventSource) this.eventSource.close();
+  closeConnection() {
+    if (this.eventSource) {
+      this.eventSource.close();
+      this.eventSource = null;
+      console.log("Mercure connection closed safely.");
+    }
   }
 }
