@@ -4,6 +4,10 @@ framework:
     session: true
 
     http_client:
+        default_options:
+            verify_host: false
+            verify_peer: false
+
         scoped_clients:
             mangaPlus.client:
                 base_uri: 'https://jumpg-webapi.tokyo-cdn.com/api/'

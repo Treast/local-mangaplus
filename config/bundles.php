@@ -6,6 +6,7 @@ use Pentatrion\ViteBundle\PentatrionViteBundle;
 use Symfony\Bundle\DebugBundle\DebugBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\MakerBundle\MakerBundle;
+use Symfony\Bundle\MercureBundle\MercureBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
@@ -36,4 +37,5 @@ return [
     StimulusBundle::class => ['all' => true],
     LiveComponentBundle::class => ['all' => true],
     UXIconsBundle::class => ['all' => true],
+    MercureBundle::class => ['all' => true],
 ];
