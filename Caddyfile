@@ -11,8 +11,10 @@
 	}
 
 	supervisor {
-        php bin/console messenger:consume {
+        php bin/console messenger:consume --all -vv {
             dir /app
+            termination_grace_period 30s
+            restart_policy always
             replicas 3
         }
 	}
