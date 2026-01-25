@@ -7,14 +7,7 @@
         />
     </div>
 
-    <div data-loading>
-        <div class="flex items-center justify-center gap-x-1 mb-6">
-            <i data-feather="loader" class="animate-spin"></i>
-            <span>Loading...</span>
-        </div>
-    </div>
-
-    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6" data-loading="addClass(opacity-30)">
         {% for serie in this.series %}
             <twig:SerieCard :serie="serie" />
         {% endfor %}

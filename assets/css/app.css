@@ -3,6 +3,7 @@
 @import "tailwindcss";
 
 @source './templates';
+@source inline('opacity-30');
 
 @import './components.css' layer(utilities);
 @import './typography.css' layer(base);
