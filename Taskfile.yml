@@ -67,6 +67,7 @@ tasks:
             - task: php-cs-fix
             - task: php-stan
             - task: twig-cs-fix
+            - task: biome
 
     twig-cs-fix:
         desc: "Run Twig CS Fixer"
@@ -79,3 +80,7 @@ tasks:
     php-stan:
         desc: "Run PHPStan"
         cmd: "{{.COMPOSE_CMD}} exec php ./vendor/bin/phpstan analyse src --memory-limit=1G"
+
+    biome:
+        desc: "Run Biome"
+        cmd: "npx @biomejs/biome format --write"
