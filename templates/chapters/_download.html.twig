@@ -1,0 +1,10 @@
+<twig:Table:Row>
+    <twig:Table:Cell>{{ chapter.manga.title }} {{ chapter.title }}</twig:Table:Cell>
+    <twig:Table:Cell>{{ chapter.subTitle }}</twig:Table:Cell>
+    <twig:Table:Cell>{{ chapter.downloadedAt|date('d/m/Y H:i:s') }}</twig:Table:Cell>
+    <twig:Table:Cell class="text-right">
+        <twig:Button as="a" href="{{ chapter.cbzPath }}" variant="default" size="icon" target="_blank">
+            <twig:ux:icon name="lucide:eye" class="size-4" />
+        </twig:Button>
+    </twig:Table:Cell>
+</twig:Table:Row>

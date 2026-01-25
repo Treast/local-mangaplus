@@ -20,4 +20,17 @@ class ChapterRepository extends ServiceEntityRepository
     {
         return $this->findOneBy(['mangaPlusId' => $mangaPlusId]);
     }
+
+    /**
+     * @return array<Chapter>
+     */
+    public function findLatestDownloaded(): array
+    {
+        return $this
+            ->createQueryBuilder('c')
+            ->orderBy('c.downloadedAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

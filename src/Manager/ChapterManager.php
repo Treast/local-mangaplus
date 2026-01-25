@@ -93,6 +93,7 @@ readonly class ChapterManager
 
         $chapter
             ->setDownloadStatus(DownloadStatus::Downloaded)
+            ->setDownloadedAt(new \DateTimeImmutable())
             ->setCbzPath($cbzFilename)
         ;
 

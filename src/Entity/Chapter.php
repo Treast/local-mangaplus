@@ -35,10 +35,13 @@ class Chapter
     #[ORM\Column(type: Types::ENUM, enumType: DownloadStatus::class, options: ['default' => DownloadStatus::NotDownloaded])]
     private ?DownloadStatus $downloadStatus = DownloadStatus::NotDownloaded;
 
-    #[ORM\Column(type: Types::DATE_IMMUTABLE, nullable: true)]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
+    private ?\DateTimeImmutable $downloadedAt = null;
+
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $releasedAt = null;
 
-    #[ORM\Column(type: Types::DATE_IMMUTABLE, nullable: true)]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $readableUntil = null;
 
     public function getTitle(): ?string
@@ -110,6 +113,17 @@ class Chapter
     {
         $this->downloadStatus = $downloadStatus;
 
+        return $this;
+    }
+
+    public function getDownloadedAt(): ?\DateTimeImmutable
+    {
+        return $this->downloadedAt;
+    }
+
+    public function setDownloadedAt(?\DateTimeImmutable $downloadedAt): self
+    {
+        $this->downloadedAt = $downloadedAt;
         return $this;
     }
 

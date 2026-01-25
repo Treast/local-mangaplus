@@ -1,4 +1,6 @@
 {
+    debug
+
 	frankenphp {
 		php_ini memory_limit 512M
 		php_ini zend.max_allowed_stack_size -1
@@ -28,6 +30,8 @@ http://localhost https://localhost {
 	mercure {
         publisher_jwt !ChangeThisMercureHubJWTSecretKey!
         anonymous
+
+        debug
 
         log {
         	level debug
