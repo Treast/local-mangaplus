@@ -61,6 +61,10 @@ tasks:
         desc: "Reset database"
         cmd: "{{.COMPOSE_CMD}} exec php bin/console doctrine:migrations:migrate first -n"
 
+    'caddy:fmt':
+        desc: "Format Caddyfile"
+        cmd: "{{.COMPOSE_CMD}} exec php frankenphp fmt --overwrite -c /app/Caddyfile"
+
     fix:
         desc: "Run all fixers"
         cmds:

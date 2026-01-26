@@ -1,6 +1,6 @@
-FROM dunglas/frankenphp:1.11-builder-php8.5-alpine AS builder
+FROM dunglas/frankenphp:1.11-builder-php8.5 AS builder
 
-RUN apk add --no-cache protobuf-dev libcap go
+RUN apt-get update && apt-get install -y protobuf-compiler golang-go
 
 COPY --from=caddy:builder /usr/bin/xcaddy /usr/bin/xcaddy
 
@@ -18,13 +18,13 @@ RUN CGO_ENABLED=1 \
         --with github.com/dunglas/vulcain/caddy \
         --with github.com/baldinof/caddy-supervisor
 
-FROM dunglas/frankenphp:1.11-php8.5-alpine AS runner
+FROM dunglas/frankenphp:1.11-php8.5 AS runner
 
 COPY --from=builder /usr/local/bin/frankenphp /usr/local/bin/frankenphp
 
 ARG USER=appuser
 
-RUN apk add --no-cache protobuf-dev libcap
+RUN apt-get update && apt-get install -y protobuf-compiler
 
 RUN install-php-extensions \
 	apcu \
@@ -36,8 +36,8 @@ RUN install-php-extensions \
 	opcache \
     zip
 
-RUN addgroup -g 1000 -S ${USER} && \
-    adduser -u 1000 -S ${USER} -G ${USER}
+RUN groupadd -g 1000 ${USER} && \
+    useradd -u 1000 -g ${USER} -m -s /bin/bash ${USER}
 
 RUN \
     setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/frankenphp; \
