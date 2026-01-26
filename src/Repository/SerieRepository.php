@@ -42,4 +42,52 @@ class SerieRepository extends ServiceEntityRepository
     {
         return $this->findBy([], ['lastUpdatedAt' => 'DESC'], 12);
     }
+
+    /**
+     * @param array<string> $genres
+     *
+     * @return array<Serie>
+     */
+    public function findPaginated(int $page, int $limit, array $genres): array
+    {
+        $query = $this->createQueryBuilder('s');
+
+        if (count($genres) > 0) {
+            $query
+                ->leftJoin('s.genres', 'g')
+                ->where('g.slug IN (:genres)')
+                ->setParameter('genres', $genres)
+            ;
+        }
+
+        return $query
+            ->setFirstResult(($page - 1) * $limit)
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+     * @param array<string> $genres
+     */
+    public function countAll(array $genres): int
+    {
+        $query = $this->createQueryBuilder('s')
+            ->select('COUNT(s.id)')
+        ;
+
+        if (count($genres) > 0) {
+            $query
+                ->leftJoin('s.genres', 'g')
+                ->where('g.slug IN (:genres)')
+                ->setParameter('genres', $genres)
+            ;
+        }
+
+        return $query
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
 }

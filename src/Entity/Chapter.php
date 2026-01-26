@@ -124,6 +124,7 @@ class Chapter
     public function setDownloadedAt(?\DateTimeImmutable $downloadedAt): self
     {
         $this->downloadedAt = $downloadedAt;
+
         return $this;
     }
 

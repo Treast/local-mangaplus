@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Requirement\Requirement;
 
 #[Route('/chapters', name: 'app.chapters.')]
 class ChapterController extends AbstractController
@@ -21,7 +22,7 @@ class ChapterController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/download', name: 'download', methods: 'GET')]
+    #[Route('/{id}/download', name: 'download', requirements: ['id' => Requirement::DIGITS], methods: 'GET')]
     public function download(Chapter $chapter, MessageBusInterface $messageBus): Response
     {
         $messageBus->dispatch(new DownloadChapterMessage($chapter->getId()));

@@ -11,7 +11,7 @@ services:
       - "443:443/udp"
     environment:
       FRANKENPHP_CONFIG: "worker public/index.php"
-      MAX_REQUESTS: 100
+      FRANKENPHP_MAX_REQUESTS: 100
     volumes:
       - ./:/app
       - ./Caddyfile:/etc/frankenphp/Caddyfile

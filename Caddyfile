@@ -4,12 +4,15 @@
 	frankenphp {
 		php_ini memory_limit 512M
 		php_ini zend.max_allowed_stack_size -1
+		php_ini zend.reserved_stack_size -1
 		php_ini max_execution_time 180
 
 		max_wait_time 20s
 
 		worker {
 		    file public/index.php
+            num 10
+            env FRANKENPHP_LOOP_MAX 100
 
             watch src/**/*.php
             watch templates/**/*.html.twig

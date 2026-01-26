@@ -1,0 +1,94 @@
+<div
+    {{ attributes }}
+    x-data
+>
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 py-12" x-ref="list">
+        {% for genre in this.genres %}
+            <twig:Button variant="outline">
+                {{ genre.name }}
+            </twig:Button>
+        {% endfor %}
+    </div>
+
+    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        {% for serie in this.series %}
+            <twig:SerieCard :serie="serie" />
+        {% endfor %}
+    </div>
+
+    {% set delta = 2 %}
+    {% set totalPages = this.totalPages %}
+
+    <twig:Pagination>
+        <twig:Pagination:Content>
+            <twig:Pagination:Item>
+                <twig:Pagination:Previous href="#" />
+            </twig:Pagination:Item>
+
+            {% if page > (delta + 1) %}
+                <twig:Pagination:Item>
+                    <twig:Pagination:Link
+                        as="button"
+                        x-on:click="$refs.list.scrollIntoView({ behavior: 'smooth' })"
+                        data-action="live#update"
+                        data-model="page"
+                        data-value="1"
+                        :active="page == 1"
+                        class="cursor-pointer"
+                    >
+                        1
+                    </twig:Pagination:Link>
+                </twig:Pagination:Item>
+            {% endif %}
+
+            {% if page > (delta + 2) %}
+                <twig:Pagination:Item>
+                    <twig:Pagination:Ellipsis />
+                </twig:Pagination:Item>
+            {% endif %}
+
+            {% for i in max(1, page - delta)..min(totalPages, page + delta) %}
+                {% if i > 0 and i <= totalPages %}
+                    <twig:Pagination:Item>
+                        <twig:Pagination:Link
+                            as="button"
+                            x-on:click="$refs.list.scrollIntoView({ behavior: 'smooth' })"
+                            data-action="live#update"
+                            data-model="page"
+                            :data-value="i"
+                            :active="page == i"
+                            class="cursor-pointer"
+                        >
+                            {{ i }}
+                        </twig:Pagination:Link>
+                    </twig:Pagination:Item>
+                {% endif %}
+            {% endfor %}
+
+            {% if page < totalPages %}
+                {% if page < (totalPages - delta - 1) %}
+                    <twig:Pagination:Item>
+                        <twig:Pagination:Ellipsis />
+                    </twig:Pagination:Item>
+                {% endif %}
+
+                {% if page < (totalPages - delta) %}
+                    <twig:Pagination:Item>
+                        <twig:Pagination:Link
+                            as="button"
+                            x-on:click="$refs.list.scrollIntoView({ behavior: 'smooth' })"
+                            data-action="live#update"
+                            data-model="page"
+                            :data-value="totalPages"
+                            :active="page == totalPages"
+                            class="cursor-pointer"
+                        >
+                            {{ totalPages }}
+                        </twig:Pagination:Link>
+                    </twig:Pagination:Item>
+                {% endif %}
+            {% endif %}
+
+        </twig:Pagination:Content>
+    </twig:Pagination>
+</div>
