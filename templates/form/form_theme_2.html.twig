@@ -1,0 +1,70 @@
+{% use 'form_div_layout.html.twig' %}
+
+{# --- ROW --- #}
+{% block form_row %}
+    <div class="flex flex-col gap-3">
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+        {{ form_help(form) }}
+        {{ form_errors(form) }}
+    </div>
+{% endblock %}
+
+{# --- LABEL --- #}
+{% block form_label %}
+    {% if label is not same as(false) %}
+        {% set label_attr = label_attr|merge({
+            class: label_attr.class|default('') ~ ' text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
+        }) %}
+        <label {% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %} for="{{ id }}">
+        {{ label|trans }}
+        {% if required %}<span class="text-destructive ml-1">*</span>{% endif %}
+        </label>
+    {% endif %}
+{% endblock %}
+
+{# --- INPUT --- #}
+{% block form_widget_simple %}
+    {% set has_errors = errors|length > 0 %}
+    {% set default_class = "flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" %}
+
+    {% if has_errors %}
+        {% set default_class = default_class ~ " border-destructive focus-visible:ring-destructive" %}
+    {% endif %}
+
+    {% set attr = attr|merge({ class: default_class ~ ' ' ~ attr.class|default('') }) %}
+
+    <input type="{{ type|default('text') }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{% endblock %}
+
+{# --- TEXTAREA --- #}
+{% block textarea_widget %}
+    {% set default_class = "flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50" %}
+    {% set attr = attr|merge({ class: default_class ~ ' ' ~ attr.class|default('') }) %}
+    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+{% endblock %}
+
+{# --- ERRORS --- #}
+{% block form_errors %}
+    {% if errors|length > 0 %}
+        <div class="space-y-1">
+            {% for error in errors %}
+                <p class="text-[0.8rem] font-medium text-destructive">{{ error.message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{# --- HELP --- #}
+{% block form_help %}
+    {% if help is not empty %}
+        <p class="text-[0.8rem] text-muted-foreground">{{ help|trans }}</p>
+    {% endif %}
+{% endblock %}
+
+{# --- CHECKBOX (Style Switch manuel) --- #}
+{% block checkbox_widget %}
+    <input type="checkbox" {{ block('widget_attributes') }} {% if checked %}checked="checked"{% endif %}
+           class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+    />
+{% endblock %}
