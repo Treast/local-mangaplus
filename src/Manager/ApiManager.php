@@ -3,6 +3,7 @@
 namespace App\Manager;
 
 use App\DTO\ApiCredentials;
+use Doctrine\ORM\EntityManagerInterface;
 use Random\Randomizer;
 
 readonly class ApiManager
@@ -11,13 +12,13 @@ readonly class ApiManager
 
     public function __construct(
         private ConfigurationManager $configurationManager,
+        private EntityManagerInterface $entityManager,
     ) {}
 
     public function getCredentials(): ApiCredentials
     {
         if (!$androidId = $this->configurationManager->getValue('android_id')) {
-            $androidId = $this->generateAndroidId();
-            $this->configurationManager->set('android_id', $androidId);
+            return $this->generateCredentials();
         }
 
         if (!$deviceToken = $this->configurationManager->getValue('device_token')) {
@@ -38,6 +39,31 @@ readonly class ApiManager
             ->setSecurityKey($securityKey)
             ->setDeviceSecret($deviceSecret)
         ;
+    }
+
+    public function generateCredentials(): ApiCredentials
+    {
+        $androidId = $this->generateAndroidId();
+        $this->configurationManager->set('android_id', $androidId);
+
+        $deviceToken = md5($androidId);
+        $this->configurationManager->set('device_token', $deviceToken);
+
+        $securityKey = md5($deviceToken . self::SECRET_KEY_SALT);
+        $this->configurationManager->set('security_key', $securityKey);
+
+        $this->configurationManager->set('device_secret', null);
+
+        $apiCrendetials = new ApiCredentials()
+            ->setAndroidId($androidId)
+            ->setDeviceToken($deviceToken)
+            ->setSecurityKey($securityKey)
+            ->setDeviceSecret(null)
+        ;
+
+        $this->entityManager->flush();
+
+        return $apiCrendetials;
     }
 
     public function setDeviceSecret(string $deviceSecret): void

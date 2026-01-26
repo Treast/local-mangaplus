@@ -1,0 +1,71 @@
+{% use 'form_div_layout.html.twig' %}
+
+{% block form_row %}
+    {% set has_errors = errors|length > 0 %}
+
+    <twig:Field>
+        {{ form_label(form) }}
+        {{ form_widget(form, {attr: {'aria-invalid': has_errors ? 'true' : 'false'}}) }}
+
+        {% if help is not empty %}
+            <twig:Field:Description>{{ help|trans }}</twig:Field:Description>
+        {% endif %}
+
+        {{ form_errors(form) }}
+    </twig:Field>
+{% endblock %}
+
+{% block form_label %}
+    {% if label is not same as(false) %}
+        <twig:Field:Label for="{{ id }}">
+            {{ label|trans }}
+            {% if required %} <span class="required text-red-500">*</span> {% endif %}
+        </twig:Field:Label>
+    {% endif %}
+{% endblock %}
+
+{% block form_errors %}
+    {% if errors|length > 0 %}
+        {% for error in errors %}
+            <twig:Field:Error>{{ error.message }}</twig:Field:Error>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+{% block form_widget_simple %}
+    {%- set type = type|default('text') -%}
+    {%- if type == 'range' or type == 'color' -%}
+        {# Attribute "required" is not supported #}
+        {%- set required = false -%}
+    {%- endif -%}
+    <twig:Input
+        type="{{ type }}"
+        id="{{ id }}"
+        name="{{ full_name }}"
+        value="{{ value }}"
+        required="{{ required }}"
+        disabled="{{ disabled }}"
+        placeholder="{{ attr['placeholder']|default }}"
+    />
+{% endblock %}
+
+{% block form_fieldset %}
+    <twig:Field:Set>
+        {% if label is not same as(false) %}
+            <twig:Field:Legend>{{ label|trans }}</twig:Field:Legend>
+        {% endif %}
+
+        {% if help is not empty %}
+            <twig:Field:Description>{{ help|trans }}</twig:Field:Description>
+        {% endif %}
+
+        <twig:Field:Group>
+            {{ form_widget(form) }}
+        </twig:Field:Group>
+    </twig:Field:Set>
+{% endblock %}
+
+{%- block hidden_widget -%}
+    {%- set type = type|default('hidden') -%}
+    {{ block('form_widget_simple') }}
+{%- endblock hidden_widget -%}

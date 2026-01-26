@@ -1,0 +1,55 @@
+<div {{ attributes }} class="max-w-xl mx-auto">
+    {{ form_start(form) }}
+        <twig:Field:Set>
+            <twig:Field:Legend>API Credentials</twig:Field:Legend>
+            <twig:Field:Description>Keep them secret!</twig:Field:Description>
+            <twig:Field:Group>
+                <twig:Dialog id="show_credentials">
+                    <twig:Dialog:Trigger>
+                        <twig:Button as="a" href="javascript:void(0)" variant="outline" {{ ...trigger_attrs }}>
+                            <twig:ux:icon name="lucide:eye" />
+                            Show the credentials
+                        </twig:Button>
+                    </twig:Dialog:Trigger>
+                    <twig:Dialog:Content class="text-white max-w-2xl w-full">
+                        {{ form_row(form.androidId) }}
+                        {{ form_row(form.deviceToken) }}
+                        {{ form_row(form.securityKey) }}
+                        {{ form_row(form.deviceSecret) }}
+                        <twig:Dialog:Footer class="sm:justify-between!">
+                            <twig:Button
+                                as="a"
+                                href="javascript:void(0)"
+                                variant="destructive"
+                                data-action="live#action"
+                                data-live-action-param="regenerateCredentials"
+                            >
+                                <twig:ux:icon name="lucide:trash" />
+                                Regenerate
+                            </twig:Button>
+                            <twig:Dialog:Close>
+                                <twig:Button type="button" variant="outline" {{ ...close_attrs }}>
+                                    Close
+                                </twig:Button>
+                            </twig:Dialog:Close>
+                        </twig:Dialog:Footer>
+                    </twig:Dialog:Content>
+                </twig:Dialog>
+            </twig:Field:Group>
+        </twig:Field:Set>
+
+        <twig:Separator  class="my-12"/>
+
+        <twig:Field:Set>
+            <twig:Field:Legend>Notifications</twig:Field:Legend>
+            <twig:Field:Description>Stay tuned!</twig:Field:Description>
+            <twig:Field:Group>
+                {{ form_row(form.discordWebhook) }}
+            </twig:Field:Group>
+        </twig:Field:Set>
+
+        <twig:Separator  class="my-12"/>
+
+        <twig:Button type="submit" variant="outline" class="w-full">Save</twig:Button>
+    {{ form_end(form) }}
+</div>

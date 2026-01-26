@@ -165,7 +165,7 @@ readonly class MangaPlusApi
         return null;
     }
 
-    private function registerDevice(ApiCredentials $apiCredentials): ?string
+    public function registerDevice(ApiCredentials $apiCredentials): ?string
     {
         $response = $this->mangaPlusClient->request(
             'PUT',
