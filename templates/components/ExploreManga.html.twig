@@ -3,8 +3,13 @@
     x-data
 >
     <div class="flex flex-wrap items-center gap-x-4 gap-y-2 py-12" x-ref="list">
-        {% for genre in this.genres %}
-            <twig:Button variant="outline">
+        {% for genre in this.allGenres %}
+            <twig:Button variant="{{ genre.slug in this.genres ? 'default' : 'outline' }}"
+                         data-action="live#action"
+                         data-live-action-param="selectGenre"
+                         data-live-slug-param="{{ genre.slug }}"
+                         class="cursor-pointer"
+            >
                 {{ genre.name }}
             </twig:Button>
         {% endfor %}

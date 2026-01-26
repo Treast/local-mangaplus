@@ -7,6 +7,8 @@ use App\Entity\Serie;
 use App\Repository\GenreRepository;
 use App\Repository\SerieRepository;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
+use Symfony\UX\LiveComponent\Attribute\LiveAction;
+use Symfony\UX\LiveComponent\Attribute\LiveArg;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 
@@ -24,7 +26,7 @@ final class ExploreManga
      * @var array<string>
      */
     #[LiveProp(url: true)]
-    public array $selectedGenres = [];
+    public array $genres = [];
 
     public function __construct(
         private readonly SerieRepository $serieRepository,
@@ -34,9 +36,19 @@ final class ExploreManga
     /**
      * @return array<Genre>
      */
-    public function getGenres(): array
+    public function getAllGenres(): array
     {
         return $this->genreRepository->findAll();
+    }
+
+    #[LiveAction]
+    public function selectGenre(#[LiveArg] string $slug): void
+    {
+        if (in_array($slug, $this->genres)) {
+            $this->genres = array_diff($this->genres, [$slug]);
+        } else {
+            $this->genres[] = $slug;
+        }
     }
 
     /**
@@ -44,11 +56,11 @@ final class ExploreManga
      */
     public function getSeries(): array
     {
-        return $this->serieRepository->findPaginated($this->page, self::ITEMS_PER_PAGE, $this->selectedGenres);
+        return $this->serieRepository->findPaginated($this->page, self::ITEMS_PER_PAGE, $this->genres);
     }
 
     public function getTotalPages(): int
     {
-        return (int) ceil($this->serieRepository->countAll($this->selectedGenres) / self::ITEMS_PER_PAGE);
+        return (int) ceil($this->serieRepository->countAll($this->genres) / self::ITEMS_PER_PAGE);
     }
 }
