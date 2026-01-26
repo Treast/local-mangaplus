@@ -91,6 +91,11 @@ class Serie
         return null;
     }
 
+    public function isInLibrary(): bool
+    {
+        return null !== $this->mangas->findFirst(fn (int $key, Manga $manga) => $manga->getIsInLibrary());
+    }
+
     public function getMangaByLanguage(Language $language): ?Manga
     {
         return $this->mangas->findFirst(fn (int $key, Manga $manga) => $manga->getLanguage() === $language);
