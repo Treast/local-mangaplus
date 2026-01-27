@@ -25,6 +25,25 @@ readonly class ConfigurationManager
 
     public function set(string $key, mixed $value): void
     {
+        $this->setValue($key, $value);
+
+        $this->entityManager->flush();
+    }
+
+    /**
+     * @param array<string, mixed> $values
+     */
+    public function setMany(array $values): void
+    {
+        foreach ($values as $key => $value) {
+            $this->setValue($key, $value);
+        }
+
+        $this->entityManager->flush();
+    }
+
+    private function setValue(string $key, mixed $value): void
+    {
         if (!$configuration = $this->configurationRepository->get($key)) {
             $configuration = new Configuration()->setKey($key);
 
@@ -32,7 +51,5 @@ readonly class ConfigurationManager
         }
 
         $configuration->setValue($value);
-
-        $this->entityManager->flush();
     }
 }

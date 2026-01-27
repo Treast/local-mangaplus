@@ -3,7 +3,7 @@
 namespace App\Twig\Component;
 
 use App\Form\SettingsType;
-use App\Manager\ApiManager;
+use App\Manager\CredentialsManager;
 use App\Manager\SettingsManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
@@ -20,13 +20,13 @@ final class SettingsForm extends AbstractController
 
     public function __construct(
         private readonly SettingsManager $settingsManager,
-        private readonly ApiManager $apiManager,
+        private readonly CredentialsManager $credentialsManager,
     ) {}
 
     #[LiveAction]
     public function regenerateCredentials(): void
     {
-        $this->apiManager->generateCredentials();
+        $this->credentialsManager->generateCredentials();
 
         $settings = $this->settingsManager->createSettings();
 

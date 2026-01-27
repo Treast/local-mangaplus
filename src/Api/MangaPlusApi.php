@@ -4,48 +4,45 @@ namespace App\Api;
 
 use App\Api\Protobuf\MangaPlus\MangaViewer;
 use App\Api\Protobuf\MangaPlus\Page;
-use App\Api\Protobuf\MangaPlus\Response;
-use App\DTO\ApiCredentials;
 use App\Entity\Chapter;
 use App\Entity\Manga;
 use App\Entity\Serie;
-use App\Manager\ApiManager;
+use App\Manager\CredentialsManager;
 use App\Mapper\TitleContainerMapper;
 use App\Mapper\TitleDetailViewMapper;
 use App\Mapper\TitleMapper;
-use Symfony\Contracts\HttpClient\Exception\ExceptionInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-readonly class MangaPlusApi
+readonly class MangaPlusApi extends BaseApi
 {
     public function __construct(
         private HttpClientInterface $mangaPlusClient,
+        private LoggerInterface $logger,
         private TitleMapper $titleMapper,
         private TitleContainerMapper $titleContainerMapper,
         private TitleDetailViewMapper $titleDetailViewMapper,
-        private ApiManager $apiManager,
-    ) {}
+        private CredentialsManager $credentialsManager,
+    ) {
+        parent::__construct($this->mangaPlusClient, $this->logger);
+    }
 
     /**
      * @return array<Manga>
      */
     public function getTitlesV2(): array
     {
+        $response = $this->performRequest('title_list/allV2');
+
+        if (!$response) {
+            return [];
+        }
+
         $mangas = [];
-
-        try {
-            $response = $this->mangaPlusClient->request('GET', 'title_list/allV2');
-            $binaryData = $response->getContent();
-
-            $apiResponse = new Response();
-            $apiResponse->mergeFromString($binaryData);
-
-            foreach ($apiResponse->getSuccess()->getAllTitlesViewV2()->getAllTitlesGroup() as $item) {
-                foreach ($item->getTitles() as $title) {
-                    $mangas[] = $this->titleMapper->toManga($title);
-                }
+        foreach ($response->getSuccess()->getAllTitlesViewV2()->getAllTitlesGroup() as $item) {
+            foreach ($item->getTitles() as $title) {
+                $mangas[] = $this->titleMapper->toManga($title);
             }
-        } catch (\Exception|ExceptionInterface $e) {
         }
 
         return $mangas;
@@ -56,28 +53,23 @@ readonly class MangaPlusApi
      */
     public function getTitlesV3(): array
     {
-        $apiCrendetials = $this->getCredentials();
+        $apiCrendetials = $this->credentialsManager->getCredentials();
 
         if (!$apiCrendetials->getDeviceSecret()) {
             return [];
         }
 
+        $url = $this->withAuth('title_list/allV3?type=serializing&lang=fra&clang=eng%2Cfra', $apiCrendetials);
+
+        $response = $this->performRequest($url);
+
+        if (!$response) {
+            return [];
+        }
+
         $series = [];
-
-        try {
-            $response = $this->mangaPlusClient->request(
-                'GET',
-                $this->withAuth('title_list/allV3?type=serializing&lang=fra&clang=eng%2Cfra', $apiCrendetials)
-            );
-            $binaryData = $response->getContent();
-
-            $apiResponse = new Response();
-            $apiResponse->mergeFromString($binaryData);
-
-            foreach ($apiResponse->getSuccess()->getAllTitlesViewV3()->getTitles() as $titleContainer) {
-                $series[] = $this->titleContainerMapper->toSerie($titleContainer);
-            }
-        } catch (\Exception|ExceptionInterface) {
+        foreach ($response->getSuccess()->getAllTitlesViewV3()->getTitles() as $titleContainer) {
+            $series[] = $this->titleContainerMapper->toSerie($titleContainer);
         }
 
         return $series;
@@ -85,29 +77,25 @@ readonly class MangaPlusApi
 
     public function getTitleDetailV3(Manga $manga): ?Manga
     {
-        $apiCrendetials = $this->getCredentials();
+        $apiCrendetials = $this->credentialsManager->getCredentials();
 
         if (!$apiCrendetials->getDeviceSecret()) {
             return $manga;
         }
 
-        try {
-            $response = $this->mangaPlusClient->request(
-                'GET',
-                $this->withAuth(
-                    sprintf('title_detailV3?title_id=%s', $manga->getMangaPlusId()),
-                    $apiCrendetials
-                )
-            );
-            $binaryData = $response->getContent();
+        $url = $this->withAuth(
+            sprintf('title_detailV3?title_id=%s', $manga->getMangaPlusId()),
+            $apiCrendetials
+        );
 
-            $apiResponse = new Response();
-            $apiResponse->mergeFromString($binaryData);
+        $response = $this->performRequest($url);
 
-            if ($titleDetail = $apiResponse->getSuccess()?->getTitleDetailView()) {
-                return $this->titleDetailViewMapper->updateManga($manga, $titleDetail);
-            }
-        } catch (\Exception|ExceptionInterface) {
+        if (!$response) {
+            return $manga;
+        }
+
+        if ($titleDetail = $response->getSuccess()?->getTitleDetailView()) {
+            return $this->titleDetailViewMapper->updateManga($manga, $titleDetail);
         }
 
         return $manga;
@@ -115,30 +103,20 @@ readonly class MangaPlusApi
 
     public function getMangaViewer(Chapter $chapter): ?MangaViewer
     {
-        $apiCrendetials = $this->getCredentials();
+        $apiCrendetials = $this->credentialsManager->getCredentials();
 
         if (!$apiCrendetials->getDeviceSecret()) {
             return null;
         }
 
-        try {
-            $response = $this->mangaPlusClient->request(
-                'GET',
-                $this->withAuth(
-                    sprintf('manga_viewer?img_quality=super_high&split=yes&chapter_id=%s', $chapter->getMangaPlusId()),
-                    $apiCrendetials
-                )
-            );
-            $binaryData = $response->getContent();
+        $url = $this->withAuth(
+            sprintf('manga_viewer?img_quality=super_high&split=yes&chapter_id=%s', $chapter->getMangaPlusId()),
+            $apiCrendetials
+        );
 
-            $apiResponse = new Response();
-            $apiResponse->mergeFromString($binaryData);
+        $response = $this->performRequest($url);
 
-            return $apiResponse->getSuccess()?->getMangaViewer();
-        } catch (\Exception|ExceptionInterface) {
-        }
-
-        return null;
+        return $response?->getSuccess()?->getMangaViewer();
     }
 
     public function getPage(Page $page): ?string
@@ -147,77 +125,16 @@ readonly class MangaPlusApi
             return null;
         }
 
-        try {
-            $response = $this->mangaPlusClient->request(
-                'GET',
-                $page->getMangaPage()->getImageUrl(),
-                [
-                    'headers' => [
-                        'Content-Type' => 'image/jpeg',
-                    ],
-                ]
-            );
-
-            return $response->getContent();
-        } catch (\Exception|ExceptionInterface) {
-        }
-
-        return null;
-    }
-
-    public function registerDevice(ApiCredentials $apiCredentials): ?string
-    {
         $response = $this->mangaPlusClient->request(
-            'PUT',
-            $this->withoutAuth(
-                sprintf(
-                    'register?device_token=%s&security_key=%s',
-                    $apiCredentials->getDeviceToken(),
-                    $apiCredentials->getSecurityKey(),
-                )
-            )
+            'GET',
+            $page->getMangaPage()->getImageUrl(),
+            [
+                'headers' => [
+                    'Content-Type' => 'image/jpeg',
+                ],
+            ]
         );
 
-        $binaryData = $response->getContent();
-
-        $apiResponse = new Response();
-        $apiResponse->mergeFromString($binaryData);
-
-        if ($deviceSecret = $apiResponse->getSuccess()->getRegisterationData()->getDeviceSecret()) {
-            $this->apiManager->setDeviceSecret($deviceSecret);
-
-            return $deviceSecret;
-        }
-
-        return null;
-    }
-
-    private function withAuth(string $url, ApiCredentials $apiCredentials): string
-    {
-        return sprintf(
-            '%s&security_key=%s',
-            $this->withoutAuth($url),
-            $apiCredentials->getSecurityKey()
-        );
-    }
-
-    private function withoutAuth(string $url): string
-    {
-        return sprintf(
-            '%s%sos=android&os_ver=36&app_ver=233',
-            $url,
-            str_contains($url, '?') ? '&' : '?'
-        );
-    }
-
-    private function getCredentials(): ApiCredentials
-    {
-        $apiCrendetials = $this->apiManager->getCredentials();
-
-        if (!$apiCrendetials->getDeviceSecret() && $deviceSecret = $this->registerDevice($apiCrendetials)) {
-            $apiCrendetials->setDeviceSecret($deviceSecret);
-        }
-
-        return $apiCrendetials;
+        return $response->getContent();
     }
 }
