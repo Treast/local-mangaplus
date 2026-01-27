@@ -2,6 +2,7 @@
 
 namespace App\Manager;
 
+use App\Api\DiscordApi;
 use Symfony\Component\Mercure\HubInterface;
 use Symfony\Component\Mercure\Update;
 use Twig\Environment;
@@ -11,6 +12,8 @@ readonly class NotificationManager
     public function __construct(
         private HubInterface $hub,
         private Environment $twig,
+        private DiscordApi $discordApi,
+        private ConfigurationManager $configurationManager,
     ) {}
 
     public function notify(string $type, string $message): void
@@ -41,5 +44,13 @@ readonly class NotificationManager
     public function success(string $message): void
     {
         $this->notify('success', $message);
+    }
+
+    public function sendDiscordMessage(string $message, ?string $webhookUrl = null): void
+    {
+        $this->discordApi->sendMessage(
+            $webhookUrl ?: $this->configurationManager->get('discord_webhook'),
+            $message
+        );
     }
 }
