@@ -2,12 +2,16 @@
 
 namespace App\DTO;
 
+use App\Validator\DiscordWebhook\DiscordWebhook;
+
 class Settings
 {
     private ?string $androidId = null;
     private ?string $deviceToken = null;
     private ?string $securityKey = null;
     private ?string $deviceSecret = null;
+
+    #[DiscordWebhook]
     private ?string $discordWebhook = null;
 
     public function getAndroidId(): ?string
