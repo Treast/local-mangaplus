@@ -47,7 +47,10 @@ readonly class TitleContainerMapper
             ->setSynchedAt(new \DateTimeImmutable())
         ;
 
-        $this->entityManager->persist($serie);
+        if (!$this->entityManager->contains($serie)) {
+            $this->entityManager->persist($serie);
+        }
+
         $this->entityManager->flush();
 
         return $serie;

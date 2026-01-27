@@ -29,10 +29,7 @@ readonly class TitleMapper
             ->setLandscapeImageUrl($title->getLandscapeImageUrl())
             ->setViewCount($title->getViewCount())
             ->setLanguage(Language::fromLanguageId($title->getLanguage()))
-            ->setSynchedAt(new \DateTimeImmutable())
         ;
-
-        dump($manga);
 
         if (!$this->entityManager->contains($manga)) {
             $this->entityManager->persist($manga);

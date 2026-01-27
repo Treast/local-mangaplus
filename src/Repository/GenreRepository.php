@@ -18,6 +18,6 @@ class GenreRepository extends ServiceEntityRepository
 
     public function findOneByName(string $name): ?Genre
     {
-        return $this->findOneBy(['name' => $name]);
+        return $this->findOneBy(['name' => trim($name)]);
     }
 }

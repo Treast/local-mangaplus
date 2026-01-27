@@ -40,7 +40,7 @@ class Serie
     #[ORM\ManyToMany(targetEntity: Genre::class, inversedBy: 'series', cascade: ['persist'])]
     private Collection $genres;
 
-    #[ORM\Column(type: Types::DATE_IMMUTABLE, nullable: true)]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $lastUpdatedAt = null;
 
     public function __construct()
