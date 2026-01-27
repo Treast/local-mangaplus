@@ -4,21 +4,6 @@
     <div class="container py-12">
         <h1 class="mb-16">Downloads</h1>
 
-        <twig:Table class="caption-top">
-            <twig:Table:Caption class="text-left text-lg mb-2">Chapters downloaded</twig:Table:Caption>
-            <twig:Table:Header>
-                <twig:Table:Row>
-                    <twig:Table:Head>Manga</twig:Table:Head>
-                    <twig:Table:Head>Name</twig:Table:Head>
-                    <twig:Table:Head class="w-48">Downloaded at</twig:Table:Head>
-                    <twig:Table:Head class="text-right w-8">Actions</twig:Table:Head>
-                </twig:Table:Row>
-            </twig:Table:Header>
-            <twig:Table:Body>
-                {% for chapter in chapters %}
-                    {{ include('chapters/_download.html.twig', {chapter: chapter}, false) }}
-                {% endfor %}
-            </twig:Table:Body>
-        </twig:Table>
+        <twig:Downloads />
     </div>
 {% endblock %}

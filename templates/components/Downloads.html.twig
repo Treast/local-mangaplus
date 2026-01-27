@@ -2,23 +2,24 @@
     {{ attributes }}
     x-data
 >
-    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 py-12" x-ref="list">
-        {% for genre in this.allGenres %}
-            <twig:Button variant="{{ genre.slug in this.genres ? 'default' : 'outline' }}"
-                         data-action="live#action"
-                         data-live-action-param="selectGenre"
-                         data-live-slug-param="{{ genre.slug }}"
-            >
-                {{ genre.name }}
-            </twig:Button>
-        {% endfor %}
-    </div>
+    {% set chapters = this.chapters %}
 
-    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-        {% for serie in this.series %}
-            <twig:SerieCard :serie="serie" />
-        {% endfor %}
-    </div>
+    <twig:Table class="caption-top" x-ref="list">
+        <twig:Table:Caption class="text-left text-lg mb-2">Chapters downloaded</twig:Table:Caption>
+        <twig:Table:Header>
+            <twig:Table:Row>
+                <twig:Table:Head>Manga</twig:Table:Head>
+                <twig:Table:Head>Name</twig:Table:Head>
+                <twig:Table:Head class="w-48">Downloaded at</twig:Table:Head>
+                <twig:Table:Head class="text-right w-8">Actions</twig:Table:Head>
+            </twig:Table:Row>
+        </twig:Table:Header>
+        <twig:Table:Body>
+            {% for chapter in chapters %}
+                {{ include('chapters/_download.html.twig', {chapter: chapter}, false) }}
+            {% endfor %}
+        </twig:Table:Body>
+    </twig:Table>
 
     {% set delta = 2 %}
     {% set totalPages = this.totalPages %}
@@ -34,6 +35,7 @@
                         data-model="page"
                         data-value="1"
                         :active="page == 1"
+                        class="cursor-pointer"
                     >
                         1
                     </twig:Pagination:Link>

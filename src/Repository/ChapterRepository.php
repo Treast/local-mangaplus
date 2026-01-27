@@ -33,4 +33,27 @@ class ChapterRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    /**
+     * @return array<Chapter>
+     */
+    public function findPaginated(int $page, int $limit): array
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.downloadedAt', 'DESC')
+            ->setFirstResult(($page - 1) * $limit)
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function countAll(): int
+    {
+        return $this->createQueryBuilder('c')
+            ->select('COUNT(c.id)')
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
 }
