@@ -4,7 +4,7 @@ namespace App\Message;
 
 use Symfony\Component\Messenger\Attribute\AsMessage;
 
-#[AsMessage('async')]
+#[AsMessage]
 final readonly class DownloadChapterMessage
 {
     public function __construct(

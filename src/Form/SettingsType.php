@@ -44,7 +44,7 @@ class SettingsType extends AbstractType
                 'label' => 'Discord Webhook URL',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'https://discord.com/api/webhooks/XXX/YYY',
+                    'placeholder' => 'https://discordapp.com/api/webhooks/XXX/YYY',
                 ],
             ])
         ;

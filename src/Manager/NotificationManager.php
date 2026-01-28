@@ -48,9 +48,12 @@ readonly class NotificationManager
 
     public function sendDiscordMessage(string $message, ?string $webhookUrl = null): void
     {
-        $this->discordApi->sendMessage(
-            $webhookUrl ?: $this->configurationManager->get('discord_webhook'),
-            $message
-        );
+        $url = $webhookUrl ?: $this->configurationManager->getValue('discord_webhook');
+
+        if (!$url) {
+            return;
+        }
+
+        $this->discordApi->sendMessage($url, $message);
     }
 }

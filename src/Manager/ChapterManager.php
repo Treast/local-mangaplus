@@ -103,6 +103,14 @@ readonly class ChapterManager
             sprintf('Chapter %s downloaded successfully', $chapter->getSubTitle())
         );
 
+        $this->notificationManager->sendDiscordMessage(
+            sprintf(
+                'Chapter %s %s downloaded successfully!',
+                $chapter->getManga()->getTitle(),
+                $chapter->getTitle(),
+            ),
+        );
+
         return $chapter;
     }
 }
