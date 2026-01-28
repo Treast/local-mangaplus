@@ -4,6 +4,7 @@ namespace App\MessageHandler;
 
 use App\Api\MangaPlusApi;
 use App\ImmutableValue\DownloadStatus;
+use App\Manager\NotificationManager;
 use App\Message\DownloadChapterMessage;
 use App\Message\SyncLibraryMangaMessage;
 use App\Repository\MangaRepository;
@@ -17,10 +18,13 @@ final readonly class SyncLibraryMangaMessageHandler
         private MangaRepository $mangaRepository,
         private MangaPlusApi $mangaPlusApi,
         private MessageBusInterface $messageBus,
+        private NotificationManager $notificationManager,
     ) {}
 
     public function __invoke(SyncLibraryMangaMessage $message): void
     {
+        $this->notificationManager->info('Syncing library...');
+
         $mangaInLibrary = $this->mangaRepository->findAllInLibrary();
 
         $chaptersToDownload = [];
@@ -37,5 +41,7 @@ final readonly class SyncLibraryMangaMessageHandler
         foreach ($chaptersToDownload as $chapter) {
             $this->messageBus->dispatch(new DownloadChapterMessage($chapter->getId()));
         }
+
+        $this->notificationManager->success('Library synced!');
     }
 }

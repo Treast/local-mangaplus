@@ -73,6 +73,43 @@
 
         <twig:Separator  class="my-12"/>
 
+        <twig:Field:Set>
+            <twig:Field:Legend>Actions</twig:Field:Legend>
+            <twig:Field:Description>In case of emergency only!</twig:Field:Description>
+            <twig:Field:Group>
+                <twig:Field>
+                    <div>
+                        <twig:Button
+                            as="a"
+                            href="javascript:void(0)"
+                            variant="outline"
+                            data-action="live#action"
+                            data-live-action-param="syncAllSeries"
+                        >
+                            <twig:ux:icon name="lucide:book-copy" />
+                            Synchronize mangas
+                        </twig:Button>
+                    </div>
+                </twig:Field>
+                <twig:Field>
+                    <div>
+                        <twig:Button
+                            as="a"
+                            href="javascript:void(0)"
+                            variant="outline"
+                            data-action="live#action"
+                            data-live-action-param="downloadChapters"
+                        >
+                            <twig:ux:icon name="lucide:download" />
+                            Download new chapters
+                        </twig:Button>
+                    </div>
+                </twig:Field>
+            </twig:Field:Group>
+        </twig:Field:Set>
+
+        <twig:Separator  class="my-12"/>
+
         <twig:Button type="submit" variant="outline" class="w-full">Save</twig:Button>
     {{ form_end(form) }}
 </div>

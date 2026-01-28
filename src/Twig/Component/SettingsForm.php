@@ -7,10 +7,13 @@ use App\Form\SettingsType;
 use App\Manager\CredentialsManager;
 use App\Manager\NotificationManager;
 use App\Manager\SettingsManager;
+use App\Message\SyncLibraryMangaMessage;
+use App\Message\SyncSeriesMessage;
 use App\Validator\DiscordWebhook\DiscordWebhook;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
@@ -31,6 +34,7 @@ final class SettingsForm extends AbstractController
         private readonly SettingsManager $settingsManager,
         private readonly CredentialsManager $credentialsManager,
         private readonly NotificationManager $notificationManager,
+        private readonly MessageBusInterface $bus,
     ) {}
 
     public function mount(): void
@@ -85,6 +89,18 @@ final class SettingsForm extends AbstractController
         $this->settingsManager->saveSettings($this->formData);
 
         $this->notificationManager->success('Settings saved successfully.');
+    }
+
+    #[LiveAction]
+    public function syncAllSeries(): void
+    {
+        $this->bus->dispatch(new SyncSeriesMessage());
+    }
+
+    #[LiveAction]
+    public function downloadChapters(): void
+    {
+        $this->bus->dispatch(new SyncLibraryMangaMessage());
     }
 
     protected function instantiateForm(): FormInterface

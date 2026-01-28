@@ -2,22 +2,17 @@
 
 namespace App\Manager;
 
-use App\Api\MangaPlusApi;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Message\SyncSeriesMessage;
+use Symfony\Component\Messenger\MessageBusInterface;
 
 readonly class SyncManager
 {
     public function __construct(
-        private MangaPlusApi $mangaPlusApi,
-        private ConfigurationManager $configurationManager,
-        private EntityManagerInterface $entityManager,
+        private MessageBusInterface $bus
     ) {}
 
     public function sync(): void
     {
-        $this->mangaPlusApi->getTitlesV3();
-
-        $this->configurationManager->set('last_sync', new \DateTime());
-        $this->entityManager->flush();
+        $this->bus->dispatch(new SyncSeriesMessage());
     }
 }
