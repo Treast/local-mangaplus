@@ -13,12 +13,18 @@
                 <div class="flex items-center gap-x-2">
                     <twig:AddToLibraryButton :manga="manga" />
 
-                    <twig:Button as="a" href="{{ path('app.mangas.sync', {id: manga.id}) }}" variant="outline">
+                    <twig:Button as="a" href="{{ path('app.mangas.sync', {id: manga.id}) }}" variant="outline" data-tippy-content="Force reload">
                         <twig:ux:icon name="lucide:refresh-cw" />
                     </twig:Button>
                 </div>
             </div>
             <h3 class="mb-6">{{ manga.author }}</h3>
+
+            <div class="flex items-center flex-wrap gap-2 mb-6">
+                {% for genre in manga.serie.genres %}
+                    <twig:Badge variant="secondary">{{ genre.name }}</twig:Badge>
+                {% endfor %}
+            </div>
 
             {% if manga.simulReleased %}
                 <twig:Badge>Simultaneous Released</twig:Badge>

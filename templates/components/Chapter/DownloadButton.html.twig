@@ -1,10 +1,10 @@
 <div {{ attributes }} {% if this.chapter.downloadStatus == enum('App\\ImmutableValue\\DownloadStatus').Downloading %}data-poll{% endif %}>
     {% if this.chapter.downloadStatus == enum('App\\ImmutableValue\\DownloadStatus').Downloaded %}
-        <twig:Button as="a" href="{{ this.chapter.cbzPath }}" variant="default" size="icon" target="_blank">
+        <twig:Button as="a" href="{{ this.chapter.cbzPath }}" variant="default" size="icon" target="_blank" data-tippy-content="Read chapter">
             <twig:ux:icon name="lucide:eye" class="size-4" />
         </twig:Button>
     {% elseif this.chapter.downloadStatus == enum('App\\ImmutableValue\\DownloadStatus').Downloading %}
-        <twig:Button as="button" variant="outline" size="icon" disabled>
+        <twig:Button as="button" variant="outline" size="icon" disabled data-tippy-content="Downloading">
             <twig:ux:icon name="lucide:loader-circle" class="size-4 animate-spin" />
         </twig:Button>
     {% elseif this.chapter.downloadStatus == enum('App\\ImmutableValue\\DownloadStatus').DownloadingFailed %}
@@ -18,6 +18,7 @@
             size="icon"
             data-action="live#action"
             data-live-action-param="startDownload"
+            data-tippy-content="Download chapter"
         >
             <twig:ux:icon name="lucide:download" class="size-4" />
         </twig:Button>
