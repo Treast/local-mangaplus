@@ -110,6 +110,39 @@
 
         <twig:Separator  class="my-12"/>
 
+        <twig:Field:Set>
+            <twig:Field:Legend>Contact</twig:Field:Legend>
+            <twig:Field:Description>To suggest new ideas, report bugs, etc...</twig:Field:Description>
+            <twig:Field:Group>
+                <twig:Field class="flex flex-row gap-2">
+                    <a href="https://github.com/Treast/local-mangaplus" target="_blank"
+                       class="group flex items-center gap-4 p-4 rounded-md border border-slate-800 bg-slate-900/50 transition-all hover:border-indigo-500/50 hover:bg-slate-900">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 text-slate-100 group-hover:text-indigo-400">
+                            <twig:ux:icon name="lucide:github" class="size-6" />
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-slate-100">GitHub</h5>
+                            <p class="text-sm text-slate-500 mt-0">View source code</p>
+                        </div>
+                    </a>
+
+                    <div x-data="{ copied: false }"
+                         @click="navigator.clipboard.writeText('treast'); copied = true; setTimeout(() => copied = false, 2000)"
+                         class="cursor-pointer group flex items-center gap-4 p-4 rounded-md border border-slate-800 bg-slate-900/50 transition-all hover:border-indigo-500/50 hover:bg-slate-900">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 text-slate-100 group-hover:text-indigo-400">
+                            <twig:ux:icon name="ic:baseline-discord" class="size-6" />
+                        </div>
+                        <div class="flex-1">
+                            <h5 class="font-bold text-slate-100">Discord</h5>
+                            <p class="text-sm text-slate-500 mt-0" x-text="copied ? 'Copied!' : 'treast'"></p>
+                        </div>
+                    </div>
+                </twig:Field>
+            </twig:Field:Group>
+        </twig:Field:Set>
+
+        <twig:Separator  class="my-12"/>
+
         <twig:Button type="submit" variant="outline" class="w-full">Save</twig:Button>
     {{ form_end(form) }}
 </div>

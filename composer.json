@@ -1,6 +1,25 @@
 {
+    "name": "treast/local-mangaplus",
+    "description": "Stay ahead of the release schedule with a self-hosting bot that tracks your MangaPlus bookmarks and archives new chapters automatically.",
     "type": "project",
-    "license": "proprietary",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Vincent Riva",
+            "email": "local-mangaplus@mail.treast.dev"
+        }
+    ],
+    "keywords": [
+        "manga",
+        "mangaplus",
+        "scraper",
+        "automation",
+        "downloader"
+    ],
+    "support": {
+        "issues": "https://github.com/Treast/local-mangaplus/issues",
+        "source": "https://github.com/Treast/local-mangaplus"
+    },
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {

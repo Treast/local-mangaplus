@@ -21,6 +21,7 @@ RUN CGO_ENABLED=1 \
 FROM dunglas/frankenphp:1.11-php8.5 AS runner
 
 COPY --from=builder /usr/local/bin/frankenphp /usr/local/bin/frankenphp
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 ARG USER=appuser
 
