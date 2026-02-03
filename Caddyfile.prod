@@ -1,0 +1,49 @@
+{
+	servers {
+		timeouts {
+			read_body 10s
+			read_header 5s
+			write 30s
+			idle 2m
+		}
+	}
+
+	frankenphp {
+		num_threads 32
+		max_threads 256
+		max_wait_time 15s
+
+		php_ini memory_limit 512M
+		php_ini max_execution_time 30
+		php_ini zend.max_allowed_stack_size -1
+		php_ini zend.reserved_stack_size -1
+		php_ini max_execution_time 180
+
+		worker {
+			file public/index.php
+			num 5
+			env FRANKENPHP_LOOP_MAX 100
+			env FRANKENPHP_MAX_REQUESTS 100
+		}
+	}
+
+	supervisor {
+		php bin/console messenger:consume --all -vv {
+			dir /app
+			replicas 5
+		}
+	}
+}
+
+http://localhost https://localhost {
+	encode zstd br gzip
+
+	mercure {
+		publisher_jwt !ChangeThisMercureHubJWTSecretKey!
+		anonymous
+	}
+
+	php_server {
+		root /app/public
+	}
+}

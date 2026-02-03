@@ -1,0 +1,9 @@
+.git
+.env.local
+.env.*.local
+docker/
+node_modules/
+vendor/
+var/
+public/build/
+tests/

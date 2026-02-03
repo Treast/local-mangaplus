@@ -67,7 +67,9 @@ tasks:
 
     caddy:fmt:
         desc: "Format Caddyfile"
-        cmd: "{{.COMPOSE_CMD}} exec php frankenphp fmt --overwrite -c /app/Caddyfile"
+        cmds:
+            - "{{.COMPOSE_CMD}} exec php frankenphp fmt --overwrite -c /app/Caddyfile"
+            - "{{.COMPOSE_CMD}} exec php frankenphp fmt --overwrite -c /app/Caddyfile.prod"
 
     fix:
         desc: "Run all fixers"
