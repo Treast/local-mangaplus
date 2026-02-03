@@ -1,6 +1,6 @@
 <div {{ attributes }} {% if this.chapter.downloadStatus == enum('App\\ImmutableValue\\DownloadStatus').Downloading %}data-poll{% endif %}>
     {% if this.chapter.downloadStatus == enum('App\\ImmutableValue\\DownloadStatus').Downloaded %}
-        <twig:Button as="a" href="{{ this.chapter.cbzPath }}" variant="default" size="icon" target="_blank" data-tippy-content="Read chapter">
+        <twig:Button as="a" href="{{ path('app.chapters.read', {id: this.chapter.id}) }}" variant="default" size="icon" target="_blank" data-tippy-content="Read chapter">
             <twig:ux:icon name="lucide:eye" class="size-4" />
         </twig:Button>
     {% elseif this.chapter.downloadStatus == enum('App\\ImmutableValue\\DownloadStatus').Downloading %}

@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Chapter;
+use App\ImmutableValue\DownloadStatus;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -28,6 +29,8 @@ class ChapterRepository extends ServiceEntityRepository
     {
         return $this
             ->createQueryBuilder('c')
+            ->andWhere('c.downloadStatus = :downloaded')
+            ->setParameter('downloaded', DownloadStatus::Downloaded)
             ->orderBy('c.downloadedAt', 'DESC')
             ->getQuery()
             ->getResult()
@@ -40,6 +43,8 @@ class ChapterRepository extends ServiceEntityRepository
     public function findPaginated(int $page, int $limit): array
     {
         return $this->createQueryBuilder('c')
+            ->andWhere('c.downloadStatus = :downloaded')
+            ->setParameter('downloaded', DownloadStatus::Downloaded)
             ->orderBy('c.downloadedAt', 'DESC')
             ->setFirstResult(($page - 1) * $limit)
             ->setMaxResults($limit)

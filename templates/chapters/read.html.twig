@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container py-12">
+        <h1 class="mb-16">{{ chapter.manga.title }} {{ chapter.title }}</h1>
+
+        <div id="lightgallery"
+             data-controller="cbz-viewer"
+             class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+            {% for page in pages %}
+                <a href="{{ path('app.chapters.image', {id: chapter.id, filename: page}) }}"
+                   data-src="{{ path('app.chapters.image', {id: chapter.id, filename: page}) }}"
+                   class="gallery-item">
+                    <img src="{{ path('app.chapters.image', {id: chapter.id, filename: page}) }}" class="img-fluid rounded" alt="Page {{ loop.index }}" />
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

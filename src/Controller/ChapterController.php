@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Chapter;
+use App\Manager\ChapterManager;
 use App\Message\DownloadChapterMessage;
 use App\Repository\ChapterRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,5 +31,38 @@ class ChapterController extends AbstractController
         $this->addFlash('info', 'The download has started in the background.');
 
         return $this->redirectToRoute('app.mangas.show', ['id' => $chapter->getManga()->getId()]);
+    }
+
+    #[Route('/{id}/read', name: 'read', requirements: ['id' => Requirement::DIGITS], methods: 'GET')]
+    public function read(Chapter $chapter, ChapterManager $chapterManager): Response
+    {
+        $pages = $chapterManager->extractChapterPages($chapter);
+
+        return $this->render('chapters/read.html.twig', [
+            'chapter' => $chapter,
+            'pages' => $pages,
+        ]);
+    }
+
+    #[Route('{id}/read/{filename}', name: 'image', methods: 'GET')]
+    public function image(Chapter $chapter, ChapterManager $chapterManager, string $filename): Response
+    {
+        $page = $chapterManager->extractChapterPage($chapter, $filename);
+
+        if (null === $page) {
+            throw $this->createNotFoundException('Cannot open CBZ.');
+        }
+
+        if (false === $page) {
+            throw $this->createNotFoundException('Page not found.');
+        }
+
+        $response = new Response($page);
+        $finfo = new \finfo(FILEINFO_MIME_TYPE);
+        $response->headers->set('Content-Type', $finfo->buffer($page));
+        $response->setPublic();
+        $response->setMaxAge(3600);
+
+        return $response;
     }
 }

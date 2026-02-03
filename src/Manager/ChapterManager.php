@@ -113,4 +113,41 @@ readonly class ChapterManager
 
         return $chapter;
     }
+
+    /**
+     * @return array<string>
+     */
+    public function extractChapterPages(Chapter $chapter): array
+    {
+        $zip = new \ZipArchive();
+        $pages = [];
+
+        if (true === $zip->open($chapter->getCbzPath())) {
+            for ($i = 0; $i < $zip->numFiles; ++$i) {
+                $name = $zip->getNameIndex($i);
+                if (preg_match('/\.(jpg|jpeg|png|webp)$/i', $name)) {
+                    $pages[] = $name;
+                }
+            }
+
+            sort($pages);
+            $zip->close();
+        }
+
+        return $pages;
+    }
+
+    public function extractChapterPage(Chapter $chapter, string $filename): false|string|null
+    {
+        $zip = new \ZipArchive();
+
+        if (true === $zip->open($chapter->getCbzPath())) {
+            $content = $zip->getFromName($filename);
+            $zip->close();
+
+            return $content;
+        }
+
+        return null;
+    }
 }
