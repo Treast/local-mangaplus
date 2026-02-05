@@ -46,15 +46,15 @@ docker run -d \
 
 Then, open your browser to [http://localhost:8080](http://localhost:8080).
 
-For more detailed installation instructions, including Docker Compose and building from source, please refer to our [Installation Guide](https://github.com/Treast/local-mangaplus/blob/main/docs/guide/installation.md).
+For more detailed installation instructions, including Docker Compose and building from source, please refer to our [Installation Guide](https://treast.github.io/local-mangaplus/guide/installation.html).
 
 ## Documentation
 
-Full documentation, including usage, architecture, and advanced topics, is available [here](https://github.com/Treast/local-mangaplus/blob/main/docs/README.md).
+Full documentation, including usage, architecture, and advanced topics, is available [here](https://treast.github.io/local-mangaplus/).
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guide](https://github.com/Treast/local-mangaplus/blob/main/docs/development/contributing.md) for details on how to get started.
+We welcome contributions! Please see our [Contributing Guide](https://treast.github.io/local-mangaplus/development/contributing.html) for details on how to get started.
 
 ## License
 
