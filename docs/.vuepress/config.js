@@ -8,6 +8,7 @@ export default defineUserConfig({
   description: 'A dedicated MangaPlus monitor that automatically fetches your bookmarked chapters the second they are published. No more manual checking - just sync and read.',
   bundler: viteBundler(),
   theme: defaultTheme({
+    repo: 'https://github.com/Treast/local-mangaplus',
     navbar: [
       {
         text: 'Home',
@@ -34,10 +35,6 @@ export default defineUserConfig({
     ],
     sidebar: [
       {
-        text: 'Home',
-        link: '/',
-      },
-      {
         text: 'Guide',
         children: [
           {
@@ -51,6 +48,19 @@ export default defineUserConfig({
           {
             text: 'Architecture',
             link: '/guide/architecture.md',
+          },
+        ]
+      },
+      {
+        text: 'Development',
+        children: [
+          {
+            text: 'Contributing',
+            link: '/development/contributing.md',
+          },
+          {
+            text: 'Roadmap',
+            link: '/development/roadmap.md',
           },
         ]
       }

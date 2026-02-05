@@ -18,73 +18,45 @@ A dedicated MangaPlus monitor that automatically fetches your bookmarked chapter
 
 
 ## Features
-- **Automated monitoring**: Tracks the official MangaPlus catalog for new releases in real-time.
-- **Smart fetching**: Seamlessly archives new chapters as they drop.
-- **100% local & private**: Self-hosted, no account, no tracking, no cloud syncing
+-   **Automated monitoring**: Tracks the official MangaPlus catalog for new releases in real-time.
+-   **Smart fetching**: Seamlessly archives new chapters as they drop.
+-   **100% local & private**: Self-hosted, no account, no tracking, no cloud syncing
 
 ## Tech Stack
-- **Backend**: PHP 8.5+ / Symfony 8
-- **Database**: SQLite
-- **Frontend**: Twig, Tailwind CSS, Alpine.js, & Symfony UX Live Components
+-   **Backend**: PHP 8.5+ / Symfony 8+
+-   **Database**: SQLite
+-   **Frontend**: Twig, Tailwind CSS, Alpine.js, & Symfony UX Live Components
 
 ## Getting started
 
-### Docker
+The easiest way to get Local MangaPlus up and running is with Docker.
 
-#### Run command
+### Quick Start with Docker
+
+Run the following command to start Local MangaPlus:
+
 ```sh
 docker run -d \
   --name local-mangaplus \
-  -p 80:80 -p 443:443 -p 443:443/udp \
+  -p 8080:80 \
+  -v local_mangaplus_data:/app/var \
   --restart unless-stopped \
   ghcr.io/treast/local-mangaplus:latest
 ```
 
-#### Docker Compose
-```yaml
-services:
-  local_mangaplus:
-    image: ghcr.io/treast/local-mangaplus:latest
-    container_name: local-mangaplus
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
-    volumes:
-      - local_data:/app/var
+Then, open your browser to [http://localhost:8080](http://localhost:8080).
 
-volumes:
-  local_data:
-```
+For more detailed installation instructions, including Docker Compose and building from source, please refer to our [Installation Guide](https://github.com/Treast/local-mangaplus/blob/main/docs/guide/installation.md).
 
-### Build it yourself
+## Documentation
 
-#### Prerequisites
-- [Docker](https://www.docker.com)
-- [Task](https://taskfile.dev) (recommended)
+Full documentation, including usage, architecture, and advanced topics, is available [here](https://github.com/Treast/local-mangaplus/blob/main/docs/README.md).
 
+## Contributing
 
-1. **Clone the repository**
- ```bash
-git clone https://github.com/Treast/local-mangaplus.git
-local-mangaplus
- ```
+We welcome contributions! Please see our [Contributing Guide](https://github.com/Treast/local-mangaplus/blob/main/docs/development/contributing.md) for details on how to get started.
 
-2. **Install dependencies**
-```bash
-task composer:install
-```
+## License
 
-3. **Database setup**
-```bash
-task db:migrate
-```
+This project is licensed under the GPL v3 License - see the [LICENSE](LICENSE) file for details.
 
-4. **Run container**
-```bash
-task build
-task up
-```
-
-[https://localhost/](https://localhost/)
