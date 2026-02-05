@@ -5,18 +5,6 @@
 
 A dedicated MangaPlus monitor that automatically fetches your bookmarked chapters the second they are published. No more manual checking - just sync and read.
 
-## Screenshots
-
-### Homepage
-![Homepage](https://raw.githubusercontent.com/Treast/local-mangaplus/refs/heads/main/docs/home.png)
-
-### Library
-![Homepage](https://raw.githubusercontent.com/Treast/local-mangaplus/refs/heads/main/docs/library.png)
-
-### Manga page
-![Homepage](https://raw.githubusercontent.com/Treast/local-mangaplus/refs/heads/main/docs/manga.png)
-
-
 ## Features
 -   **Automated monitoring**: Tracks the official MangaPlus catalog for new releases in real-time.
 -   **Smart fetching**: Seamlessly archives new chapters as they drop.
@@ -60,3 +48,13 @@ We welcome contributions! Please see our [Contributing Guide](https://treast.git
 
 This project is licensed under the GPL v3 License - see the [LICENSE](LICENSE) file for details.
 
+## Screenshots
+
+### Homepage
+![Homepage](https://raw.githubusercontent.com/Treast/local-mangaplus/refs/heads/main/docs/home.png)
+
+### Library
+![Homepage](https://raw.githubusercontent.com/Treast/local-mangaplus/refs/heads/main/docs/library.png)
+
+### Manga page
+![Homepage](https://raw.githubusercontent.com/Treast/local-mangaplus/refs/heads/main/docs/manga.png)
