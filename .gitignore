@@ -24,3 +24,7 @@ phpstan.neon
 
 /.twig-cs-fixer.cache
 /public/chapters/
+
+docs/.vuepress/.temp
+docs/.vuepress/.cache
+docs/.vuepress/dist
