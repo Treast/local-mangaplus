@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: 'configuration')]
 class Configuration
 {
+    public const string DEFAULT_FORMAT_NAMING = '{manga} - #{number} {chapter}';
+
     #[ORM\Id]
     #[ORM\Column(type: Types::STRING)]
     private ?string $key = null;

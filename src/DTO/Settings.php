@@ -11,6 +11,8 @@ class Settings
     private ?string $securityKey = null;
     private ?string $deviceSecret = null;
 
+    private ?string $formatNaming = null;
+
     #[DiscordWebhook]
     private ?string $discordWebhook = null;
 
@@ -58,6 +60,18 @@ class Settings
     public function setDeviceSecret(?string $deviceSecret): self
     {
         $this->deviceSecret = $deviceSecret;
+
+        return $this;
+    }
+
+    public function getFormatNaming(): ?string
+    {
+        return $this->formatNaming;
+    }
+
+    public function setFormatNaming(?string $formatNaming): self
+    {
+        $this->formatNaming = $formatNaming;
 
         return $this;
     }

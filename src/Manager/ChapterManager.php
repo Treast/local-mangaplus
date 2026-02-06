@@ -4,9 +4,11 @@ namespace App\Manager;
 
 use App\Api\MangaPlusApi;
 use App\Entity\Chapter;
+use App\Entity\Configuration;
 use App\ImmutableValue\DownloadStatus;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 readonly class ChapterManager
 {
@@ -14,6 +16,8 @@ readonly class ChapterManager
         private MangaPlusApi $mangaPlusApi,
         private EntityManagerInterface $entityManager,
         private NotificationManager $notificationManager,
+        private ConfigurationManager $configurationManager,
+        private TranslatorInterface $translator,
         private string $chapterImagesPath,
     ) {}
 
@@ -149,5 +153,24 @@ readonly class ChapterManager
         }
 
         return null;
+    }
+
+    public function getChapterFilename(Chapter $chapter): string
+    {
+        $formatNaming = $this->configurationManager->getValue('format_naming', Configuration::DEFAULT_FORMAT_NAMING);
+        $attributes = [
+            '{manga}' => $chapter->getManga()->getTitle(),
+            '{number}' => str_replace('#', '', $chapter->getTitle()),
+            '{chapter}' => $chapter->getSubTitle(),
+            '{year}' => $chapter->getReleasedAt()->format('Y'),
+            '{lang}' => $this->translator->trans($chapter->getManga()->getLanguage()->value, [], 'languages'),
+            '{short_lang}' => strtoupper($chapter->getManga()->getLanguage()->value),
+        ];
+
+        foreach ($attributes as $key => $value) {
+            $formatNaming = str_replace($key, $value, $formatNaming);
+        }
+
+        return sprintf('%s.cbz', $formatNaming);
     }
 }

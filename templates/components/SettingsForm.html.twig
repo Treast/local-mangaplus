@@ -43,6 +43,18 @@
         <twig:Separator  class="my-12"/>
 
         <twig:Field:Set>
+            <twig:Field:Legend>Mangas</twig:Field:Legend>
+            <twig:Field:Description>How would you like it ?</twig:Field:Description>
+            <twig:Field:Group>
+                <div class="flex flex-col">
+                    {{ form_row(form.formatNaming) }}
+                </div>
+            </twig:Field:Group>
+        </twig:Field:Set>
+
+        <twig:Separator  class="my-12"/>
+
+        <twig:Field:Set>
             <twig:Field:Legend>Notifications</twig:Field:Legend>
             <twig:Field:Description>Stay tuned!</twig:Field:Description>
             <twig:Field:Group>
@@ -108,6 +120,8 @@
             </twig:Field:Group>
         </twig:Field:Set>
 
+        <twig:Button type="submit" variant="outline" class="w-full mt-12">Save</twig:Button>
+
         <twig:Separator  class="my-12"/>
 
         <twig:Field:Set>
@@ -140,9 +154,5 @@
                 </twig:Field>
             </twig:Field:Group>
         </twig:Field:Set>
-
-        <twig:Separator  class="my-12"/>
-
-        <twig:Button type="submit" variant="outline" class="w-full">Save</twig:Button>
     {{ form_end(form) }}
 </div>

@@ -9,8 +9,10 @@
 
     <div {% with {attr: row_attr} %}{{ block('attributes') }}{% endwith %}>
         {{ form_label(form) }}
-        {{ form_widget(form) }}
-        {{ form_help(form) }}
+        <div>
+            {{ form_widget(form) }}
+            {{ form_help(form) }}
+        </div>
         {{ form_errors(form) }}
     </div>
 {% endblock %}
@@ -63,7 +65,7 @@
 {# --- HELP --- #}
 {% block form_help %}
     {% if help is not empty %}
-        <p class="text-[0.8rem] text-muted-foreground">{{ help|trans }}</p>
+        <p class="text-[0.8rem] text-muted-foreground mt-1">{{ help|trans }}</p>
     {% endif %}
 {% endblock %}
 

@@ -2,9 +2,12 @@
     <twig:Table:Cell>{{ chapter.manga.title }} {{ chapter.title }}</twig:Table:Cell>
     <twig:Table:Cell>{{ chapter.subTitle }}</twig:Table:Cell>
     <twig:Table:Cell>{{ chapter.downloadedAt|date('d/m/Y H:i:s') }}</twig:Table:Cell>
-    <twig:Table:Cell class="text-right">
-        <twig:Button as="a" href="{{ path('app.chapters.read', {id: chapter.id}) }}" variant="default" size="icon" target="_blank">
+    <twig:Table:Cell class="flex items-center gap-2">
+        <twig:Button as="a" href="{{ path('app.chapters.read', {id: chapter.id}) }}" variant="default" size="icon" target="_blank" data-tippy-content="Read chapter">
             <twig:ux:icon name="lucide:eye" class="size-4" />
+        </twig:Button>
+        <twig:Button as="a" href="{{ path('app.chapters.save', {id: chapter.id}) }}" variant="default" size="icon" target="_blank" data-tippy-content="Save chapter">
+            <twig:ux:icon name="lucide:download" class="size-4" />
         </twig:Button>
     </twig:Table:Cell>
 </twig:Table:Row>

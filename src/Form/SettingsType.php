@@ -40,6 +40,11 @@ class SettingsType extends AbstractType
                 'required' => false,
                 'disabled' => true,
             ])
+            ->add('formatNaming', TextType::class, [
+                'label' => 'Format naming',
+                'required' => false,
+                'help' => 'Available placeholders: {manga}, {number}, {chapter}, {year}, {lang}, {short_lang}',
+            ])
             ->add('discordWebhook', TextType::class, [
                 'label' => 'Discord Webhook URL',
                 'required' => false,

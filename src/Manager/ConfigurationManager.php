@@ -18,9 +18,9 @@ readonly class ConfigurationManager
         return $this->configurationRepository->get($key);
     }
 
-    public function getValue(string $key): mixed
+    public function getValue(string $key, mixed $default = null): mixed
     {
-        return $this->configurationRepository->getValue($key);
+        return $this->configurationRepository->getValue($key, $default);
     }
 
     public function set(string $key, mixed $value): void

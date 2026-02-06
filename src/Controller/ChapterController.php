@@ -7,7 +7,9 @@ use App\Manager\ChapterManager;
 use App\Message\DownloadChapterMessage;
 use App\Repository\ChapterRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Requirement\Requirement;
@@ -42,6 +44,22 @@ class ChapterController extends AbstractController
             'chapter' => $chapter,
             'pages' => $pages,
         ]);
+    }
+
+    #[Route('/{id}/save', name: 'save', requirements: ['id' => Requirement::DIGITS], methods: 'GET')]
+    public function save(Chapter $chapter, ChapterManager $chapterManager): BinaryFileResponse
+    {
+        $filename = $chapterManager->getChapterFilename($chapter);
+
+        $cbzPath = $chapter->getCbzPath();
+
+        if (!file_exists($cbzPath)) {
+            throw $this->createNotFoundException('Cannot open CBZ.');
+        }
+
+        return new BinaryFileResponse($cbzPath)
+            ->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, $filename)
+        ;
     }
 
     #[Route('{id}/read/{filename}', name: 'image', methods: 'GET')]
