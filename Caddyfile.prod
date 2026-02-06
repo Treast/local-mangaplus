@@ -41,6 +41,7 @@ http://localhost https://localhost {
 	mercure {
 		publisher_jwt !ChangeThisMercureHubJWTSecretKey!
 		anonymous
+		cors_origins *
 	}
 
 	php_server {
