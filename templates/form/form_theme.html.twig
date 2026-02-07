@@ -1,71 +1,92 @@
 {% use 'form_div_layout.html.twig' %}
 
 {% block form_row %}
-    {% set has_errors = errors|length > 0 %}
+    {% set default_row_class = 'flex flex-col gap-3' %}
+    {% set row_attr = row_attr|merge({
+        class: (default_row_class ~ ' ' ~ row_attr.class|default(''))|trim,
+    }) %}
 
-    <twig:Field>
+    <div {% with {attr: row_attr} %}{{ block('attributes') }}{% endwith %}>
         {{ form_label(form) }}
-        {{ form_widget(form, {attr: {'aria-invalid': has_errors ? 'true' : 'false'}}) }}
-
-        {% if help is not empty %}
-            <twig:Field:Description>{{ help|trans }}</twig:Field:Description>
-        {% endif %}
-
+        <div>
+            {{ form_widget(form) }}
+            {{ form_help(form) }}
+        </div>
         {{ form_errors(form) }}
-    </twig:Field>
+    </div>
 {% endblock %}
 
 {% block form_label %}
     {% if label is not same as(false) %}
-        <twig:Field:Label for="{{ id }}">
-            {{ label|trans }}
-            {% if required %} <span class="required text-red-500">*</span> {% endif %}
-        </twig:Field:Label>
-    {% endif %}
-{% endblock %}
-
-{% block form_errors %}
-    {% if errors|length > 0 %}
-        {% for error in errors %}
-            <twig:Field:Error>{{ error.message }}</twig:Field:Error>
-        {% endfor %}
+        {% set label_attr = label_attr|merge({
+            class: label_attr.class|default('') ~ ' text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+        }) %}
+        <label {% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %} for="{{ id }}">
+        {{ label|trans }}
+        {% if required %}<span class="text-destructive ml-1">*</span>{% endif %}
+        </label>
     {% endif %}
 {% endblock %}
 
 {% block form_widget_simple %}
-    {%- set type = type|default('text') -%}
-    {%- if type == 'range' or type == 'color' -%}
-        {# Attribute "required" is not supported #}
-        {%- set required = false -%}
-    {%- endif -%}
-    <twig:Input
-        type="{{ type }}"
-        id="{{ id }}"
-        name="{{ full_name }}"
-        value="{{ value }}"
-        required="{{ required }}"
-        disabled="{{ disabled }}"
-        placeholder="{{ attr['placeholder']|default }}"
-    />
+    {% set has_errors = errors|length > 0 %}
+    {% set default_class = 'flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50' %}
+
+    {% if has_errors %}
+        {% set default_class = default_class ~ ' border-destructive focus-visible:ring-destructive' %}
+    {% endif %}
+
+    {% set attr = attr|merge({class: default_class ~ ' ' ~ attr.class|default('')}) %}
+
+    <input type="{{ type|default('text') }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
 {% endblock %}
 
-{% block form_fieldset %}
-    <twig:Field:Set>
-        {% if label is not same as(false) %}
-            <twig:Field:Legend>{{ label|trans }}</twig:Field:Legend>
-        {% endif %}
-
-        {% if help is not empty %}
-            <twig:Field:Description>{{ help|trans }}</twig:Field:Description>
-        {% endif %}
-
-        <twig:Field:Group>
-            {{ form_widget(form) }}
-        </twig:Field:Group>
-    </twig:Field:Set>
+{% block textarea_widget %}
+    {% set default_class = 'flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50' %}
+    {% set attr = attr|merge({class: default_class ~ ' ' ~ attr.class|default('')}) %}
+    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
 {% endblock %}
 
-{%- block hidden_widget -%}
-    {%- set type = type|default('hidden') -%}
-    {{ block('form_widget_simple') }}
-{%- endblock hidden_widget -%}
+{% block form_errors %}
+    {% if errors|length > 0 %}
+        <div class="space-y-1">
+            {% for error in errors %}
+                <p class="text-[0.8rem] font-medium text-destructive">{{ error.message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block form_help %}
+    {% if help is not empty %}
+        <p class="text-[0.8rem] text-muted-foreground mt-1">{{ help|trans }}</p>
+    {% endif %}
+{% endblock %}
+
+{% block checkbox_widget %}
+    <div class="relative flex size-5 shrink-0 items-center justify-center">
+        <input type="checkbox" {{ block('widget_attributes') }} {% if checked %}checked="checked"{% endif %}{% if value is defined %} value="{{ value }}"{% endif %}
+               class="peer absolute inset-0 z-10 cursor-pointer opacity-0"
+        />
+
+        <div class="size-5 rounded-sm border border-primary shadow transition-colors peer-checked:bg-primary peer-focus-visible:ring-1 peer-focus-visible:ring-ring"></div>
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+             class="absolute size-4 text-primary-foreground pointer-events-none transition-transform scale-0 peer-checked:scale-100">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+    </div>
+{% endblock %}
+
+{% block choice_widget_expanded %}
+    {% set row_attr = row_attr|merge({class: 'flex flex-col gap-4 mt-2'}) %}
+    <div {{ block('widget_container_attributes') }}>
+        {% for child in form %}
+            <div class="flex items-center space-x-2">
+                {{ form_widget(child) }}
+                {{ form_label(child, null, {label_attr: {class: 'text-sm font-medium leading-none cursor-pointer peer-disabled:cursor-not-allowed peer-disabled:opacity-70'}}) }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

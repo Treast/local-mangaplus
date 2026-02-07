@@ -1,0 +1,34 @@
+<div {{ attributes }} class="my-12">
+    {{ form_start(form, {
+        attr: {
+            'data-action': 'live#action:prevent',
+            'data-live-action-param': 'save',
+        },
+    }) }}
+
+        <twig:Field:Set>
+            <twig:Field:Legend>Settings</twig:Field:Legend>
+            <twig:Field:Description>You can change it later.</twig:Field:Description>
+            <twig:Field:Group>
+                <twig:Field>
+                    {{ form_row(form.languages) }}
+                </twig:Field>
+            </twig:Field:Group>
+        </twig:Field:Set>
+
+        <div data-loading="hide">
+            <twig:Button type="submit" variant="outline" class="w-full mt-12">
+                <twig:ux:icon name="lucide:book-open" />
+                Start reading
+            </twig:Button>
+        </div>
+
+        <div data-loading="show">
+            <twig:Button type="submit" variant="outline" class="w-full mt-12" disabled="true">
+                <twig:ux:icon name="lucide:loader-circle" class="animate-spin" />
+                Loading mangas...
+            </twig:Button>
+        </div>
+
+    {{ form_end(form) }}
+</div>

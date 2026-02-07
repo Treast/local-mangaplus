@@ -7,6 +7,7 @@
 
 @import "./components.css" layer(utilities);
 @import "./typography.css" layer(base);
+@import "./librairies.css" layer(components);
 
 @custom-variant dark (&:is(.dark *));
 
